@@ -1,0 +1,9 @@
+{
+    "recipe": {
+        "header": "Vollständige Rezept",
+        "ingredient-title": "Zutaten",
+        "ingredient-process": "Verarbeiten",
+        "comment-title": "Kommentar schreiben",
+        "recipe-comment-submit": "Einreichen"
+    }
+}

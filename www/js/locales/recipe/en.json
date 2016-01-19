@@ -1,0 +1,9 @@
+{
+    "recipe": {
+        "header": "Full recipe",
+        "ingredient-title": "Ingredients",
+        "ingredient-process": "Process",
+        "comment-title": "Leave comment",
+        "recipe-comment-submit": "Submit"
+    }
+}

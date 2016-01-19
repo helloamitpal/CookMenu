@@ -1,0 +1,57 @@
+<ion-nav-bar class="bar-assertive">
+    <ion-nav-back-button class="button-icon ion-arrow-left-c">
+    </ion-nav-back-button>
+</ion-nav-bar>
+
+<ion-view title="{{'recipe.header' | translate}}">
+    <ion-content>
+        <div class="full-recipe-container">
+            <h1 class="recipe-title">{{recipe.title}}</h1>
+            <div class="item-image-section" style="background-image:url({{imagePath+recipe.media}})">
+                <div class="item-action-section">
+                    <span class="save-item" ng-click="addToFavorite($event)">
+                        <i class="icon ion-ios-heart"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="recipe-description">{{recipe.description}}</div>
+            <div class="full-recipe-section">
+                <div class="ingredient-title">{{'recipe.ingredient-title' | translate}}</div>
+                <ul class="all-ingredient">
+                    <li ng-repeat="ingredient in recipe.recipe.ingradient track by $index">
+                        <i class="icon ion-bookmark"></i>
+                        {{ingredient}}
+                    </li>
+                </ul>
+                <div class="ingredient-title">{{'recipe.ingredient-process' | translate}}</div>
+                <div class="full-recipe-description" ng-bind-html="recipe.recipe.full_description"></div>
+                <div class="recipe-tag-section">
+                    <i class="icon ion-pricetags"></i>
+                    <span ng-repeat="category in recipe.category track by $index" class="tag">{{category | capitalize}}</span>
+                </div>
+                <div class="action-container row">
+                    <div class="col">
+                        <i class="icon ion-android-share-alt share-recipe"></i>
+                    </div>
+                    <div class="col">
+                        <i class="icon ion-archive download-recipe"></i>
+                    </div>
+                    <div class="col">
+                        <i class="icon ion-archive ion-thumbsup"></i>
+                    </div>
+                </div>
+                <div class="comment-section">
+                    <div class="comment-title">{{'recipe.comment-title' | translate}}</div>
+                    <div class="comment-box-header"><span class="character-left-count">{{maxCommentCharLimit}}</span> characters left</div>
+                    <textarea class="comment-box" maxlength="100" ng-keyup="changeCharCount($event)" rows="3" cols="8"></textarea>
+                    <div class="submit-comment-btn">
+                        <button class="button button-block button-positive">{{'recipe.recipe-comment-submit' | translate}}</button>
+                    </div>
+                    <div class="all-comments">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

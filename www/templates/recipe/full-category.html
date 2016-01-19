@@ -1,0 +1,17 @@
+<ion-nav-bar class="bar-assertive">
+    <ion-nav-back-button class="button-icon ion-arrow-left-c">
+    </ion-nav-back-button>
+</ion-nav-bar>
+
+<ion-view title="{{categoryName | capitalize:true}}">
+    <ion-content class="dynamic-category-recipe-section full-category-container">
+        <div class="card">
+            <a ng-href="#/fullRecipe" ng-repeat="recipe in recipeList track by $index" ng-click="navigateToFullRecipe(recipe)" class="item item-thumbnail-top" id="{{recipe.id}}">
+                <div class="item-image-section" style="background-image:url('{{imagePath+recipe.media}}')"></div>
+                <div class="item-action-section">
+                    <h2 class="item-title-section">{{recipe.title}}</h2>
+                </div>
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,24 @@
+{
+    "home": {
+        "MENU_HEADER": "Menu"   
+    },
+    "dashboard": {
+        "DASHBOARD_HEADER": "Whats new today?",
+        "TITLE": "Today's pick",
+        "BREAKFAST": "Breakfast",
+        "DINNER": "Dinner",
+        "LUNCH": "Lunch",
+        "DIET": "Diet",
+        "MORE": "More",
+        "RECIPE": "recipes"
+    },
+    "menu": {
+        "NO_MENU": "Sorry offline",
+        "CONNECT_ME": "Connect Me",
+        "FAVORITES": "Favorites",
+        "CUISINE": "Cuisine",
+        "MY_RECIPE": "My recipes",
+        "ABOUT_US": "About Us",
+        "SUBMIT_RECIPE": "Submit Recipe"
+    }
+}

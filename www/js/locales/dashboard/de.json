@@ -1,0 +1,24 @@
+{
+    "home": {
+        "MENU_HEADER": "Menü"   
+    },
+    "dashboard": {
+        "DASHBOARD_HEADER": "Was ist neu heute?",
+        "TITLE": "Die heutige Wahl",
+        "BREAKFAST": "Frühstück",
+        "DINNER": "Abendessen",
+        "LUNCH": "Mittagessen",
+        "DIET": "Diät",
+        "MORE": "Mehr",
+        "RECIPE": "Rezepte"
+    },
+    "menu": {
+        "NO_MENU": "Es tut uns leid offline",
+        "CONNECT_ME": "verbinden Sie Me",
+        "FAVORITES": "Favoriten",
+        "CUISINE": "Küche",
+        "MY_RECIPE": "Meine Rezepte",
+        "ABOUT_US": "Über uns",
+        "SUBMIT_RECIPE": "Rezept einreichen"
+    }
+}

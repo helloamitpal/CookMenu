@@ -1,0 +1,23 @@
+@media (min-width : 1224px) {
+    .dynamic-category-recipe-section.full-category-container .card > .item {
+        width: 20%;
+    }
+}
+@media (min-width : 768px) and (max-width : 1223px) {
+    .dynamic-category-recipe-section.full-category-container .card > .item {
+        width: 25%;
+    }
+}
+@media (min-width: 450px) and (max-width : 767px) {
+    .dynamic-category-recipe-section.full-category-container .card > .item {
+        width: 33.3333%;
+    }
+}
+@media (min-width: 450px) {
+    .slider-slide .item-image-section {
+        height: 240px;
+    }
+    .dynamic-category-recipe-section .item, .dynamic-category-recipe-section .item-image-section {
+        height: 190px;
+    }
+}

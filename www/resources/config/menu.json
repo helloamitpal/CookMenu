@@ -1,0 +1,23 @@
+{
+    "menu": [{
+        "menuDesc": "CONNECT_ME",
+        "view": "",
+        "icon": "ion-person-add"
+    },{
+        "menuDesc": "FAVORITES",        
+        "icon": "ion-ios-heart",
+        "view": ""
+    },{
+    	"menuDesc": "SUBMIT_RECIPE",
+        "icon": "ion-ios-upload",
+        "view": ""
+    },{
+    	"menuDesc": "MY_RECIPE",
+        "icon": "ion-trophy",
+        "view": ""
+    },{
+        "menuDesc": "ABOUT_US",
+        "icon": "ion-quote",
+        "view": ""
+    }]
+}

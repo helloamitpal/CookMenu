@@ -1,0 +1,96 @@
+<ion-view title="{{'dashboard.DASHBOARD_HEADER' | translate}}">
+
+    <!-- dashboard main content section -->
+    <ion-content padding="true">
+        <div class="today-special-menu-header">
+            <span>{{'dashboard.TITLE' | translate}}</span>
+        </div>
+
+        <!-- special recipe slider section -->
+        <ion-slide-box class="special-recipe-section">
+            <ion-slide ng-repeat="recipe in specialRecipeList">
+                <a class="item item-thumbnail-top" ng-href="#/fullRecipe" ng-click="navigateToFullRecipe(recipe)" id="{{recipe.id}}">
+                    <div class="item-image-section" style="background-image:url({{imagePath+recipe.media}})"></div>
+                    <div class="item-action-section">
+                        <h2 class="item-title-section">{{recipe.title}}</h2>
+                        <span class="save-item" ng-click="addToFavorite($event)">
+                            <i class="icon ion-ios-heart"></i>
+                        </span>
+                        <span class="info-item" ng-click="openDescription($event)">
+                            <i class="icon ion-ios-information-empty"></i>
+                        </span>
+                    </div>
+                    <div class="special-recipe-description" ng-show="showDesc">
+                        <div class="full-desc">{{recipe.description}}</div>
+                        <span class="close-desc" ng-click="closeDescription($event)">
+                            <i class="icon ion-ios-arrow-forward"></i>
+                        </span>
+                    </div>
+                </a>
+            </ion-slide>
+        </ion-slide-box>
+        <!-- end special recipe slider section -->
+
+        <!-- recipe category button section -->
+        <div class="row receipe-category-section margin-top-10">
+            <div class="col">
+                <div class="responsive-sm row">
+                    <div class="col">
+                        <a ng-href="#/fullCategory" ng-click="showMoreCategorizedRecipes({key: 'time', value:'breakfast'})" class="button button-block button-positive">{{'dashboard.BREAKFAST' | translate}}</a>
+                    </div>
+                    <div class="col">
+                        <a ng-href="#/fullCategory" ng-click="showMoreCategorizedRecipes({key: 'time', value:'dinner'})" class="button button-block button-balanced">{{'dashboard.DINNER' | translate}}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="responsive-sm row">
+                    <div class="col">
+                        <a ng-href="#/fullCategory" ng-click="showMoreCategorizedRecipes({key: 'time', value:'lunch'})" class="button button-block button-assertive">{{'dashboard.LUNCH' | translate}}</a>
+                    </div>
+                    <div class="col">
+                        <a ng-href="#/fullCategory" ng-click="showMoreCategorizedRecipes({key: 'time', value:'diet'})" class="button button-block button-energized">{{'dashboard.DIET' | translate}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- recipe category button section -->
+
+        <!-- dynamic recipe section -->
+        <div class="dynamic-category-recipe-section margin-top-10">
+
+            <div class="dynamic-category-recipe" ng-repeat="category in categoryList">
+                <div class="bar bar-header">
+                    <div class="h1 title">{{(category.categoryName | capitalize) + ' '+ ('dashboard.RECIPE' | translate)}}</div>
+                    <a ng-href="#/fullCategory" class="button button-positive" ng-click="showMoreCategorizedRecipes({key: 'category', value:category.categoryName})">{{'dashboard.MORE' | translate}}</a>
+                </div>
+                <div class="card row">
+                    <div class="col" ng-repeat="recipe in category.recipes">
+                        <a ng-href="#/fullRecipe" ng-click="navigateToFullRecipe(recipe)" class="item item-thumbnail-top" id="{{recipe.id}}">
+                            <div class="item-image-section" style="background-image:url('{{imagePath+recipe.media}}')"></div>
+                            <div class="item-action-section">
+                                <h2 class="item-title-section">{{recipe.title}}</h2>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </ion-content>
+    <!-- end dashboard main content section -->
+    
+    <!-- footer tab section --> 
+    <ion-footer-bar align-title="left" ng-if="tabList.length > 1">
+        <div class="tabs-striped tabs-color-positive">
+            <div class="tabs">
+              <a class="tab-item {{($index === 0) ? 'active' : ''}}" href="/{{tab.view}}" ng-repeat="tab in tabList">
+                <i class="icon {{tab.icon}}"></i>
+              </a>
+            </div>
+          </div>
+    </ion-footer-bar>
+    <!-- end footer tab section -->
+    
+</ion-view>
