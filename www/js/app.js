@@ -6,13 +6,15 @@ define(['angular',
         'underscore',
         'translate',
         'translateDynamic',
+        'pdfMake',
+        'vfsFont',
         'modules/common/common.module',
         'modules/login/login.module',
         'modules/dashboard/dashboard.module',
         'modules/recipe/recipe.module'
         ],
 
-    function (angular, uiRouter, $) {
+    function (angular) {
         'use strict';
         
         // module list

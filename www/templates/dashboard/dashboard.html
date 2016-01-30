@@ -2,6 +2,11 @@
 
     <!-- dashboard main content section -->
     <ion-content padding="true">
+        <!-- pull to refresh section -->
+        <ion-refresher pulling-text="{{'dashboard.PULL_TO_REFRESH' | translate}}" pulling-icon="ion-arrow-up-c" on-refresh="getAllCategorizedList(true)">
+        </ion-refresher>
+        <!-- end pull to refresh section -->
+
         <div class="today-special-menu-header">
             <span>{{'dashboard.TITLE' | translate}}</span>
         </div>
@@ -9,8 +14,8 @@
         <!-- special recipe slider section -->
         <ion-slide-box class="special-recipe-section">
             <ion-slide ng-repeat="recipe in specialRecipeList">
-                <a class="item item-thumbnail-top" ng-href="#/fullRecipe" ng-click="navigateToFullRecipe(recipe)" id="{{recipe.id}}">
-                    <div class="item-image-section" style="background-image:url({{imagePath+recipe.media}})"></div>
+                <a class="item item-thumbnail-top" ng-href="#/fullRecipe" ng-click="navigateToFullRecipe(recipe)" id="{{recipe._id}}">
+                    <img fallback-image class="item-image-section" ng-src="{{imagePath+recipe.media}}" />
                     <div class="item-action-section">
                         <h2 class="item-title-section">{{recipe.title}}</h2>
                         <span class="save-item" ng-click="addToFavorite($event)">
@@ -66,8 +71,8 @@
                 </div>
                 <div class="card row">
                     <div class="col" ng-repeat="recipe in category.recipes">
-                        <a ng-href="#/fullRecipe" ng-click="navigateToFullRecipe(recipe)" class="item item-thumbnail-top" id="{{recipe.id}}">
-                            <div class="item-image-section" style="background-image:url('{{imagePath+recipe.media}}')"></div>
+                        <a ng-href="#/fullRecipe" ng-click="navigateToFullRecipe(recipe)" class="item item-thumbnail-top" id="{{recipe._id}}">
+                            <img class="item-image-section" fallback-image ng-src="{{imagePath+recipe.media}}"/>
                             <div class="item-action-section">
                                 <h2 class="item-title-section">{{recipe.title}}</h2>
                             </div>

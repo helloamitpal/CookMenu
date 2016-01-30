@@ -14,7 +14,12 @@ define(function () {
             } else {
                 (($scope.maxCommentCharLimit > 0) ? $scope.maxCommentCharLimit-- : 0);
             }
-        }
+        };
+        $scope.downloadPdf = function() {
+            recipeService.getPDFDocDefinition($scope.recipe).then(function(docDefinition){
+                pdfMake.createPdf(docDefinition).download();
+            });
+        };
     }
 
     RecipeController.$inject = ['$scope', 'CONFIG', 'appStore', 'recipeService'];

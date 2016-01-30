@@ -4,6 +4,9 @@
         "ingredient-title": "Zutaten",
         "ingredient-process": "Verarbeiten",
         "comment-title": "Kommentar schreiben",
-        "recipe-comment-submit": "Einreichen"
+        "recipe-comment-submit": "Einreichen",
+        "all-comment-title": "Bemerkungen",
+        "no_recipe_available": "Kein Rezept erhältlich",
+        "author": "Autor"
     }
 }

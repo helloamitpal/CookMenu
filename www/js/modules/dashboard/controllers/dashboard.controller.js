@@ -9,7 +9,7 @@ define(function () {
         $scope.addToFavorite = homeService.addToFavorite;
         $scope.navigateToFullRecipe = function(recipe) {
             appStore.setToAppStore(CONFIG.CURRENT_RECIPE_ATTR, recipe);
-        }
+        };
         $scope.openDescription = function(evt) {
             evt.preventDefault();
             evt.stopImmediatePropagation();
@@ -23,14 +23,32 @@ define(function () {
             evt.preventDefault();
             evt.stopImmediatePropagation();
             $scope.showDesc = false;
-        }
+        };
 
         // fetching special recipes list
-        homeService.getRecipeList().then(function(data) {
-            $scope.specialRecipeList = data.specialRecipeList;
-            $scope.categoryList = data.categoryList;
-            $ionicSlideBoxDelegate.update();
-        });
+        $scope.specialRecipeList = appStore.getFromAppStore('specialRecipeList');
+        if(! $scope.specialRecipeList) {
+            homeService.getSpecialRecipeList().then(function(data) {
+                $scope.specialRecipeList = data;
+                appStore.setToAppStore('specialRecipeList', data);
+                $ionicSlideBoxDelegate.update();
+            });
+        }
+
+        $scope.getAllCategorizedList = function(isPulled) {
+            // fetching categorized recipes list
+            $scope.categoryList = appStore.getFromAppStore('categoryList');
+            if(! $scope.categoryList || isPulled) {
+                homeService.getRecipeList().then(function(data) {
+                    $scope.categoryList = data;
+                    appStore.setToAppStore('categoryList', data);
+                    $ionicSlideBoxDelegate.update();
+                    $scope.$broadcast('scroll.refreshComplete');
+                });
+            }
+        };
+
+        $scope.getAllCategorizedList();
     }
 
     DashboardController.$inject = ['$scope', 'CONFIG', 'homeService', '$ionicSlideBoxDelegate', 'appStore'];

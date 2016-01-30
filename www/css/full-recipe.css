@@ -17,9 +17,9 @@
     font-size: 1.7em;
     border-bottom: 1px solid #ccc;
     padding-bottom: 5px;
-    -webkit-box-shadow: 0px 4px 17px -10px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 4px 17px -10px rgba(0,0,0,0.75);
-    box-shadow: 0px 4px 17px -10px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0 4px 17px -10px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0 4px 17px -10px rgba(0,0,0,0.75);
+    box-shadow: 0 4px 17px -10px rgba(0,0,0,0.75);
 }
 .full-recipe-container ul.all-ingredient {
     margin-bottom: 15px;
@@ -46,6 +46,7 @@
 .full-recipe-container .item-image-section {
     position: relative;
     height: 240px;
+    border: 1px solid #dfdfdf;
 }
 .full-recipe-description {
     padding-top: 20px;
@@ -77,9 +78,9 @@
     padding-bottom: 4px;
     border-radius: 5px;
     margin: 2px;
-    -webkit-box-shadow: inset 0px 0px 10px 0px rgba(0,0,0,0.10);
-    -moz-box-shadow: inset 0px 0px 10px 0px rgba(0,0,0,0.10);
-    box-shadow: inset 0px 0px 10px 0px rgba(0,0,0,0.10);
+    -webkit-box-shadow: inset 0 0 10px 0 rgba(0,0,0,0.10);
+    -moz-box-shadow: inset 0 0 10px 0 rgba(0,0,0,0.10);
+    box-shadow: inset 0 0 10px 0 rgba(0,0,0,0.10);
 }
 .recipe-tag-section > .tag:nth-of-type(odd) {
     background: #F3F0F0;
@@ -96,6 +97,57 @@
 .dynamic-category-recipe-section.full-category-container .card > .item {
     width: 50%;
     float: left;
+}
+.comment .comment-cook-name {
+    font-size: 1.4em;
+    margin-bottom: 0;
+}
+.comment .comment-cook-city {
+    font-size: 0.9em;
+    font-style: italic;
+}
+.comment .comment-cook {
+    margin-left: 25px;
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+.comment {
+    margin-top: 15px;
+}
+.submit-comment-btn {
+    margin-bottom: 20px;
+}
+.like-count {
+    font-size: 0.5em;
+    vertical-align: middle;
+    position: relative;
+    left: -5px;
+}
+.full-recipe-container .recipe-tag-section.origin .icon {
+    font-size: 2em;
+    margin-right: 10px;
+}
+.full-recipe-container .recipe-author-section {
+    font-size: 1.3em;
+    margin: 20px 0;
+}
+.full-recipe-container .recipe-author-section .author-text {
+    position: relative;
+    top: -5px;
+    margin-left: 10px;
+}
+.full-recipe-container .recipe-author-section .author-name {
+    position: relative;
+    top: -5px;
+}
+.full-recipe-container .recipe-author-section .icon {
+    font-size: 1.6em;
+}
+.full-recipe-container .recipe-image {
+    position: relative;
+}
+.full-recipe-container .recipe-image .item-action-section {
+    bottom: 5px;
 }
 /*.item-input input[type="text"].cloned-text-input ,
 .item-input textarea.cloned-text-input{

@@ -2,15 +2,24 @@
     "home": {
         "MENU_HEADER": "Menu"   
     },
+    "search": {
+        "SEARCH_HEADER": "Filter By",
+        "NAME_FILTER": "Name",
+        "TIMING_FILTER": "Timing",
+        "CATEGORY_FILTER": "Category",
+        "ORIGIN_FILTER": "Origin",
+        "SEARCH_BTN": "Search"
+    },
     "dashboard": {
-        "DASHBOARD_HEADER": "Whats new today?",
+        "DASHBOARD_HEADER": "Try something new here",
         "TITLE": "Today's pick",
         "BREAKFAST": "Breakfast",
         "DINNER": "Dinner",
         "LUNCH": "Lunch",
         "DIET": "Diet",
         "MORE": "More",
-        "RECIPE": "recipes"
+        "RECIPE": "recipes",
+        "PULL_TO_REFRESH": "Pull to refresh"
     },
     "menu": {
         "NO_MENU": "Sorry offline",
@@ -20,5 +29,8 @@
         "MY_RECIPE": "My recipes",
         "ABOUT_US": "About Us",
         "SUBMIT_RECIPE": "Submit Recipe"
+    },
+    "about":{
+        "title":"About us"
     }
 }

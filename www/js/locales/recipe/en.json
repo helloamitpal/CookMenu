@@ -4,6 +4,9 @@
         "ingredient-title": "Ingredients",
         "ingredient-process": "Process",
         "comment-title": "Leave comment",
-        "recipe-comment-submit": "Submit"
+        "recipe-comment-submit": "Submit",
+        "all-comment-title": "Comments",
+        "no_recipe_available": "No recipe available",
+        "author": "Author"
     }
 }

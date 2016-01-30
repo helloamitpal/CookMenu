@@ -1,7 +1,7 @@
-define(['angular', 'underscore'], function (angular,_) {
+define(function () {
     "use strict";
 
-    var factory = function ($rootScope, $http, $q, CONFIG, $state) {
+    var factory = function ($rootScope, $http, $q, CONFIG, $state, $ionicLoading) {
 
         function titleClickListener() {
             $(document).on("click", "#navBar .title", function(evt) {
@@ -10,49 +10,27 @@ define(['angular', 'underscore'], function (angular,_) {
             });
         }
 
-        function getRandomCategoryList() {
+        function getSpecialRecipeList() {
             var def = $q.defer();
-            $http.get(CONFIG.SERVICE_URL.ALL_CATEGORY).success(function(data){
-                def.resolve(_.sample(data.categories, CONFIG.INIT_CATEGORY_COUNT) || []);
-            }).error(function(err){
-                console.log("Some error occurred in category list fetching"+err);
+
+            $http.get(CONFIG.SERVICE_URL.SPECIAL_RECIPE).success(function(data) {
+                def.resolve(data || []);
+            }).error(function(err) {
+                console.log("some error occurred in special recipe json loading"+err);
                 def.resolve([]);
             });
-
             return def.promise;
-        }
-
-        function getCategoryList(allList, categories) {
-            var categoryList = [];
-            var list = _.filter(allList, function(obj) {
-                return (_.intersection(categories, obj.category).length > 0);
-            });
-            list = _.sortBy(list, 'recommended');
-            for(var index= 0, len = categories.length; index < len; index++) {
-                categoryList.push({
-                    categoryName: categories[index],
-                    recipes: list.slice(0, CONFIG.INIT_DYNAMIC_RECIPE_COUNT)
-                });
-            }
-            return categoryList;
         }
 
         function getRecipeList() {
             var def = $q.defer();
-            $http.get(CONFIG.SERVICE_URL.ALL_RECIPE).success(function(data) {
-                var allRecipeList = (data || []);
-                var specialRecipeList = _.filter(allRecipeList, function(obj) {
-                    return (obj.isSpecial);
-                });
 
-                getRandomCategoryList().then(function(categoryArr) {
-                    var categoryList = getCategoryList(allRecipeList, categoryArr);
-                    def.resolve({
-                        specialRecipeList: specialRecipeList,
-                        categoryList: categoryList
-                    });
-                });
+            $ionicLoading.show();
+            $http.get(CONFIG.SERVICE_URL.ALL_CATEGORIZED_RECIPE+"/"+CONFIG.INIT_CATEGORY_COUNT+"/"+CONFIG.INIT_DYNAMIC_RECIPE_COUNT).success(function(data) {
+                $ionicLoading.hide();
+                def.resolve(data || []);
             }).error(function(err) {
+                $ionicLoading.hide();
                 console.log("some error occurred in recipe json loading"+err);
                 def.resolve([]);
             });
@@ -73,11 +51,12 @@ define(['angular', 'underscore'], function (angular,_) {
         return {
             titleClickListener: titleClickListener,
             getRecipeList: getRecipeList,
-            addToFavorite: addToFavorite
+            addToFavorite: addToFavorite,
+            getSpecialRecipeList: getSpecialRecipeList
         };
 
     };
 
-    factory.$inject = ['$rootScope', '$http', '$q', 'CONFIG','$state'];
+    factory.$inject = ['$rootScope', '$http', '$q', 'CONFIG','$state', '$ionicLoading'];
     return factory;
 });

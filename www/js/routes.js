@@ -31,6 +31,10 @@ define(['app'], function (app) {
                 }
             }       
         })
+        .state('about', {
+            url: "/about",
+            templateUrl: "templates/dashboard/menu/about.html"
+        })
         .state('fullRecipe', {
             url: "/fullRecipe",
             templateUrl: "templates/recipe/full-recipe.html",
@@ -66,7 +70,7 @@ define(['app'], function (app) {
         $urlRouterProvider.otherwise("/home/dashboard");
     }]);
     
-    app.run(['localeService', '$state', '$ionicConfig', function(localeService, $state) {
+    app.run(['localeService', '$state', '$ionicConfig', function(localeService) {
         localeService.setDefault();
     }]);
     

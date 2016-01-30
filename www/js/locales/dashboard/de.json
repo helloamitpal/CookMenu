@@ -2,15 +2,24 @@
     "home": {
         "MENU_HEADER": "Menü"   
     },
+    "search": {
+        "SEARCH_HEADER": "Filtern nach",
+        "NAME_FILTER": "Name",
+        "TIMING_FILTER": "Timing",
+        "CATEGORY_FILTER": "Kategorie",
+        "ORIGIN_FILTER": "Herkunft",
+        "SEARCH_BTN": "Suche"
+    },
     "dashboard": {
-        "DASHBOARD_HEADER": "Was ist neu heute?",
+        "DASHBOARD_HEADER": "Etwas Neues ausprobieren hier",
         "TITLE": "Die heutige Wahl",
         "BREAKFAST": "Frühstück",
         "DINNER": "Abendessen",
         "LUNCH": "Mittagessen",
         "DIET": "Diät",
         "MORE": "Mehr",
-        "RECIPE": "Rezepte"
+        "RECIPE": "Rezepte",
+        "PULL_TO_REFRESH": "Ziehen Sie zur Erfrischung"
     },
     "menu": {
         "NO_MENU": "Es tut uns leid offline",

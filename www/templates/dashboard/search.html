@@ -1,7 +1,53 @@
-<div class="bar bar-header item-input-inset search-section" ng-show="$root.showSearch">
-    <label class="item-input-wrapper">
-        <i class="icon ion-ios-search placeholder-icon"></i>
-        <input type="search" placeholder="Search" id="searchBox">
-    </label>
-    <button class="button button-clear icon ion-ios-close" ng-click="$root.showSearch = false"></button>
+<div ng-show="$root.showSearch" class="search-recipe-section">
+    <div class="bar bar-header item-input-inset search-section">
+        <label class="item-input-wrapper">
+            <i class="icon ion-ios-search placeholder-icon"></i>
+            <input type="search" placeholder="Search" id="searchBox" ng-model="searchStr" ng-keyup="submitFilterSearch($event)"/>
+        </label>
+        <button class="button button-clear icon ion-ios-close" ng-click="$root.showSearch = false"></button>
+    </div>
+    <div class="search-filter-section">
+        <div class="search-filter-header-section">{{'search.SEARCH_HEADER' | translate}}</div>
+        <ul class="list">
+            <li class="item item-toggle">
+                <span>{{'search.NAME_FILTER' | translate}}</span>
+                <label class="toggle toggle-assertive">
+                    <input type="radio" name="filter" value="name" ng-model="filter"/>
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+            <li class="item item-toggle">
+                <span>{{'search.TIMING_FILTER' | translate}}</span>
+                <label class="toggle toggle-assertive">
+                    <input type="radio" name="filter" value="time" ng-model="filter"/>
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+            <li class="item item-toggle">
+                <span>{{'search.CATEGORY_FILTER' | translate}}</span>
+                <label class="toggle toggle-assertive">
+                    <input type="radio" name="filter" value="category" ng-model="filter"/>
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+            <li class="item item-toggle">
+                <span>{{'search.ORIGIN_FILTER' | translate}}</span>
+                <label class="toggle toggle-assertive">
+                    <input type="radio" name="filter" value="origin" ng-model="filter"/>
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+        </ul>
+    </div>
+    <div class="bar bar-footer item-input-inset search-button-section">
+        <button class="button button-block button-assertive" ng-click="submitFilterSearch($event)">{{'search.SEARCH_BTN' | translate}}</button>
+    </div>
 </div>

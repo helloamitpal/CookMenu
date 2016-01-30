@@ -1,4 +1,4 @@
-define(['angular'], function (angular) {
+define(function () {
     "use strict";
 
     return ['CONFIG', '$translateProvider', function providerFn(CONFIG, $translateProvider) {
@@ -31,7 +31,7 @@ define(['angular'], function (angular) {
         
         // configurable function to be called from module config
         provider.configure = function() {
-            $translateProvider.useSanitizeValueStrategy('sanitize');
+            $translateProvider.useSanitizeValueStrategy('escapeParameters');
             $translateProvider.useLoader('$translatePartialLoader', {
                 urlTemplate: 'js/locales/{part}/{lang}.json'
             });

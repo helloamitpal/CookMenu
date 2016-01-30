@@ -5,15 +5,17 @@
 
 <ion-view title="{{'recipe.header' | translate}}">
     <ion-content>
-        <div class="full-recipe-container">
+        <div class="full-recipe-container" id="{{recipe._id}}">
             <h1 class="recipe-title">{{recipe.title}}</h1>
-            <div class="item-image-section" style="background-image:url({{imagePath+recipe.media}})">
+            <div class="recipe-image">
+                <img class="item-image-section" fallback-image ng-src="{{imagePath+recipe.media}}" />
                 <div class="item-action-section">
                     <span class="save-item" ng-click="addToFavorite($event)">
                         <i class="icon ion-ios-heart"></i>
                     </span>
                 </div>
             </div>
+
             <div class="recipe-description">{{recipe.description}}</div>
             <div class="full-recipe-section">
                 <div class="ingredient-title">{{'recipe.ingredient-title' | translate}}</div>
@@ -29,15 +31,26 @@
                     <i class="icon ion-pricetags"></i>
                     <span ng-repeat="category in recipe.category track by $index" class="tag">{{category | capitalize}}</span>
                 </div>
+                <div class="recipe-tag-section origin">
+                    <i class="icon ion-location"></i>
+                    <span class="tag">{{recipe.origin | capitalize}}</span>
+                </div>
+                <div class="recipe-author-section">
+                    <i class="icon ion-android-contact"></i>
+                    <span class="author-text">{{'recipe.author' | translate}}:</span>
+                    <span class="author-name">{{recipe.cook.name | capitalize}}</span>
+                </div>
                 <div class="action-container row">
                     <div class="col">
                         <i class="icon ion-android-share-alt share-recipe"></i>
                     </div>
                     <div class="col">
-                        <i class="icon ion-archive download-recipe"></i>
+                        <i class="icon ion-archive download-recipe" ng-click="downloadPdf()"></i>
                     </div>
                     <div class="col">
-                        <i class="icon ion-archive ion-thumbsup"></i>
+                        <i class="icon ion-archive ion-thumbsup">
+                            <span class="like-count">{{recipe.recommended}}</span>
+                        </i>
                     </div>
                 </div>
                 <div class="comment-section">
@@ -47,8 +60,18 @@
                     <div class="submit-comment-btn">
                         <button class="button button-block button-positive">{{'recipe.recipe-comment-submit' | translate}}</button>
                     </div>
+                    <div class="comment-title">{{'recipe.all-comment-title' | translate}}</div>
                     <div class="all-comments">
-
+                        <div class="comment" ng-repeat="comment in recipe.comments track by $index">
+                            <header>
+                                <h3 class="comment-cook-name" id="{{comment.cook.id}}">{{comment.cook.name}}</h3>
+                                <span class="comment-cook-city">{{comment.cook.city}}</span>
+                            </header>
+                            <section class="comment-cook" ng-repeat="comm in comment.comment track by $index">
+                                <i class="icon ion-chatbubble-working"></i>
+                                {{comm}}
+                            </section>
+                        </div>
                     </div>
                 </div>
             </div>

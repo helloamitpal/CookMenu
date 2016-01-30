@@ -10,11 +10,20 @@ requirejs.config({
         jquery:           '../lib/js/jquery.min',
         moment:           '../lib/js/moment.min',
         translate:        '../lib/js/angular-translate.min',
-        translateDynamic: '../lib/js/angular-translate-loader-partial.min'
+        translateDynamic: '../lib/js/angular-translate-loader-partial.min',
+        pdfMake:          '../lib/js/pdfmake.min',
+        vfsFont:          '../lib/js/vfs_fonts'
     },
     shim: {
         angular : {
             exports : 'angular'
+        },
+        pdfMake: {
+            exports: 'pdfMake'
+        },
+        vfsFont: {
+            exports: 'vfsFont',
+            deps: ['pdfMake']
         },
         angularAnimate : {
             deps: ['angular']
@@ -53,7 +62,8 @@ requirejs.config({
         'ionic',
         'jquery',
         'translate',
-        'underscore'
+        'underscore',
+        'pdfMake'
     ],
     deps: [
         'bootstrap'
