@@ -12,11 +12,16 @@ requirejs.config({
         translate:        '../lib/js/angular-translate.min',
         translateDynamic: '../lib/js/angular-translate-loader-partial.min',
         pdfMake:          '../lib/js/pdfmake.min',
-        vfsFont:          '../lib/js/vfs_fonts'
+        vfsFont:          '../lib/js/vfs_fonts',
+        ngFB:             '../lib/js/satellizer.min'
     },
     shim: {
         angular : {
             exports : 'angular'
+        },
+        ngFB: {
+            exports: 'ngFB',
+            deps: ['angular']
         },
         pdfMake: {
             exports: 'pdfMake'
@@ -63,7 +68,8 @@ requirejs.config({
         'jquery',
         'translate',
         'underscore',
-        'pdfMake'
+        'pdfMake',
+        'ngFB'
     ],
     deps: [
         'bootstrap'

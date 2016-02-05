@@ -6,6 +6,7 @@ define(['angular'], function (angular) {
 		.constant('CONFIG', (function() {        
             return {
                 APP_VERSION: "0.1",
+                FB_APP_ID: "1105593372804420",
                 APP_NAME: "CookMenu",
                 NO_IMAGE_PATH: "resources/no_image.jpg",
                 MEDIA_PATH: "http://localhost:3000/images/",
@@ -18,6 +19,9 @@ define(['angular'], function (angular) {
                     BACKSPACE: 8,
                     DELETE: 46
                 },
+                SOCIAL_ID: {
+                    FACEBOOK:1212169925477977
+                },
                 FILTER_KEY_MAP: {
                     CATEGORY: "category",
                     TIMING: "time",
@@ -28,6 +32,7 @@ define(['angular'], function (angular) {
                 CURRENT_RECIPE_CATEGORY_ATTR: "currentCategory",
                 SERVICE_URL: {
                     MENU:"resources/config/menu.json",
+                    FB_AUTH: "http://localhost:3000/auth/facebook",
                     SPECIAL_RECIPE: "http://localhost:3000/getAllSpecialRecipe",
                     ALL_CATEGORIZED_RECIPE: "http://localhost:3000/getAllRecipeBy/random",
                     ALL_RECIPE_BY_CATEGORY: "http://localhost:3000/getAllRecipeBy/category",

@@ -6,26 +6,27 @@
     
     <!-- menu header section -->
     <div class="card list menu-person-section">
-        <div class="item item-icon-left">
+        <div class="item item-icon-left" id="userInfo">
             <i class="icon ion-person"></i>            
-            <div class="user-name ellipses-wrap">Guest</div>
+            <div class="user-name ellipses-wrap" id="userName">Guest</div>
             <div class="user-setting">
                 <select class="lang-selection" ng-change="changeLocale(selectedLocale)" ng-model="selectedLocale" ng-options="item.lang for item in localeList track by item.key"></select>
             </div>
-            <div class="user-city ellipses-wrap">City not mentioned</div>
+            <div class="user-city ellipses-wrap" id="userCity">City not mentioned</div>
         </div>
     </div>
     <!-- end menu header section -->
     
     <!-- menu section -->
-    <div class="list menu-section">
-        <div class="item item-icon-left {{(item.menu && item.menu.length > 0) ? 'sub-menu-header' : '' }}" ng-repeat="item in menuList" ng-click="item.view && navigate(item.view)">
+    <div class="list menu-section" id="menuSection">
+        <div class="item item-icon-left {{((item.menu && item.menu.length > 0) ? 'sub-menu-header' : '')+' '+((item.class) ? item.class : '')}}" ng-repeat="item in menuList" ng-init="showSubmenu = false;" ng-click="showSubmenu = !showSubmenu; item.view && navigate(item.view)">
             <i class="icon {{item.icon}}"></i>
-            {{'menu.'+item.menuDesc | translate}}
-            <div class="list" ng-if="item.menu && item.menu.length > 0">
-                <div class="item" ng-repeat="subMenu in item.menu" ng-click="subMenu.view && navigate(subMenu.view)">
+            <span class="menu-text">{{'menu.'+item.menuDesc | translate}}</span>
+            <i class="icon {{(showSubmenu) ? 'ion-chevron-down' : 'ion-chevron-right'}} sub-menu-indicator" ng-if="item.menu && item.menu.length > 0"></i>
+            <div class="list sub-menu" ng-if="item.menu && item.menu.length > 0" ng-show="item.menu && showSubmenu">
+                <div class="item {{(subMenu.className) ? subMenu.className : ''}}" ng-repeat="subMenu in item.menu" ng-click="$event.stopPropagation(); subMenu.view && navigate(subMenu.view)">
                     <i class="icon {{subMenu.icon}}"></i>
-                    {{'menu.'+subMenu.menuDesc | translate}}
+                    <span>{{'menu.'+subMenu.menuDesc | translate}}</span>
                 </div>
             </div>
         </div>

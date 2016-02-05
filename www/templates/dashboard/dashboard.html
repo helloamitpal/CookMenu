@@ -7,7 +7,7 @@
         </ion-refresher>
         <!-- end pull to refresh section -->
 
-        <div class="today-special-menu-header">
+        <div class="today-special-menu-header" ng-if="specialRecipeList && specialRecipeList.length > 0">
             <span>{{'dashboard.TITLE' | translate}}</span>
         </div>
 
@@ -37,7 +37,7 @@
         <!-- end special recipe slider section -->
 
         <!-- recipe category button section -->
-        <div class="row receipe-category-section margin-top-10">
+        <div class="row receipe-category-section margin-top-10" ng-if="specialRecipeList && specialRecipeList.length > 0">
             <div class="col">
                 <div class="responsive-sm row">
                     <div class="col">

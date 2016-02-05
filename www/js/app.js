@@ -8,6 +8,7 @@ define(['angular',
         'translateDynamic',
         'pdfMake',
         'vfsFont',
+        'ngFB',
         'modules/common/common.module',
         'modules/login/login.module',
         'modules/dashboard/dashboard.module',
@@ -32,6 +33,7 @@ define(['angular',
             'ionic',
             'pascalprecht.translate',            
             'app.config',
+            'satellizer',
             'ui.router'].concat(commonModuleList).concat(moduleList));
     
         app.moduleList = moduleList;

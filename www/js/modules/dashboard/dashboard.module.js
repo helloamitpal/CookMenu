@@ -11,6 +11,7 @@ define(function (require) {
     dashboardModule.directive('menu', require('modules/dashboard/directives/dashboard.menu.directive'));
     dashboardModule.directive('search', require('modules/dashboard/directives/dashboard.search.directive'));
     dashboardModule.factory('homeService', require('modules/dashboard/services/dashboard.service'));
+    dashboardModule.factory('snService', require('modules/dashboard/services/socialNetworking.service'));
         
     return dashboardModule;
 

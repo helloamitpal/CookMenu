@@ -1,7 +1,7 @@
 define(function () {
     'use strict';
 
-    function MenuController($scope, $state, commonService, $ionicSideMenuDelegate, localeService, homeService, appStore) {
+    function MenuController($scope, $state, commonService, $ionicSideMenuDelegate, localeService, homeService, appStore, snService) {
 
         // locale setting
         if(! $scope.selectedLocale) {
@@ -31,13 +31,19 @@ define(function () {
 
         // this is navigational function
         $scope.navigate = function(view) {
-            $state.go(view);
+            if(view != "googleLogin" && view != "facebookLogin") {
+                $state.go(view);
+            }
+            if(view === "facebookLogin"){
+                snService.makeLogin('facebook');
+            }
         };
 
+        snService.checkLoginStatus();
         homeService.titleClickListener();
     }
 
-    MenuController.$inject = ['$scope', '$state', 'commonService', '$ionicSideMenuDelegate', 'localeService', 'homeService', 'appStore'];
+    MenuController.$inject = ['$scope', '$state', 'commonService', '$ionicSideMenuDelegate', 'localeService', 'homeService', 'appStore', 'snService'];
     return MenuController;
     
 });

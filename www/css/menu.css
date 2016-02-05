@@ -14,7 +14,6 @@
     padding-right: 5px;
     border-top: 0;
     border-left: 0;
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAG0lEQVQIW2NkYGD4z8DAwMgABXAGNgGwSgwVAFbmAgXxvZSoAAAAAElFTkSuQmCC);
     background-color: #222;
     color: #dfdfdf;
 }
@@ -57,6 +56,9 @@
 .menu > .bar-header > .title {
     text-align: left;
 }
+.menu-person-section > .item > img.icon {
+    border: 0 none;
+}
 .lang-selection {
     font-size: 0.7em;
     -webkit-appearance: none;
@@ -67,6 +69,8 @@
     box-shadow: inset 0 0 5px 0 rgba(0,0,0,0.5);
     border: 0;
     border-radius: 3px;
+    padding-left: 10px;
+    padding-right: 5px;
 }
 .menu-section {
     margin-top: 20px;
@@ -93,9 +97,8 @@
     padding-left: 25px;
     font-size: 0.9em;
     font-weight: normal;
-}
-.sub-menu-header .item > .icon {
-    width: 3px;
+    margin: 10px 0;
+    border-radius: 5px;
 }
 .menu {
     -webkit-box-shadow: inset -2px 4px 10px 1px rgba(0,0,0,0.75);
@@ -109,4 +112,69 @@
 }
 .aboutus-container {
     padding: 10px;
+}
+.google > .icon,
+.facebook > .icon {
+    color: #fff;
+    font-size: 2.5em !important;
+}
+.google > .icon + span,
+.facebook > .icon + span {
+    margin-left: 10px;
+    font-weight: bold;
+}
+.google {
+    background: #E94234 !important;
+    width: 190px;
+    padding-left: 35px !important;
+}
+.facebook {
+    background: #46629E !important;
+    width: 190px;
+    padding-left: 35px !important;
+}
+.sub-menu-indicator {
+    position: relative !important;
+    display: inline-block !important;
+    padding: 0 !important;
+    margin-left: -10px;
+}
+.menu-section .menu-text {
+    vertical-align: top;
+}
+.sub-menu.ng-hide-add {
+    -webkit-animation:0.5s slide-up;
+    animation:0.5s slide-up;
+}
+.sub-menu.ng-hide-remove {
+    -webkit-animation:0.5s slide-down;
+    animation:0.5s slide-down;
+}
+.sub-menu.ng-show {
+    top: 0;
+    opacity: 1;
+}
+.sub-menu.ng-hide {
+    top: -25px;
+    opacity: 0;
+}
+@-webkit-keyframes slide-up
+{
+    0%  {top: 0;opacity: 1;}
+    100%   {top: -25px; opacity: 0;}
+}
+@keyframes slide-up
+{
+    0%  {top: 0;opacity: 1;}
+    100%   {top: -25px; opacity: 0;}
+}
+@-webkit-keyframes slide-down
+{
+    0%  {top:-25px;opacity: 0;}
+    100%   {top: 0; opacity: 1;}
+}
+@keyframes slide-down
+{
+    0%  {top:-25px; opacity: 0;}
+    100%   {top: 0; opacity: 1;}
 }

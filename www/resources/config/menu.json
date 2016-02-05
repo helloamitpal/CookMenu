@@ -1,7 +1,18 @@
 [{
     "menuDesc": "CONNECT_ME",
     "view": "",
-    "icon": "ion-person-add"
+    "icon": "ion-person-add",
+    "menu": [{
+        "menuDesc": "FACEBOOK_LOGIN",
+        "view": "facebookLogin",
+        "icon": "ion-social-facebook",
+        "className": "facebook"
+    },{
+        "menuDesc": "GOOGLE_LOGIN",
+        "view": "googleLogin",
+        "icon": "ion-social-google",
+        "className": "google"
+    }]
 },{
     "menuDesc": "FAVORITES",        
     "icon": "ion-ios-heart",

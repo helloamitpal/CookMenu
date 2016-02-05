@@ -28,7 +28,11 @@
         "CUISINE": "Cuisine",
         "MY_RECIPE": "My recipes",
         "ABOUT_US": "About Us",
-        "SUBMIT_RECIPE": "Submit Recipe"
+        "SUBMIT_RECIPE": "Submit Recipe",
+        "GOOGLE_LOGIN": "Google Login",
+        "FACEBOOK_LOGIN": "Facebook Login",
+        "FACEBOOK_LOGOUT": "Disconnect",
+        "GUEST": "Guest"
     },
     "about":{
         "title":"About us"

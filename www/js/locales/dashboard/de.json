@@ -28,6 +28,10 @@
         "CUISINE": "Küche",
         "MY_RECIPE": "Meine Rezepte",
         "ABOUT_US": "Über uns",
-        "SUBMIT_RECIPE": "Rezept einreichen"
+        "SUBMIT_RECIPE": "Rezept einreichen",
+        "GOOGLE_LOGIN": "Google Login",
+        "FACEBOOK_LOGIN": "Facebook Login",
+        "FACEBOOK_LOGOUT": "Trennen",
+        "GUEST": "Gast"
     }
 }
