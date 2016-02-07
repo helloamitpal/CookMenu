@@ -45,6 +45,7 @@ define(function () {
         $scope.navigate = function(view) {
             if(view != "googleLogin" && view != "facebookLogin") {
                 $state.go(view);
+                $ionicSideMenuDelegate.toggleLeft();
             }
             if(view === "facebookLogin"){
                 snService.makeLogin('facebook');

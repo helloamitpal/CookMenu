@@ -36,13 +36,30 @@ define(['app'], function (app) {
                 }
             }       
         })
-        .state('about', {
+        .state('home.about', {
             url: "/about",
-            templateUrl: "templates/about/about.html"
+            views: {
+                'appContent': {
+                    templateUrl: "templates/about/about.html"
+                }
+            }
         })
-        .state('favorites', {
+        .state('home.dashboard', {
+            url: "/dashboard",
+            views: {
+                'appContent': {
+                    templateUrl: "templates/dashboard/dashboard.html",
+                    controller: 'dashboardController'
+                }
+            }
+        })
+        .state('home.favorites', {
             url: "/favorites",
-            templateUrl: "templates/favorites/favorite-recipe.html"
+            views: {
+                'appContent': {
+                    templateUrl: "templates/favorites/favorite-recipe.html"
+                }
+            }
         })
         .state('fullRecipe', {
             url: "/fullRecipe",
@@ -63,15 +80,6 @@ define(['app'], function (app) {
                 loadLocales: function(localeService) {
                     localeService.loadLocale('recipe');
                     return true;
-                }
-            }
-        })
-        .state('home.dashboard', {
-            url: "/dashboard",
-            views: {
-                'appContent': {
-                    templateUrl: "templates/dashboard/dashboard.html",
-                    controller: 'dashboardController'
                 }
             }
         });
