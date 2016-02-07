@@ -72,10 +72,14 @@ define(['app'], function (app) {
                 }
             }
         })
-        .state('fullCategory', {
+        .state('home.fullCategory', {
             url: "/fullCategory",
-            templateUrl: "templates/recipe/full-category.html",
-            controller: 'categoryController',
+            views: {
+                'appContent': {
+                    templateUrl: "templates/recipe/full-category.html",
+                    controller: 'categoryController'
+                }
+            },
             resolve: {
                 loadLocales: function(localeService) {
                     localeService.loadLocale('recipe');

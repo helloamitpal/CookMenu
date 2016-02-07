@@ -17,7 +17,7 @@ define(function () {
                             key: $scope.filter,
                             value: $.trim($scope.searchStr)
                         });
-                        $state.go("fullCategory");
+                        $state.go("home.fullCategory");
                     }
                 }
             },

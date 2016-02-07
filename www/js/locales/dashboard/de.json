@@ -11,7 +11,7 @@
         "SEARCH_BTN": "Suche"
     },
     "dashboard": {
-        "DASHBOARD_HEADER": "Etwas Neues ausprobieren hier",
+        "DASHBOARD_HEADER": "Probieren Sie etwas Neues",
         "TITLE": "Die heutige Wahl",
         "BREAKFAST": "Frühstück",
         "DINNER": "Abendessen",
@@ -20,7 +20,7 @@
         "MORE": "Mehr",
         "RECIPE": "Rezepte",
         "PULL_TO_REFRESH": "Ziehen Sie zur Erfrischung",
-        "OFFLINE_MSG": "Du bist offline. Möchten gespeichert Rezepte zu besuchen?",
+        "OFFLINE_MSG": "Du bist offline. Möchten gespeichert Rezepte zu erkunden?",
         "CLICK_TO_VISIT_FAVORITES": "Klick hier"
     },
     "menu": {

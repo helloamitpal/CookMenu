@@ -46,20 +46,20 @@
             <div class="col">
                 <div class="responsive-sm row">
                     <div class="col">
-                        <a ng-href="#/fullCategory" ng-click="showMoreCategorizedRecipes({key: 'time', value:'breakfast'})" class="button button-block button-positive">{{'dashboard.BREAKFAST' | translate}}</a>
+                        <a ng-href="#/home/fullCategory" ng-click="showMoreCategorizedRecipes({key: 'time', value:'breakfast'})" class="button button-block button-positive">{{'dashboard.BREAKFAST' | translate}}</a>
                     </div>
                     <div class="col">
-                        <a ng-href="#/fullCategory" ng-click="showMoreCategorizedRecipes({key: 'time', value:'dinner'})" class="button button-block button-balanced">{{'dashboard.DINNER' | translate}}</a>
+                        <a ng-href="#/home/fullCategory" ng-click="showMoreCategorizedRecipes({key: 'time', value:'dinner'})" class="button button-block button-balanced">{{'dashboard.DINNER' | translate}}</a>
                     </div>
                 </div>
             </div>
             <div class="col">
                 <div class="responsive-sm row">
                     <div class="col">
-                        <a ng-href="#/fullCategory" ng-click="showMoreCategorizedRecipes({key: 'time', value:'lunch'})" class="button button-block button-assertive">{{'dashboard.LUNCH' | translate}}</a>
+                        <a ng-href="#/home/fullCategory" ng-click="showMoreCategorizedRecipes({key: 'time', value:'lunch'})" class="button button-block button-assertive">{{'dashboard.LUNCH' | translate}}</a>
                     </div>
                     <div class="col">
-                        <a ng-href="#/fullCategory" ng-click="showMoreCategorizedRecipes({key: 'time', value:'diet'})" class="button button-block button-energized">{{'dashboard.DIET' | translate}}</a>
+                        <a ng-href="#/home/fullCategory" ng-click="showMoreCategorizedRecipes({key: 'time', value:'diet'})" class="button button-block button-energized">{{'dashboard.DIET' | translate}}</a>
                     </div>
                 </div>
             </div>
@@ -72,7 +72,7 @@
             <div class="dynamic-category-recipe" ng-repeat="category in categoryList">
                 <div class="bar bar-header">
                     <div class="h1 title">{{(category.categoryName | capitalize) + ' '+ ('dashboard.RECIPE' | translate)}}</div>
-                    <a ng-href="#/fullCategory" class="button button-positive" ng-click="showMoreCategorizedRecipes({key: 'category', value:category.categoryName})">{{'dashboard.MORE' | translate}}</a>
+                    <a ng-href="#/home/fullCategory" class="button button-positive" ng-click="showMoreCategorizedRecipes({key: 'category', value:category.categoryName})">{{'dashboard.MORE' | translate}}</a>
                 </div>
                 <div class="card row">
                     <div class="col" ng-repeat="recipe in category.recipes">
