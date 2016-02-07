@@ -57,7 +57,14 @@ define(['app'], function (app) {
             url: "/favorites",
             views: {
                 'appContent': {
-                    templateUrl: "templates/favorites/favorite-recipe.html"
+                    templateUrl: "templates/favorites/favorite-recipe.html",
+                    controller: 'savedRecipeController'
+                }
+            },
+            resolve: {
+                loadLocales: function(localeService) {
+                    localeService.loadLocale('recipe');
+                    return true;
                 }
             }
         })

@@ -1,7 +1,20 @@
 define(function () {
     "use strict";
 
-    var factory = function ($http, $q, CONFIG, $ionicLoading, $filter) {
+    var factory = function ($http, $q, CONFIG, $ionicLoading, $filter, appStore) {
+
+        function getSavedRecipeList() {
+            var list = [], def = $q.defer(), savedRecipes = appStore.getFromLocal("savedRecipes");
+            if(savedRecipes) {
+                for(var attr in savedRecipes) {
+                    list.push(savedRecipes[attr]);
+                }
+                def.resolve(list);
+            } else {
+                def.resolve([]);
+            }
+            return def.promise;
+        }
 
         function getFullCategorizedRecipeList(key, categoryName, counter, maxCount) {
             var url = "", def = $q.defer();
@@ -122,11 +135,12 @@ define(function () {
 
         return {
             getFullCategorizedRecipeList: getFullCategorizedRecipeList,
-            getPDFDocDefinition: getPDFDocDefinition
+            getPDFDocDefinition: getPDFDocDefinition,
+            getSavedRecipeList: getSavedRecipeList
         };
 
     };
 
-    factory.$inject = ['$http', '$q', 'CONFIG', '$ionicLoading', '$filter'];
+    factory.$inject = ['$http', '$q', 'CONFIG', '$ionicLoading', '$filter', 'appStore'];
     return factory;
 });

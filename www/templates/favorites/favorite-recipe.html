@@ -1,5 +1,11 @@
 <ion-view title="{{'about.title' | translate}}">
-    <ion-content class="aboutus-container">
-        this is favorite page
+    <ion-content>
+        <div class="saved-recipe-container">
+            <a ng-href="#/fullRecipe" ng-repeat="recipe in savedRecipeList track by $index" ng-click="navigateToFullRecipe(recipe)" class="item item-thumbnail-left" id="{{recipe._id}}">
+                <img class="item-image-section" fallback-image ng-src="{{imagePath+recipe.media}}" />
+                <h2 class="item-title-section">{{recipe.title}}</h2>
+                <p class="full-desc ellipsis">{{recipe.description}}</p>
+            </a>
+        </div>
     </ion-content>
 </ion-view>

@@ -8,6 +8,7 @@ define(function (require) {
 
     recipeModule.controller('recipeController', require('modules/recipe/controllers/recipe.controller'));
     recipeModule.controller('categoryController', require('modules/recipe/controllers/category.controller'));
+    recipeModule.controller('savedRecipeController', require('modules/recipe/controllers/favorite.recipe.controller'));
     recipeModule.factory('recipeService', require('modules/recipe/services/recipe.service'));
 
     return recipeModule;
