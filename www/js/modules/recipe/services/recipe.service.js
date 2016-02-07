@@ -3,15 +3,6 @@ define(function () {
 
     var factory = function ($http, $q, CONFIG, $ionicLoading, $filter) {
 
-        function addToFavorite(evt) {
-            var $ele = $(evt.currentTarget);
-            if($ele.hasClass("favorite-item")) {
-                $ele.removeClass("favorite-item");
-            } else {
-                $ele.addClass("favorite-item");
-            }
-        }
-
         function getFullCategorizedRecipeList(key, categoryName, counter, maxCount) {
             var url = "", def = $q.defer();
 
@@ -130,7 +121,6 @@ define(function () {
         }
 
         return {
-            addToFavorite: addToFavorite,
             getFullCategorizedRecipeList: getFullCategorizedRecipeList,
             getPDFDocDefinition: getPDFDocDefinition
         };

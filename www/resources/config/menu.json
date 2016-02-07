@@ -16,7 +16,7 @@
 },{
     "menuDesc": "FAVORITES",        
     "icon": "ion-ios-heart",
-    "view": ""
+    "view": "favorites"
 },{
 	"menuDesc": "SUBMIT_RECIPE",
     "icon": "ion-ios-upload",

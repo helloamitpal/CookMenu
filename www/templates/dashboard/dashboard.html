@@ -7,6 +7,11 @@
         </ion-refresher>
         <!-- end pull to refresh section -->
 
+        <div id="noConnection" class="no-connection" ng-if="specialRecipeList && specialRecipeList.length === 0">
+            <div>{{'dashboard.OFFLINE_MSG' | translate}}</div>
+            <a href="">{{'dashboard.CLICK_TO_VISIT_FAVORITES' | translate}}</a>
+        </div>
+
         <div class="today-special-menu-header" ng-if="specialRecipeList && specialRecipeList.length > 0">
             <span>{{'dashboard.TITLE' | translate}}</span>
         </div>
@@ -14,11 +19,11 @@
         <!-- special recipe slider section -->
         <ion-slide-box class="special-recipe-section">
             <ion-slide ng-repeat="recipe in specialRecipeList">
-                <a class="item item-thumbnail-top" ng-href="#/fullRecipe" ng-click="navigateToFullRecipe(recipe)" id="{{recipe._id}}">
+                <a class="item item-thumbnail-top item-container" ng-href="#/fullRecipe" ng-click="navigateToFullRecipe(recipe)" id="{{recipe._id}}">
                     <img fallback-image class="item-image-section" ng-src="{{imagePath+recipe.media}}" />
                     <div class="item-action-section">
                         <h2 class="item-title-section">{{recipe.title}}</h2>
-                        <span class="save-item" ng-click="addToFavorite($event)">
+                        <span class="save-item {{(recipe.isSaved) ? 'favorite-item' : ''}}" ng-click="addToFavorite($event)">
                             <i class="icon ion-ios-heart"></i>
                         </span>
                         <span class="info-item" ng-click="openDescription($event)">

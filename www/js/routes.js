@@ -38,7 +38,11 @@ define(['app'], function (app) {
         })
         .state('about', {
             url: "/about",
-            templateUrl: "templates/dashboard/menu/about.html"
+            templateUrl: "templates/about/about.html"
+        })
+        .state('favorites', {
+            url: "/favorites",
+            templateUrl: "templates/favorites/favorite-recipe.html"
         })
         .state('fullRecipe', {
             url: "/fullRecipe",
@@ -63,7 +67,7 @@ define(['app'], function (app) {
             }
         })
         .state('home.dashboard', {
-            url: "/dashboard",                        
+            url: "/dashboard",
             views: {
                 'appContent': {
                     templateUrl: "templates/dashboard/dashboard.html",

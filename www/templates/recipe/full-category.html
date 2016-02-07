@@ -12,6 +12,7 @@
                     <h2 class="item-title-section">{{recipe.title}}</h2>
                 </div>
             </a>
+
             <ion-infinite-scroll ng-if="!noMoreItemsAvailable" on-infinite="loadMoreRecipe()" distance="10%"></ion-infinite-scroll>
         </div>
         <div ng-if="recipeList.length === 0" class="no-data-available">{{'recipe.no_recipe_available' | translate}}</div>

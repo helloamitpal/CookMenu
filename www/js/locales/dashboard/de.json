@@ -19,7 +19,9 @@
         "DIET": "Diät",
         "MORE": "Mehr",
         "RECIPE": "Rezepte",
-        "PULL_TO_REFRESH": "Ziehen Sie zur Erfrischung"
+        "PULL_TO_REFRESH": "Ziehen Sie zur Erfrischung",
+        "OFFLINE_MSG": "Du bist offline. Möchten gespeichert Rezepte zu besuchen?",
+        "CLICK_TO_VISIT_FAVORITES": "Klick hier"
     },
     "menu": {
         "NO_MENU": "Es tut uns leid offline",

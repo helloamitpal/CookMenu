@@ -199,6 +199,16 @@
 .favorite-item > .icon {
     color: #F10958;
 }
+.no-connection {
+    text-align: center;
+    font-size: 1.2em;
+    margin-top: 30px;
+}
+.no-connection > a {
+    margin: 10px;
+    display: inline-block;
+    font-size: 1.2em;
+}
 .search-recipe-section {
    background: url("../resources/darkback.png");
     position: fixed;

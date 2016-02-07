@@ -1,12 +1,12 @@
 define(function () {
     'use strict';
 
-    function DashboardController($scope, CONFIG, homeService, $ionicSlideBoxDelegate, appStore) {
+    function DashboardController($scope, CONFIG, homeService, $ionicSlideBoxDelegate, appStore, commonService) {
         $scope.tabList = CONFIG.DASHBOARD.TABS;
         $scope.imagePath = CONFIG.MEDIA_PATH;
         $scope.showDesc = false;
 
-        $scope.addToFavorite = homeService.addToFavorite;
+        $scope.addToFavorite = commonService.addToFavorite;
         $scope.navigateToFullRecipe = function(recipe) {
             appStore.setToAppStore(CONFIG.CURRENT_RECIPE_ATTR, recipe);
         };
@@ -35,6 +35,7 @@ define(function () {
             });
         }
 
+        // fetching all random categorized list
         $scope.getAllCategorizedList = function(isPulled) {
             // fetching categorized recipes list
             $scope.categoryList = appStore.getFromAppStore('categoryList');
@@ -51,7 +52,7 @@ define(function () {
         $scope.getAllCategorizedList();
     }
 
-    DashboardController.$inject = ['$scope', 'CONFIG', 'homeService', '$ionicSlideBoxDelegate', 'appStore'];
+    DashboardController.$inject = ['$scope', 'CONFIG', 'homeService', '$ionicSlideBoxDelegate', 'appStore', 'commonService'];
     return DashboardController;
     
 });

@@ -1,7 +1,7 @@
 define(function () {
     "use strict";
 
-    var factory = function (CONFIG, $auth, $filter, appStore) {
+    var factory = function ($auth, $filter, appStore, $http, CONFIG) {
 
         function __loggedIn(resp, providerName) {
             var $social = $("#menuSection ."+providerName), $userInfo = $("#userInfo");
@@ -11,23 +11,31 @@ define(function () {
 
             $("#userName").html(resp.name);
             $("#userCity").html(resp.location);
-            $(".icon", $userInfo).hide();
-            $userInfo.prepend("<img src='"+resp.picture+"' class='icon' />");
+            $("i.icon.ion-person", $userInfo).hide();
+            $("img.icon", $userInfo).show();
+
+            appStore.setToAppStore('userPhoto', resp.picture);
         }
 
         function __logOut(provider) {
-            var $userInfo = $("#userInfo"), $social = $("#menuSection ."+provider);
-            console.log("successfully logged out from fb");
-            $auth.logout();
+            var savedUser = appStore.getFromLocal("userLoggedInStatus");
 
-            $("#userName", $userInfo).text($filter('translate')('menu.GUEST'));
-            $(".icon", $userInfo).show();
-            $("img", $userInfo).remove();
+            $http.get(CONFIG.SERVICE_URL.LOGOUT_USER+"/"+savedUser.userID).success(function(){
+                var $userInfo = $("#userInfo"), $social = $("#menuSection ."+provider);
+                console.log("successfully logged out from fb");
+                $auth.logout();
 
-            $social.children("span").text($filter('translate')('menu.'+provider.toUpperCase()+'_LOGIN'));
-            $social.siblings().show();
+                $("#userName").text($filter('translate')('menu.GUEST'));
+                $("i.icon.ion-person", $userInfo).show();
+                $("img.icon", $userInfo).hide();
 
-            appStore.removeFromLocal("userLoggedInStatus");
+                $social.children("span").text($filter('translate')('menu.'+provider.toUpperCase()+'_LOGIN'));
+                $social.siblings().show();
+
+                appStore.removeFromLocal("userLoggedInStatus");
+            }).error(function() {
+                console.log("error in logging out "+provider+" user");
+            });
         }
 
         function makeLogin(provider) {
@@ -36,8 +44,12 @@ define(function () {
                 __logOut(provider);
             } else {
                 $auth.authenticate(provider).then(function(response){
-                    appStore.storeInLocal("userLoggedInStatus", response.data);
-                    __loggedIn(response.data, provider);
+                    var savedRecipe = {}, userObj = response.data;
+                    $.extend(true, savedRecipe, userObj.savedRecipes);
+                    delete userObj.savedRecipes;
+                    appStore.storeInLocal("savedRecipes", savedRecipe);
+                    appStore.storeInLocal("userLoggedInStatus", userObj);
+                    __loggedIn(userObj, provider);
                 }).catch(function(response) {
                     console.log("error in authenticating "+provider+" user");
                 });
@@ -57,6 +69,6 @@ define(function () {
         };
     }
 
-    factory.$inject = ['CONFIG', '$auth', '$filter', 'appStore'];
+    factory.$inject = ['$auth', '$filter', 'appStore', '$http', 'CONFIG'];
     return factory;
 });

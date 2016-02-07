@@ -5,12 +5,12 @@
 
 <ion-view title="{{'recipe.header' | translate}}">
     <ion-content>
-        <div class="full-recipe-container" id="{{recipe._id}}">
+        <div class="full-recipe-container item-container" id="{{recipe._id}}">
             <h1 class="recipe-title">{{recipe.title}}</h1>
             <div class="recipe-image">
                 <img class="item-image-section" fallback-image ng-src="{{imagePath+recipe.media}}" />
                 <div class="item-action-section">
-                    <span class="save-item" ng-click="addToFavorite($event)">
+                    <span class="save-item {{(isSaved) ? 'favorite-item' : ''}}" ng-click="addToFavorite($event)">
                         <i class="icon ion-ios-heart"></i>
                     </span>
                 </div>

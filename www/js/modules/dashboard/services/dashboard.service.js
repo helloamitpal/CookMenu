@@ -1,7 +1,7 @@
 define(function () {
     "use strict";
 
-    var factory = function ($rootScope, $http, $q, CONFIG, $state, $ionicLoading) {
+    var factory = function ($rootScope, $http, $q, CONFIG, $state, $ionicLoading, appStore) {
 
         function titleClickListener() {
             $(document).on("click", "#navBar .title", function(evt) {
@@ -11,10 +11,17 @@ define(function () {
         }
 
         function getSpecialRecipeList() {
-            var def = $q.defer();
+            var def = $q.defer(), obj, arr = [];
 
             $http.get(CONFIG.SERVICE_URL.SPECIAL_RECIPE).success(function(data) {
-                def.resolve(data || []);
+                var savedRecipes = appStore.getFromLocal("savedRecipes");
+
+                for(var index=0, len=data.length; index<len; index++){
+                    obj = data[index];
+                    obj.isSaved = (savedRecipes && savedRecipes.hasOwnProperty("savedItems_"+obj._id));
+                    arr.push(obj);
+                }
+                def.resolve(arr || []);
             }).error(function(err) {
                 console.log("some error occurred in special recipe json loading"+err);
                 def.resolve([]);
@@ -37,26 +44,28 @@ define(function () {
             return def.promise;
         }
 
-        function addToFavorite(evt) {
-            evt.preventDefault();
-            evt.stopImmediatePropagation();
-            var $ele = $(evt.currentTarget);
-            if($ele.hasClass("favorite-item")) {
-                $ele.removeClass("favorite-item");
-            } else {
-                $ele.addClass("favorite-item");
-            }
+        function getSavedRecipes(userId) {
+            var def = $q.defer();
+
+            $http.get(CONFIG.SERVICE_URL.ALL_SAVED_RECIPES+"/"+userId).success(function(data) {
+                def.resolve(data);
+            }).error(function(err) {
+                console.log("error in fetching saved recipes"+err);
+                def.reject([]);
+            });
+
+            return def.promise;
         }
 
         return {
             titleClickListener: titleClickListener,
             getRecipeList: getRecipeList,
-            addToFavorite: addToFavorite,
-            getSpecialRecipeList: getSpecialRecipeList
+            getSpecialRecipeList: getSpecialRecipeList,
+            getSavedRecipes: getSavedRecipes
         };
 
     };
 
-    factory.$inject = ['$rootScope', '$http', '$q', 'CONFIG','$state', '$ionicLoading'];
+    factory.$inject = ['$rootScope', '$http', '$q', 'CONFIG','$state', '$ionicLoading', 'appStore'];
     return factory;
 });

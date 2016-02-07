@@ -1,13 +1,16 @@
 define(function () {
     'use strict';
 
-    function RecipeController($scope, CONFIG, appStore, recipeService) {
+    function RecipeController($scope, CONFIG, appStore, recipeService, commonService) {
+
+        var savedRecipes = appStore.getFromLocal("savedRecipes");
 
         $scope.imagePath = CONFIG.MEDIA_PATH;
         $scope.recipe = appStore.getFromAppStore(CONFIG.CURRENT_RECIPE_ATTR);
         $scope.maxCommentCharLimit = CONFIG.COMMENT_MAX_CHAR_LIMIT;
+        $scope.isSaved = (savedRecipes && savedRecipes.hasOwnProperty("savedItems_"+$scope.recipe._id));
 
-        $scope.addToFavorite = recipeService.addToFavorite;
+        $scope.addToFavorite = commonService.addToFavorite;
         $scope.changeCharCount = function(evt) {
             if(evt.keyCode === CONFIG.KEYCODE.DELETE || evt.keyCode === CONFIG.KEYCODE.BACKSPACE) {
                 $scope.maxCommentCharLimit = (CONFIG.COMMENT_MAX_CHAR_LIMIT - $(evt.currentTarget).val().length);
@@ -22,7 +25,7 @@ define(function () {
         };
     }
 
-    RecipeController.$inject = ['$scope', 'CONFIG', 'appStore', 'recipeService'];
+    RecipeController.$inject = ['$scope', 'CONFIG', 'appStore', 'recipeService','commonService'];
     return RecipeController;
 
 });

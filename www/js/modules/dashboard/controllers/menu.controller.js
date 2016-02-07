@@ -1,7 +1,15 @@
 define(function () {
     'use strict';
 
-    function MenuController($scope, $state, commonService, $ionicSideMenuDelegate, localeService, homeService, appStore, snService) {
+    function MenuController($timeout, $scope, $state, commonService, $ionicSideMenuDelegate, localeService, homeService, appStore, snService) {
+
+        $scope.$watch(function() {
+            return appStore.getFromAppStore('userPhoto');
+        }, function(newVal, oldVal) {
+            if(newVal && oldVal != newVal) {
+                $scope.userImage = appStore.getFromAppStore('userPhoto');
+            }
+        });
 
         // locale setting
         if(! $scope.selectedLocale) {
@@ -26,6 +34,10 @@ define(function () {
             commonService.getMenu().then(function(data) {
                 $scope.menuList = data;
                 appStore.setToAppStore('menuList', data);
+                homeService.titleClickListener();
+                $timeout(function(){
+                    snService.checkLoginStatus();
+                },50);
             });
         }
 
@@ -38,12 +50,9 @@ define(function () {
                 snService.makeLogin('facebook');
             }
         };
-
-        snService.checkLoginStatus();
-        homeService.titleClickListener();
     }
 
-    MenuController.$inject = ['$scope', '$state', 'commonService', '$ionicSideMenuDelegate', 'localeService', 'homeService', 'appStore', 'snService'];
+    MenuController.$inject = ['$timeout','$scope', '$state', 'commonService', '$ionicSideMenuDelegate', 'localeService', 'homeService', 'appStore', 'snService'];
     return MenuController;
     
 });

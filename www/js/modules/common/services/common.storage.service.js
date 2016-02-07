@@ -12,19 +12,42 @@ define(function(require){
 
         function storeInLocal(key, val) {
             var obj = __getLocalObj();
-            obj[key] = val;
+            if(key.indexOf(".") > 0) {
+                var setOfKeys = key.split(".");
+                if(setOfKeys.length === 2) {
+                    obj[setOfKeys[0]] = {};
+                    obj[setOfKeys[0]][setOfKeys[1]] = val;
+                }
+            } else {
+                obj[key] = val;
+            }
             localStorage.setItem("cookMenuApp", JSON.stringify(obj));
         }
 
         function getFromLocal(key) {
-            var obj = __getLocalObj();
-            return ((obj && obj[key]) ? obj[key] : "");
+            var val, obj = __getLocalObj();
+            if(key.indexOf(".") > 0) {
+                var setOfKeys = key.split(".");
+                for(var index=0, len=setOfKeys.length; index<len; index++) {
+                    obj = obj[setOfKeys[index]];
+                }
+            } else {
+                obj = ((obj && obj[key]) ? obj[key] : undefined);
+            }
+            return obj;
         }
 
         function removeFromLocal(key) {
             var obj = __getLocalObj();
-            if(obj && obj[key]) {
-                delete obj[key];
+            if(obj) {
+                if(key.indexOf(".") > 0) {
+                    var setOfKeys = key.split(".");
+                    if(setOfKeys.length === 2) {
+                        delete obj[setOfKeys[0]][setOfKeys[1]];
+                    }
+                } else {
+                    delete obj[key];
+                }
                 localStorage.setItem("cookMenuApp", JSON.stringify(obj));
             }
         }

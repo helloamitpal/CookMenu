@@ -19,7 +19,9 @@
         "DIET": "Diet",
         "MORE": "More",
         "RECIPE": "recipes",
-        "PULL_TO_REFRESH": "Pull to refresh"
+        "PULL_TO_REFRESH": "Pull to refresh",
+        "OFFLINE_MSG": "You are offline. Want to visit saved recipes?",
+        "CLICK_TO_VISIT_FAVORITES": "Click here"
     },
     "menu": {
         "NO_MENU": "Sorry offline",

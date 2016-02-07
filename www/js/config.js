@@ -4,9 +4,9 @@ define(['angular'], function (angular) {
     // this is app configaration constant
 	return angular.module('app.config', [])
 		.constant('CONFIG', (function() {        
+
             return {
                 APP_VERSION: "0.1",
-                FB_APP_ID: "1105593372804420",
                 APP_NAME: "CookMenu",
                 NO_IMAGE_PATH: "resources/no_image.jpg",
                 MEDIA_PATH: "http://localhost:3000/images/",
@@ -38,7 +38,11 @@ define(['angular'], function (angular) {
                     ALL_RECIPE_BY_CATEGORY: "http://localhost:3000/getAllRecipeBy/category",
                     ALL_RECIPE_BY_TIMING: "http://localhost:3000/getAllRecipeBy/timing",
                     ALL_RECIPE_BY_NAME: "http://localhost:3000/getAllRecipeBy/name",
-                    ALL_RECIPE_BY_ORIGIN: "http://localhost:3000/getAllRecipeBy/origin"
+                    ALL_RECIPE_BY_ORIGIN: "http://localhost:3000/getAllRecipeBy/origin",
+                    SET_FAVORITE_RECIPE: "http://localhost:3000/setFavoriteRecipe",
+                    REMOVE_FAVORITE_RECIPE: "http://localhost:3000/removeFavoriteRecipe",
+                    LOGOUT_USER: "http://localhost:3000/logout",
+                    ALL_SAVED_RECIPES: "http://localhost:3000/getAllSavedRecipe"
                 },
                 LOCALE: {
                     AVAILABLE: [{
