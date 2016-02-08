@@ -171,6 +171,37 @@
     white-space: normal;
     overflow: auto;
 }
+.special-recipe-description.ng-hide-add {
+    -webkit-animation:0.5s slide-right-to-left;
+    animation:0.5s slide-right-to-left;
+}
+.special-recipe-description.ng-hide-remove {
+    -webkit-animation:0.5s slide-left-to-right;
+    animation:0.5s slide-left-to-right;
+}
+.special-recipe-description.ng-show {
+    left: 0;
+}
+.special-recipe-description.ng-hide {
+    left: -100%;
+}
+@-webkit-keyframes slide-left-to-right  {
+    0%  {left: -100%;}
+    100%   {left:0;}
+}
+@keyframes slide-left-to-right{
+    0%  {left: -100%;}
+    100%   {left:0;}
+}
+@-webkit-keyframes slide-right-to-left{
+    0%  {left: 0;}
+    100%   {left: -100%;}
+}
+@keyframes slide-right-to-left{
+    0%  {left: 0;}
+    100%   {left: -100%;}
+}
+
 .special-recipe-description .full-desc {
     height: 80%;
     overflow: auto;
@@ -190,10 +221,10 @@
     z-index: 9999;
 }
 .close-desc > .icon {
-    top: 0;
-    left: 10px;
+    top: 1px;
+    left: 6px;
     position: relative;
-    font-size: 0.8em;
+    font-size: 0.7em;
     color: #fff;
 }
 .favorite-item > .icon {
@@ -256,22 +287,27 @@
 .saved-recipe-container .item .item-title-section {
     color: #000;
     font-size: 1em;
+    width: 80%;
 }
-.saved-recipe-container .item-thumbnail-left,
-.saved-recipe-container .item-thumbnail-left .item-content {
+.saved-recipe-container .item-thumbnail-left {
     padding: 4px;
     padding-left: 95px;
 }
-.saved-recipe-container .item-thumbnail-left .item-content .item-image,
-.saved-recipe-container .item-thumbnail-left .item-content>img:first-child,
-.saved-recipe-container .item-thumbnail-left .item-image,
+.saved-recipe-container .no-saved-recipe {
+    font-size: 1.1em;
+    padding: 15px;
+    text-align: center;
+}
 .saved-recipe-container .item-thumbnail-left>img:first-child {
     top: 5px;
     left: 5px;
     max-width: 85px;
     max-height: 85px;
 }
-.ellipsis {
+.saved-recipe-container .item .full-desc {
+    margin-top: 7px;
+}
+.multi-line-ellipsis {
     overflow: hidden;
     position: relative;
     line-height: 1.2em;
@@ -279,7 +315,7 @@
     text-align: justify;
     white-space: normal !important;
 }
-.ellipsis:before {
+.multi-line-ellipsis:before {
     content: '...';
     position: absolute;
     right: 0;
@@ -287,10 +323,10 @@
     background: #fff;
     padding-left: 4px;
 }
-.item.activated .ellipsis:before {
+.item.activated .multi-line-ellipsis:before {
     background: #d9d9d9;
 }
-.ellipsis:after {
+.multi-line-ellipsis:after {
     content: '';
     position: absolute;
     right: 0;
@@ -298,4 +334,48 @@
     height: 1em;
     margin-top: 0.2em;
     background: white;
+}
+.remove {
+    -webkit-animation:0.5s remove;
+    animation:0.5s remove;
+}
+@-webkit-keyframes remove {
+    0%  {opacity: 1;}
+    100%   {opacity: 0;}
+}
+@keyframes remove {
+    0%  {opacity: 1;}
+    100%   {opacity: 0;}
+}
+.action-sheet {
+    margin: 0;
+}
+.action-sheet-group {
+    margin: 0;
+    border-radius: 0;
+    float: left;
+    width: 50%;
+    padding: 10px;
+    padding-top: 0;
+}
+.action-sheet-group > button {
+    color: #fff !important;
+    font-size: 1.3em !important;
+}
+.action-sheet-title {
+    font-size: 1.1em;
+    -webkit-box-shadow: -1px 7px 17px -6px rgba(0,0,0,1);
+    -moz-box-shadow: -1px 7px 17px -6px rgba(0,0,0,1);
+    box-shadow: -1px 7px 17px -6px rgba(0,0,0,1);
+}
+.action-sheet-group[ng-if="destructiveText"] > button {
+    background: #ef4e3a;
+}
+.action-sheet-group[ng-if="cancelText"] > button {
+    background: #4a87ee;
+}
+.action-sheet > .action-sheet-group:first-child {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
 }

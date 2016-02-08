@@ -1,4 +1,8 @@
 [{
+    "menuDesc": "HOME",        
+    "icon": "ion-ios-home",
+    "view": "home.dashboard"
+},{
     "menuDesc": "CONNECT_ME",
     "view": "",
     "icon": "ion-person-add",

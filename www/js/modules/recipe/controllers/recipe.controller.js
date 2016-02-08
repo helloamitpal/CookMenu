@@ -10,7 +10,7 @@ define(function () {
         $scope.maxCommentCharLimit = CONFIG.COMMENT_MAX_CHAR_LIMIT;
         $scope.isSaved = (savedRecipes && savedRecipes.hasOwnProperty("savedItems_"+$scope.recipe._id));
 
-        $scope.addToFavorite = commonService.addToFavorite;
+        $scope.addToFavorite = commonService.addRemoveFavorite;
         $scope.changeCharCount = function(evt) {
             if(evt.keyCode === CONFIG.KEYCODE.DELETE || evt.keyCode === CONFIG.KEYCODE.BACKSPACE) {
                 $scope.maxCommentCharLimit = (CONFIG.COMMENT_MAX_CHAR_LIMIT - $(evt.currentTarget).val().length);

@@ -6,7 +6,7 @@ define(function () {
         $scope.imagePath = CONFIG.MEDIA_PATH;
         $scope.showDesc = false;
 
-        $scope.addToFavorite = commonService.addToFavorite;
+        $scope.addToFavorite = commonService.addRemoveFavorite;
         $scope.navigateToFullRecipe = function(recipe) {
             appStore.setToAppStore(CONFIG.CURRENT_RECIPE_ATTR, recipe);
         };

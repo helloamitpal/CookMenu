@@ -23,6 +23,13 @@
         "OFFLINE_MSG": "You are offline. Want to explore saved recipes?",
         "CLICK_TO_VISIT_FAVORITES": "Click here"
     },
+    "favorites": {
+        "title": "Favorites",
+        "remove": "Remove",
+        "remove_confirm_title": "Remove from favorites?",
+        "cancel": "Cancel",
+        "NO_FAVORITES": "No recipes are saved. Explore recipes and mark them as favorites for offline use."
+    },
     "menu": {
         "NO_MENU": "Sorry offline",
         "CONNECT_ME": "Connect Me",
@@ -34,7 +41,8 @@
         "GOOGLE_LOGIN": "Google Login",
         "FACEBOOK_LOGIN": "Facebook Login",
         "FACEBOOK_LOGOUT": "Disconnect",
-        "GUEST": "Guest"
+        "GUEST": "Guest",
+        "HOME": "Home"
     },
     "about":{
         "title":"About us"

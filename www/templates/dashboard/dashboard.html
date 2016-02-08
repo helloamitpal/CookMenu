@@ -9,7 +9,7 @@
 
         <div id="noConnection" class="no-connection" ng-if="specialRecipeList && specialRecipeList.length === 0">
             <div>{{'dashboard.OFFLINE_MSG' | translate}}</div>
-            <a href="">{{'dashboard.CLICK_TO_VISIT_FAVORITES' | translate}}</a>
+            <a href="#/home/favorites">{{'dashboard.CLICK_TO_VISIT_FAVORITES' | translate}}</a>
         </div>
 
         <div class="today-special-menu-header" ng-if="specialRecipeList && specialRecipeList.length > 0">
@@ -33,7 +33,7 @@
                     <div class="special-recipe-description" ng-show="showDesc">
                         <div class="full-desc">{{recipe.description}}</div>
                         <span class="close-desc" ng-click="closeDescription($event)">
-                            <i class="icon ion-ios-arrow-forward"></i>
+                            <i class="icon ion-chevron-left"></i>
                         </span>
                     </div>
                 </a>

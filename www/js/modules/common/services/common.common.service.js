@@ -14,32 +14,37 @@ define(function () {
             return def.promise;
         }
 
-        function addToFavorite(evt) {
+        function addRemoveFavorite(evt, callback) {
             evt.preventDefault();
             evt.stopImmediatePropagation();
 
             var $ele = $(evt.currentTarget), savedUser = appStore.getFromLocal("userLoggedInStatus");
             var recipeId = $ele.parents(".item-container").attr("id");
+            callback = (callback) ? callback : angular.noop;
 
             if($ele.hasClass("favorite-item")) {
                 if(savedUser) {
                     __removeFromFavorites(recipeId, savedUser.userID).then(function(data) {
                         $ele.removeClass("favorite-item");
                         appStore.removeFromLocal("savedRecipes.savedItems_"+recipeId);
+                        callback($ele);
                     });
                 } else {
                     $ele.removeClass("favorite-item");
                     appStore.removeFromLocal("savedRecipes.savedItems_"+recipeId);
+                    callback($ele);
                 }
             } else {
                 if(savedUser) {
                     __getFullRecipe(recipeId, savedUser.userID).then(function(data) {
                         $ele.addClass("favorite-item");
                         appStore.storeInLocal("savedRecipes.savedItems_"+recipeId, data);
+                        callback($ele);
                     });
                 } else {
                     $ele.addClass("favorite-item");
                     appStore.storeInLocal("savedRecipes.savedItems_"+recipeId, data);
+                    callback($ele);
                 }
             }
         }
@@ -78,7 +83,7 @@ define(function () {
         
         return {
             getMenu: getMenu,
-            addToFavorite: addToFavorite
+            addRemoveFavorite: addRemoveFavorite
         };
 
     };
