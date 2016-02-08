@@ -24,7 +24,7 @@
 },{
 	"menuDesc": "SUBMIT_RECIPE",
     "icon": "ion-ios-upload",
-    "view": ""
+    "view": "home.submitRecipe"
 },{
 	"menuDesc": "MY_RECIPE",
     "icon": "ion-trophy",

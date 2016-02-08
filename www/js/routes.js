@@ -68,6 +68,21 @@ define(['app'], function (app) {
                 }
             }
         })
+        .state('home.submitRecipe', {
+            url: "/submitRecipe",
+            views: {
+                'appContent': {
+                    templateUrl: "templates/submit-recipe/submit-recipe.html",
+                    controller: 'submitRecipeController'
+                }
+            },
+            resolve: {
+                loadLocales: function(localeService) {
+                    localeService.loadLocale('recipe');
+                    return true;
+                }
+            }
+        })
         .state('fullRecipe', {
             url: "/fullRecipe",
             templateUrl: "templates/recipe/full-recipe.html",

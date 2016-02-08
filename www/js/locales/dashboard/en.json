@@ -30,6 +30,9 @@
         "cancel": "Cancel",
         "NO_FAVORITES": "No recipes are saved. Explore recipes and mark them as favorites for offline use."
     },
+    "submitRecipe": {
+        "title": "Submit Recipe"
+    },
     "menu": {
         "NO_MENU": "Sorry offline",
         "CONNECT_ME": "Connect Me",

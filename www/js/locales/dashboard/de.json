@@ -30,6 +30,9 @@
         "cancel": "Absagen",
         "NO_FAVORITES": "Keine Rezepte gespeichert werden. Entdecken Rezepte und markieren Sie sie als Favoriten für die Offline-Nutzung."
     },
+    "submitRecipe": {
+        "title": "Senden Rezept"
+    },
     "menu": {
         "NO_MENU": "Es tut uns leid offline",
         "CONNECT_ME": "verbinden Sie Me",
