@@ -9,14 +9,14 @@ requirejs.config({
         translateDynamic: '../lib/js/angular-translate-loader-partial.min',
         pdfMake:          '../lib/js/pdfmake.min',
         vfsFont:          '../lib/js/vfs_fonts',
-        ngFB:             '../lib/js/satellizer.min'
+        ngFB:             '../lib/js/satellizer.min',
+        ngAutoComplete:   '../lib/js/ion-autocomplete.min'
     },
     shim: {
         angular : {
             exports : 'angular'
         },
         ngFB: {
-            exports: 'ngFB',
             deps: ['angular']
         },
         pdfMake: {
@@ -25,6 +25,9 @@ requirejs.config({
         vfsFont: {
             exports: 'vfsFont',
             deps: ['pdfMake']
+        },
+        ngAutoComplete: {
+            deps: ['ionic']
         },
         underscore: {
             exports: 'underscore'
@@ -36,11 +39,9 @@ requirejs.config({
             exports: 'jquery'
         },
         translate: {
-            exports: 'translate',
             deps: ['angular']
         },
         translateDynamic: {
-            exports: 'translateDynamic',
             deps: ['translate']
         },
         ionic :  {
@@ -52,10 +53,8 @@ requirejs.config({
         'angular',
         'ionic',
         'jquery',
-        'translate',
         'underscore',
-        'pdfMake',
-        'ngFB'
+        'pdfMake'
     ],
     deps: [
         'bootstrap'

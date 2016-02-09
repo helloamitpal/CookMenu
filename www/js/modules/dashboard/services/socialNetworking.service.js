@@ -1,4 +1,4 @@
-define(function () {
+define(['ngFB'], function () {
     "use strict";
 
     var factory = function ($auth, $filter, appStore, $http, CONFIG) {

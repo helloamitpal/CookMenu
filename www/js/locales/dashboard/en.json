@@ -31,7 +31,22 @@
         "NO_FAVORITES": "No recipes are saved. Explore recipes and mark them as favorites for offline use."
     },
     "submitRecipe": {
-        "title": "Submit Recipe"
+        "title": "Submit Your Recipe",
+        "recipe_name": "Recipe name",
+        "recipe_name_placeholder": "Recipe name say pizza",
+        "short_note": "Short note",
+        "short_note_placeholder": "Short note about recipe",
+        "origin": "Origin",
+        "origin_placeholder": "Origin of recipe",
+        "timing": "When to eat",
+        "timing_placeholder": "Say this is a lunch item",
+        "tag": "Add tag#",
+        "tag_placeholder": "Tag with at least one category",
+        "ingredients": "Ingredients",
+        "ingredients_placeholder": "Add all ingredients",
+        "steps": "How to prepare",
+        "steps_placeholder": "Write cooking steps one by one",
+        "upload_image": "Upload recipe image"
     },
     "menu": {
         "NO_MENU": "Sorry offline",

@@ -20,7 +20,7 @@ define(function () {
         };
         $scope.downloadPdf = function() {
             recipeService.getPDFDocDefinition($scope.recipe).then(function(docDefinition){
-                pdfMake.createPdf(docDefinition).download();
+                pdfMake.createPdf(docDefinition).download($scope.recipe.title+'.js');
             });
         };
     }

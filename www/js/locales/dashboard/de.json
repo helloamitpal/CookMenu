@@ -31,7 +31,22 @@
         "NO_FAVORITES": "Keine Rezepte gespeichert werden. Entdecken Rezepte und markieren Sie sie als Favoriten für die Offline-Nutzung."
     },
     "submitRecipe": {
-        "title": "Senden Rezept"
+        "title": "Senden Rezept",
+        "recipe_name": "Rezeptname",
+        "recipe_name_placeholder": "Rezeptname sagen Pizza",
+        "short_note": "Kurzinformation",
+        "short_note_placeholder": "Kurzinformation über Rezept",
+        "origin": "Herkunft",
+        "origin_placeholder": "Ursprung der Rezeptur",
+        "timing": "Wann essen",
+        "timing_placeholder": "Sagen, das ist ein Mittagessen Artikel",
+        "tag": "Tag hinzufügen#",
+        "tag_placeholder": "Tag mit mindestens einer Kategorie",
+        "ingredients": "Zutaten",
+        "ingredients_placeholder": "Alle Zutaten",
+        "steps": "Wie vorzubereiten",
+        "steps_placeholder": "Schreiben Kochen Schritte eins nach dem anderen",
+        "upload_image": "Laden Rezept Bild"
     },
     "menu": {
         "NO_MENU": "Es tut uns leid offline",
