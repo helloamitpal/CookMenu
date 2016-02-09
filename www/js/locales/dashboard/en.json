@@ -39,13 +39,13 @@
         "origin": "Origin",
         "origin_placeholder": "Origin of recipe",
         "timing": "When to eat",
-        "timing_placeholder": "Say this is a lunch item",
+        "timing_placeholder": "E.g. lunch item",
         "tag": "Add tag#",
-        "tag_placeholder": "Tag with at least one category",
+        "tag_placeholder": "Add at least one tag",
         "ingredients": "Ingredients",
         "ingredients_placeholder": "Add all ingredients",
         "steps": "How to prepare",
-        "steps_placeholder": "Write cooking steps one by one",
+        "steps_placeholder": "Write step by step",
         "upload_image": "Upload recipe image"
     },
     "menu": {

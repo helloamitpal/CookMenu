@@ -39,13 +39,13 @@
         "origin": "Herkunft",
         "origin_placeholder": "Ursprung der Rezeptur",
         "timing": "Wann essen",
-        "timing_placeholder": "Sagen, das ist ein Mittagessen Artikel",
+        "timing_placeholder": "Z.B. Mittagessen Artikel",
         "tag": "Tag hinzufügen#",
-        "tag_placeholder": "Tag mit mindestens einer Kategorie",
+        "tag_placeholder": "Fügen Sie mindestens einen Tag",
         "ingredients": "Zutaten",
         "ingredients_placeholder": "Alle Zutaten",
         "steps": "Wie vorzubereiten",
-        "steps_placeholder": "Schreiben Kochen Schritte eins nach dem anderen",
+        "steps_placeholder": "Schreiben schrittweise",
         "upload_image": "Laden Rezept Bild"
     },
     "menu": {
