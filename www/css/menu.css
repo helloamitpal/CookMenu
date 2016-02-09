@@ -185,3 +185,11 @@
     opacity: 0.3;
     pointer-events: none;
 }
+.logo {
+    background: url("../resources/icon/android/Cook-Book-icon-32.png");
+    height: 32px;
+    width: 32px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+}

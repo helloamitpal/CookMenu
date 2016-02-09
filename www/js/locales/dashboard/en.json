@@ -1,6 +1,6 @@
 {
     "home": {
-        "MENU_HEADER": "Menu"   
+        "MENU_HEADER": "CookMenu"
     },
     "search": {
         "SEARCH_HEADER": "Filter By",

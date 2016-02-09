@@ -93,3 +93,20 @@
     padding-left: 0;
     padding-right: 0;
 }
+.submit-recipe-container {
+    padding: 10px;
+}
+.submit-recipe-container input[type=file] {
+    line-height: 1em;
+    display: block;
+}
+.submit-recipe-container .item-stacked-label {
+    border-left: 0;
+    border-right: 0;
+}
+.submit-recipe-container .list > .item.item-stacked-label:first-child {
+    border-top: 0;
+}
+.submit-recipe-container .list > .item.item-stacked-label:last-child {
+    border-bottom: 0;
+}
