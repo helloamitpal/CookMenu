@@ -19,7 +19,7 @@
         <!-- special recipe slider section -->
         <ion-slide-box class="special-recipe-section">
             <ion-slide ng-repeat="recipe in specialRecipeList">
-                <a class="item item-thumbnail-top item-container" ng-href="#/fullRecipe" ng-click="navigateToFullRecipe(recipe)" id="{{recipe._id}}">
+                <a class="item item-thumbnail-top item-container" ng-href="#/home/fullRecipe" ng-click="navigateToFullRecipe(recipe)" id="{{recipe._id}}">
                     <img fallback-image class="item-image-section" ng-src="{{imagePath+recipe.media}}" />
                     <div class="item-action-section">
                         <h2 class="item-title-section">{{recipe.title}}</h2>
@@ -76,7 +76,7 @@
                 </div>
                 <div class="card row">
                     <div class="col" ng-repeat="recipe in category.recipes">
-                        <a ng-href="#/fullRecipe" ng-click="navigateToFullRecipe(recipe)" class="item item-thumbnail-top" id="{{recipe._id}}">
+                        <a ng-href="#/home/fullRecipe" ng-click="navigateToFullRecipe(recipe)" class="item item-thumbnail-top" id="{{recipe._id}}">
                             <img class="item-image-section" fallback-image ng-src="{{imagePath+recipe.media}}"/>
                             <div class="item-action-section">
                                 <h2 class="item-title-section">{{recipe.title}}</h2>

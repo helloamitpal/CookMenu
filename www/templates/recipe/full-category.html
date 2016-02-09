@@ -1,7 +1,7 @@
 <ion-view title="{{categoryName | capitalize:true}}">
     <ion-content class="dynamic-category-recipe-section full-category-container">
         <div class="card" ng-if="recipeList.length > 0">
-            <a ng-href="#/fullRecipe" ng-repeat="recipe in recipeList track by $index" ng-click="navigateToFullRecipe(recipe)" class="item item-thumbnail-top" id="{{recipe._id}}">
+            <a ng-href="#/home/fullRecipe" ng-repeat="recipe in recipeList track by $index" ng-click="navigateToFullRecipe(recipe)" class="item item-thumbnail-top" id="{{recipe._id}}">
                 <img class="item-image-section" fallback-image ng-src="{{imagePath+recipe.media}}" />
                 <div class="item-action-section">
                     <h2 class="item-title-section">{{recipe.title}}</h2>

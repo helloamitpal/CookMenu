@@ -83,10 +83,14 @@ define(['app'], function (app) {
                 }
             }
         })
-        .state('fullRecipe', {
+        .state('home.fullRecipe', {
             url: "/fullRecipe",
-            templateUrl: "templates/recipe/full-recipe.html",
-            controller: 'recipeController',
+            views: {
+                'appContent': {
+                    templateUrl: "templates/recipe/full-recipe.html",
+                    controller: 'recipeController'
+                }
+            },
             resolve: {
                 loadLocales: function(localeService) {
                     localeService.loadLocale('recipe');
