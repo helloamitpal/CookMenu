@@ -6,6 +6,7 @@ define(function () {
             restrict : "E",
             templateUrl : "templates/dashboard/search.html",
             replace: true,
+            transclude: true,
             controller: function($scope) {
                 $scope.filter = "name";
 
@@ -20,9 +21,6 @@ define(function () {
                         $state.go("home.fullCategory");
                     }
                 }
-            },
-            scope: {
-                showSearch: '='
             }
         };
     }];

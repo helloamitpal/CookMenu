@@ -1,14 +1,7 @@
 define(function () {
     "use strict";
 
-    var factory = function ($rootScope, $http, $q, CONFIG, $state, $ionicLoading, appStore) {
-
-        function titleClickListener() {
-            $(document).on("click", "#navBar .title", function(evt) {
-                evt.stopImmediatePropagation();
-                $rootScope.showSearch = true;
-            });
-        }
+    var factory = function ($http, $q, CONFIG, $state, $ionicLoading, appStore) {
 
         function getSpecialRecipeList() {
             var def = $q.defer(), obj, arr = [];
@@ -58,7 +51,6 @@ define(function () {
         }
 
         return {
-            titleClickListener: titleClickListener,
             getRecipeList: getRecipeList,
             getSpecialRecipeList: getSpecialRecipeList,
             getSavedRecipes: getSavedRecipes
@@ -66,6 +58,6 @@ define(function () {
 
     };
 
-    factory.$inject = ['$rootScope', '$http', '$q', 'CONFIG','$state', '$ionicLoading', 'appStore'];
+    factory.$inject = ['$http', '$q', 'CONFIG','$state', '$ionicLoading', 'appStore'];
     return factory;
 });

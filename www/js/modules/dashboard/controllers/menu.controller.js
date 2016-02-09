@@ -1,7 +1,7 @@
 define(function () {
     'use strict';
 
-    function MenuController($timeout, $scope, $state, commonService, $ionicSideMenuDelegate, localeService, homeService, appStore, snService) {
+    function MenuController($rootScope, $timeout, $scope, $state, commonService, $ionicSideMenuDelegate, localeService, appStore, snService) {
 
         $scope.$watch(function() {
             return appStore.getFromAppStore('userPhoto');
@@ -23,6 +23,13 @@ define(function () {
             localeService.applySelected(item);
         };
 
+        $scope.showSearch = function(evt) {
+            evt.stopImmediatePropagation();
+            if($(evt.target).hasClass("title")) {
+                $rootScope.showSearch = true;
+            }
+        };
+
         // this function is for toggling side menu panel
         $scope.toggleLeft = function() {
             $ionicSideMenuDelegate.toggleLeft();
@@ -34,10 +41,6 @@ define(function () {
             commonService.getMenu().then(function(data) {
                 $scope.menuList = data;
                 appStore.setToAppStore('menuList', data);
-                homeService.titleClickListener();
-                $timeout(function(){
-                    snService.checkLoginStatus();
-                },50);
             });
         }
 
@@ -51,9 +54,14 @@ define(function () {
                 snService.makeLogin('facebook');
             }
         };
+
+        //snService.checkLoginStatus();
+        $timeout(function(){
+            snService.checkLoginStatus();
+        },100);
     }
 
-    MenuController.$inject = ['$timeout','$scope', '$state', 'commonService', '$ionicSideMenuDelegate', 'localeService', 'homeService', 'appStore', 'snService'];
+    MenuController.$inject = ['$rootScope', '$timeout','$scope', '$state', 'commonService', '$ionicSideMenuDelegate', 'localeService', 'appStore', 'snService'];
     return MenuController;
     
 });
