@@ -46,7 +46,8 @@
         "ingredients_placeholder": "Add all ingredients",
         "steps": "How to prepare",
         "steps_placeholder": "Write step by step",
-        "upload_image": "Upload recipe image"
+        "upload_image": "Upload recipe image",
+        "submit": "Submit"
     },
     "menu": {
         "NO_MENU": "Sorry offline",

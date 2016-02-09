@@ -46,7 +46,8 @@
         "ingredients_placeholder": "Alle Zutaten",
         "steps": "Wie vorzubereiten",
         "steps_placeholder": "Schreiben schrittweise",
-        "upload_image": "Laden Rezept Bild"
+        "upload_image": "Laden Rezept Bild",
+        "submit": "Einreichen"
     },
     "menu": {
         "NO_MENU": "Es tut uns leid offline",
