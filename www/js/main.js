@@ -9,8 +9,7 @@ requirejs.config({
         translateDynamic: '../lib/js/angular-translate-loader-partial.min',
         pdfMake:          '../lib/js/pdfmake.min',
         vfsFont:          '../lib/js/vfs_fonts',
-        ngFB:             '../lib/js/satellizer.min',
-        ngAutoComplete:   '../lib/js/ion-autocomplete.min'
+        ngFB:             '../lib/js/satellizer.min'
     },
     shim: {
         angular : {
@@ -25,9 +24,6 @@ requirejs.config({
         vfsFont: {
             exports: 'vfsFont',
             deps: ['pdfMake']
-        },
-        ngAutoComplete: {
-            deps: ['ionic']
         },
         underscore: {
             exports: 'underscore'

@@ -47,7 +47,12 @@
         "steps": "How to prepare",
         "steps_placeholder": "Write step by step",
         "upload_image": "Upload recipe image",
-        "submit": "Submit"
+        "submit": "Submit",
+        "origin_modalheader": "Select Origin",
+        "max_selection": "Maximum",
+        "done":"Done",
+        "timing_modalheader": "Select Timing",
+        "tag_modalheader": "Select Category"
     },
     "menu": {
         "NO_MENU": "Sorry offline",

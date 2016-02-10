@@ -42,7 +42,10 @@ define(['angular'], function (angular) {
                     SET_FAVORITE_RECIPE: "http://localhost:3000/setFavoriteRecipe",
                     REMOVE_FAVORITE_RECIPE: "http://localhost:3000/removeFavoriteRecipe",
                     LOGOUT_USER: "http://localhost:3000/logout",
-                    ALL_SAVED_RECIPES: "http://localhost:3000/getAllSavedRecipe"
+                    ALL_SAVED_RECIPES: "http://localhost:3000/getAllSavedRecipe",
+                    ALL_ORIGIN: "http://localhost:3000/getAllOrigin",
+                    ALL_TIMING: "http://localhost:3000/getAllTiming",
+                    ALL_CATEGORY: "http://localhost:3000/getAllCategory"
                 },
                 LOCALE: {
                     AVAILABLE: [{

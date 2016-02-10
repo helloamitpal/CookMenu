@@ -47,7 +47,12 @@
         "steps": "Wie vorzubereiten",
         "steps_placeholder": "Schreiben schrittweise",
         "upload_image": "Laden Rezept Bild",
-        "submit": "Einreichen"
+        "submit": "Einreichen",
+        "origin_modalheader": "Wählen Sie Origin",
+        "max_selection": "Maximal",
+        "done":"Erledigt",
+        "timing_modalheader": "Wählen Sie Zeit",
+        "tag_modalheader": "Kategorie wählen"
     },
     "menu": {
         "NO_MENU": "Es tut uns leid offline",

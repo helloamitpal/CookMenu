@@ -11,6 +11,7 @@ define(function (require) {
     recipeModule.controller('savedRecipeController', require('modules/recipe/controllers/favorite.recipe.controller'));
     recipeModule.controller('submitRecipeController', require('modules/recipe/controllers/submit.recipe.controller'));
     recipeModule.factory('recipeService', require('modules/recipe/services/recipe.service'));
+    recipeModule.directive('selection', require('modules/recipe/directives/selection.directive'));
 
     return recipeModule;
 

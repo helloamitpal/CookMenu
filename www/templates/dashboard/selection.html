@@ -1,0 +1,23 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-assertive">
+        <h1 class="title">
+            {{modalHeader}}
+            <span ng-if="+maxSelection > 1">({{'submitRecipe.max_selection' | translate}}: {{maxSelection}})</span>
+        </h1>
+    </ion-header-bar>
+    <ion-content>
+        <div ng-if="+maxSelection > 1" class="multi-select">
+            <ion-list>
+                <ion-checkbox ng-checked="item.checked" ng-disabled="item.isDisabled" ng-model="item.checked" ng-change="selectItem(item._id, item.checked)" ng-repeat="item in list" ng-value="item.value">{{item.value | capitalize:true}}</ion-checkbox>
+            </ion-list>
+        </div>
+        <div ng-if="+maxSelection == 1" class="single-select">
+            <ion-list>
+                <ion-radio ng-checked="item.checked" ng-disabled="item.isDisabled" ng-model="item.checked" ng-change="selectItem(item._id, item.checked)" ng-repeat="item in list" ng-value="item.value">{{item.value | capitalize:true}}</ion-radio>
+            </ion-list>
+        </div>
+    </ion-content>
+    <ion-footer-bar class="modal-footer-bar">
+        <button ng-click="submit()" class="button button-block button-positive">{{'submitRecipe.done' | translate}}</button>
+    </ion-footer-bar>
+</ion-modal-view>
