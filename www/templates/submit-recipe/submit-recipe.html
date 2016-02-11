@@ -16,6 +16,7 @@
                         <selection url="originUrl"
                                    max-selection="1"
                                    attr-name="origin"
+                                   submit-data="submit"
                                    modal-header="{{'submitRecipe.origin_modalheader' | translate}}"
                                    placeholder="{{'submitRecipe.origin_placeholder' | translate}}">
                         </selection>
@@ -25,6 +26,7 @@
                         <selection url="timingUrl"
                                    max-selection="1"
                                    attr-name="timing"
+                                   submit-data="submit"
                                    modal-header="{{'submitRecipe.timing_modalheader' | translate}}"
                                    placeholder="{{'submitRecipe.timing_placeholder' | translate}}">
                         </selection>
@@ -34,17 +36,28 @@
                         <selection url="categoryUrl"
                                    max-selection="3"
                                    attr-name="category"
+                                   submit-data="submit"
                                    modal-header="{{'submitRecipe.tag_modalheader' | translate}}"
                                    placeholder="{{'submitRecipe.tag_placeholder' | translate}}">
                         </selection>
                     </label>
                     <label class="item item-input item-stacked-label">
                         <span class="input-label">{{'submitRecipe.ingredients' | translate}}</span>
-                        <input type="text" ng-focus="addIngredients($event)" autocomplete="off" placeholder="{{'submitRecipe.ingredients_placeholder' | translate}}">
+                        <editor modal-header="{{'submitRecipe.ingredients_modal_header' | translate}}"
+                                maxlength="100"
+                                max-addition="100"
+                                attr-name="ingredients"
+                                submit-data="submit"
+                                placeholder="{{'submitRecipe.ingredients_placeholder' | translate}}"></editor>
                     </label>
                     <label class="item item-input item-stacked-label">
                         <span class="input-label">{{'submitRecipe.steps' | translate}}</span>
-                        <input type="text" ng-focus="addSteps($event)" autocomplete="off" placeholder="{{'submitRecipe.steps_placeholder' | translate}}">
+                        <editor modal-header="{{'submitRecipe.steps_modal_header' | translate}}"
+                                maxlength="250"
+                                max-addition="100"
+                                attr-name="fullDescription"
+                                submit-data="submit"
+                                placeholder="{{'submitRecipe.steps_placeholder' | translate}}"></editor>
                     </label>
                     <label class="item item-input item-stacked-label">
                         <span class="input-label">{{'submitRecipe.upload_image' | translate}}</span>

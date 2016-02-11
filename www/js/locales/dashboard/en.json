@@ -40,7 +40,7 @@
         "origin_placeholder": "Origin of recipe",
         "timing": "When to eat",
         "timing_placeholder": "E.g. lunch item",
-        "tag": "Add tag#",
+        "tag": "Add tag #",
         "tag_placeholder": "Add at least one tag",
         "ingredients": "Ingredients",
         "ingredients_placeholder": "Add all ingredients",
@@ -52,7 +52,9 @@
         "max_selection": "Maximum",
         "done":"Done",
         "timing_modalheader": "Select Timing",
-        "tag_modalheader": "Select Category"
+        "tag_modalheader": "Select Category",
+        "ingredients_modal_header": "Add Ingredients",
+        "steps_modal_header": "Add Preparation Steps"
     },
     "menu": {
         "NO_MENU": "Sorry offline",

@@ -22,7 +22,8 @@ define(function () {
                     placeholder: "@",
                     modalHeader: "@",
                     maxSelection: "@",
-                    attrName: "@"
+                    attrName: "@",
+                    submitData: "&"
                 },
                 link: function ($scope, element) {
 
@@ -41,19 +42,22 @@ define(function () {
                     $scope.submit = function() {
                         $scope.modal.hide();
                         if($scope.selected.length > 0) {
-                            var html = '<ul>', selectedList = _.filter($scope.list, function(obj){
-                                return ($scope.selected.indexOf(obj._id) >= 0);
-                            });
-                            angular.forEach(selectedList, function(obj){
-                                html += '<li id="'+obj._id+'">'+$filter('capitalize')(obj.value, true)+'</li>';
+                            var html = '<ul>';
+                            angular.forEach($scope.list, function(obj){
+                                if($scope.selected.indexOf(obj._id) >= 0) {
+                                    html += '<li id="'+obj._id+'">'+$filter('capitalize')(obj.value, true)+'</li>';
+                                }
                             });
                             html += '</ul>';
                             element.find(".icon").removeClass("ion-plus-circled").addClass("ion-edit");
                             element.find(".selected-values").html(html);
                         }
+                        $scope.submitData()($scope.attrName, $scope.selected);
                     };
 
-                    $scope.selectItem = function(id, isChecked) {
+                    $scope.selectItem = function(item) {
+                        var id = item._id, isChecked = item.checked;
+
                         if(+$scope.maxSelection > 1) {
                             if(isChecked) {
                                 $scope.selected.push(id);
@@ -76,6 +80,11 @@ define(function () {
                             $scope.selected.splice(0, $scope.selected.length);
                             if(isChecked) {
                                 $scope.selected.push(id);
+                                /*angular.forEach($scope.list, function(obj){
+                                    if(id != obj._id) {
+                                        obj.checked = false;
+                                    }
+                                });*/
                             }
                         }
                     };

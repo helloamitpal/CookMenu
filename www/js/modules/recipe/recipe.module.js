@@ -12,6 +12,7 @@ define(function (require) {
     recipeModule.controller('submitRecipeController', require('modules/recipe/controllers/submit.recipe.controller'));
     recipeModule.factory('recipeService', require('modules/recipe/services/recipe.service'));
     recipeModule.directive('selection', require('modules/recipe/directives/selection.directive'));
+    recipeModule.directive('editor', require('modules/recipe/directives/editor.directive'));
 
     return recipeModule;
 

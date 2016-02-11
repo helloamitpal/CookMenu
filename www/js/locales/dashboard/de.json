@@ -40,7 +40,7 @@
         "origin_placeholder": "Ursprung der Rezeptur",
         "timing": "Wann essen",
         "timing_placeholder": "Z.B. Mittagessen Artikel",
-        "tag": "Tag hinzufügen#",
+        "tag": "Tag hinzufügen #",
         "tag_placeholder": "Fügen Sie mindestens einen Tag",
         "ingredients": "Zutaten",
         "ingredients_placeholder": "Alle Zutaten",
@@ -52,7 +52,9 @@
         "max_selection": "Maximal",
         "done":"Erledigt",
         "timing_modalheader": "Wählen Sie Zeit",
-        "tag_modalheader": "Kategorie wählen"
+        "tag_modalheader": "Kategorie wählen",
+        "ingredients_modal_header": "In Ingredients",
+        "steps_modal_header": "In Vorbereitende Arbeiten"
     },
     "menu": {
         "NO_MENU": "Es tut uns leid offline",

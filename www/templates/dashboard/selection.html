@@ -8,12 +8,12 @@
     <ion-content>
         <div ng-if="+maxSelection > 1" class="multi-select">
             <ion-list>
-                <ion-checkbox ng-checked="item.checked" ng-disabled="item.isDisabled" ng-model="item.checked" ng-change="selectItem(item._id, item.checked)" ng-repeat="item in list" ng-value="item.value">{{item.value | capitalize:true}}</ion-checkbox>
+                <ion-checkbox ng-checked="item.checked" ng-disabled="item.isDisabled" ng-model="item.checked" ng-change="selectItem(item)" ng-repeat="item in list" ng-value="item.value">{{item.value | capitalize:true}}</ion-checkbox>
             </ion-list>
         </div>
         <div ng-if="+maxSelection == 1" class="single-select">
             <ion-list>
-                <ion-radio ng-checked="item.checked" ng-disabled="item.isDisabled" ng-model="item.checked" ng-change="selectItem(item._id, item.checked)" ng-repeat="item in list" ng-value="item.value">{{item.value | capitalize:true}}</ion-radio>
+                <ion-radio name="{{attrName}}" ng-checked="item.checked" ng-model="item.checked" ng-change="selectItem(item)" ng-repeat="item in list" ng-value="item.value">{{item.value | capitalize:true}}</ion-radio>
             </ion-list>
         </div>
     </ion-content>
