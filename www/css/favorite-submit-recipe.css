@@ -120,14 +120,29 @@
     box-shadow: 0 -3px 12px -4px rgba(0,0,0,0.75);
     border: 0;
 }
-.selection-container .selected-values ul > li {
+.selected-values ul > li {
     margin: 5px 0;
     padding: 5px;
+    display: flex;
+    white-space: normal;
 }
-.selection-container .selected-values ul > li:nth-child(odd) {
+.selected-values ul > li > .icon {
+    font-size: 2em;
+    display: inline-block;
+    vertical-align: middle;
+    transform: rotate(15deg);
+    -webkit-transform: rotate(15deg);
+}
+.selected-values ul > li > span {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+    white-space: normal;
+}
+.selected-values ul > li:nth-child(odd) {
     background: #dfdfdf;
 }
-.selection-container .selected-values ul > li:nth-child(even) {
+.selected-values ul > li:nth-child(even) {
     background: #efefef;
 }
 .modal-footer-bar > button {
@@ -142,4 +157,22 @@
     font-size: 0.8em;
     font-style: italic;
     color: #bbb;
+}
+.editor-container {
+    padding: 10px;
+}
+.editor-container input,
+.editor-container textarea {
+    border: 1px solid #dfdfdf;
+    padding: 5px;
+}
+.editor-container .item-container {
+    margin-top: 10px;
+}
+.editor-container .add-button {
+    margin-top: 10px;
+    width: 80px;
+}
+.editor-container textarea {
+    resize: none;
 }

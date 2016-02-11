@@ -54,7 +54,9 @@
         "timing_modalheader": "Select Timing",
         "tag_modalheader": "Select Category",
         "ingredients_modal_header": "Add Ingredients",
-        "steps_modal_header": "Add Preparation Steps"
+        "steps_modal_header": "Add Preparation Steps",
+        "max_char_limit": "Maximum character limit ",
+        "add": "Add"
     },
     "menu": {
         "NO_MENU": "Sorry offline",

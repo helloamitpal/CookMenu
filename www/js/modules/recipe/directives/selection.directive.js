@@ -80,11 +80,6 @@ define(function () {
                             $scope.selected.splice(0, $scope.selected.length);
                             if(isChecked) {
                                 $scope.selected.push(id);
-                                /*angular.forEach($scope.list, function(obj){
-                                    if(id != obj._id) {
-                                        obj.checked = false;
-                                    }
-                                });*/
                             }
                         }
                     };
