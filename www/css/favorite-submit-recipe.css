@@ -201,3 +201,6 @@
     top: 0;
     color: #fff;
 }
+.popup-title {
+    font-weight: bold;
+}

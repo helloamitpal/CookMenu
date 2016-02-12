@@ -1,7 +1,7 @@
 define(function () {
     'use strict';
 
-    function SubmitRecipeController($scope, CONFIG, appStore) {
+    function SubmitRecipeController($scope, CONFIG, appStore, $ionicPopup, $state, $rootScope) {
         $scope.originUrl = CONFIG.SERVICE_URL.ALL_ORIGIN;
         $scope.categoryUrl = CONFIG.SERVICE_URL.ALL_CATEGORY;
         $scope.timingUrl = CONFIG.SERVICE_URL.ALL_TIMING;
@@ -14,18 +14,30 @@ define(function () {
             $scope.model[attr] = data;
         };
 
+        $scope.resetPage = function(locationObj) {
+            var confirmPopup = $ionicPopup.confirm({
+                title: 'Reset',
+                template: 'Your draft work will be erased and no longer available for further editing. Do you want to proceed?'
+            });
+
+            confirmPopup.then(function(res) {
+                if(res) {
+                    appStore.removeFromLocal("draftRecipe");
+                    $scope.model = {};
+                    $scope.isModified = false;
+                    if(locationObj) {
+                        $state.go(locationObj.stateName, locationObj.params);
+                    }
+                }
+            });
+        };
+
         $scope.makeDraft = function() {
             $scope.isModified = false;
             appStore.storeInLocal("draftRecipe", $scope.model);
         };
 
         $scope.submitRecipe = function() {
-            $scope.isModified = false;
-        };
-
-        $scope.resetPage = function() {
-            appStore.removeFromLocal("draftRecipe");
-            $scope.model = {};
             $scope.isModified = false;
         };
 
@@ -37,9 +49,20 @@ define(function () {
             }
         });
 
+        $rootScope.$on('$stateChangeStart', function(event, toState, toParams){
+            if($scope.isModified) {
+                event.preventDefault();
+                $scope.resetPage({
+                    stateName: toState.name,
+                    params: toParams
+                });
+            } else {
+                return;
+            }
+        })
     }
 
-    SubmitRecipeController.$inject = ['$scope', 'CONFIG', 'appStore'];
+    SubmitRecipeController.$inject = ['$scope', 'CONFIG', 'appStore', '$ionicPopup', '$state', '$rootScope'];
     return SubmitRecipeController;
 
 });
