@@ -24,11 +24,16 @@ define(function () {
                     maxAddition: "@",
                     attrName: "@",
                     icon: "@",
+                    preSelectedData: "=",
                     submitData: "&"
                 },
                 link: function ($scope, element) {
                     element = $(element);
-                    $scope.selected = [];
+                    $scope.selected = (($scope.preSelectedData && $scope.preSelectedData[$scope.attrName]) ? $scope.preSelectedData[$scope.attrName] : []);
+
+                    if($scope.selected.length > 0) {
+                        __loadList();
+                    }
 
                     $ionicModal.fromTemplateUrl('templates/dashboard/editor.html', {
                         scope: $scope,
@@ -37,10 +42,20 @@ define(function () {
                         $scope.modal = modal;
                     });
 
-                    var tapGesture = $ionicGesture.on('tap', handleTap, element);
+                    var tapGesture = $ionicGesture.on('tap', __handleTap, element);
 
                     $scope.$on('$destroy', function () {
-                        $ionicGesture.off(tapGesture, 'tap', handleTap);
+                        $ionicGesture.off(tapGesture, 'tap', __handleTap);
+                    });
+
+                    $scope.$watch(function() {
+                        return $scope.preSelectedData;
+                    }, function(newVal, oldVal){
+                        if(newVal && oldVal != newVal) {
+                            $scope.selected = [];
+                            element.find(".selected-values").empty();
+                            element.find(".icon").removeClass("ion-edit").addClass("ion-plus-circled");
+                        }
                     });
 
                     $scope.addText = function(evt) {
@@ -59,19 +74,23 @@ define(function () {
                     $scope.submit = function() {
                         $scope.modal.hide();
                         if($scope.selected.length > 0) {
-                            var html = '<ul>';
-                            angular.forEach($scope.selected, function(arrEle){
-                                html += '<li>'+arrEle+'</li>';
-                            });
-                            html += '</ul>';
-                            element.find(".icon").removeClass("ion-plus-circled").addClass("ion-edit");
-                            element.find(".selected-values").html(html);
+                            __loadList();
                         }
                         $scope.submitData()($scope.attrName, $scope.selected);
                     };
 
-                    function handleTap() {
+                    function __handleTap() {
                         $scope.modal.show();
+                    }
+
+                    function __loadList() {
+                        var html = '<ul>';
+                        angular.forEach($scope.selected, function(arrEle){
+                            html += '<li>'+arrEle+'</li>';
+                        });
+                        html += '</ul>';
+                        element.find(".icon").removeClass("ion-plus-circled").addClass("ion-edit");
+                        element.find(".selected-values").html(html);
                     }
                 }
             };

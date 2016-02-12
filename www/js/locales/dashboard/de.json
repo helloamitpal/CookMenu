@@ -56,7 +56,8 @@
         "ingredients_modal_header": "In Ingredients",
         "steps_modal_header": "In Vorbereitende Arbeiten",
         "max_char_limit": "Maximale Zeichenbegrenzung ",
-        "add": "Hinzufügen"
+        "add": "Hinzufügen",
+        "draft": "Entwurf"
     },
     "menu": {
         "NO_MENU": "Es tut uns leid offline",

@@ -185,6 +185,9 @@
     opacity: 0.3;
     pointer-events: none;
 }
+.sub-menu > .item {
+    display: block;
+}
 .logo {
     background: url("../resources/icon/android/Cook-Book-icon-32.png");
     height: 32px;

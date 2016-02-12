@@ -8,6 +8,7 @@
         <!-- end pull to refresh section -->
 
         <div id="noConnection" class="no-connection" ng-if="specialRecipeList && specialRecipeList.length === 0">
+            <i class="icon ion-alert-circled"></i>
             <div>{{'dashboard.OFFLINE_MSG' | translate}}</div>
             <a href="#/home/favorites">{{'dashboard.CLICK_TO_VISIT_FAVORITES' | translate}}</a>
         </div>

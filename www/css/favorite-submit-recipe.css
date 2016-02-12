@@ -95,6 +95,14 @@
 }
 .submit-recipe-container {
     padding: 10px;
+    padding-bottom: 0;
+}
+.submit-recipe-container .button-container > button {
+    width: 50%;
+    margin: 5px;
+}
+.submit-recipe-container .button-container {
+    display: flex;
 }
 .submit-recipe-container input[type=file] {
     line-height: 1em;
@@ -138,6 +146,7 @@
     vertical-align: middle;
     margin-left: 10px;
     white-space: normal;
+    line-height: 2em;
 }
 .selected-values ul > li:nth-child(odd) {
     background: #dfdfdf;
@@ -175,4 +184,20 @@
 }
 .editor-container textarea {
     resize: none;
+}
+.discard {
+    position: fixed;
+    top: 0.1em;
+    right: 0.2em;
+    font-size: 2.2em;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    background: #EF473A;
+    padding: 2px;
+}
+.discard:before {
+    position: relative;
+    left: 2px;
+    top: 0;
+    color: #fff;
 }

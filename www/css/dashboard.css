@@ -1,5 +1,6 @@
 .nav-bar > .title {
     text-align: left;
+    margin-left: 0;
 }
 .bar-footer .tabs > .tab-item {
     max-width: none;
@@ -234,6 +235,9 @@
     text-align: center;
     font-size: 1.2em;
     margin-top: 30px;
+}
+.no-connection > .icon {
+    font-size: 2em;
 }
 .no-connection > a {
     margin: 10px;

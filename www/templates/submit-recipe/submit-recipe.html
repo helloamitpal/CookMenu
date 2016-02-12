@@ -1,15 +1,18 @@
 <ion-view title="{{'submitRecipe.title' | translate}}">
     <ion-content>
+        <ion-nav-buttons side="right" ng-if="isModified">
+            <button class="button button-icon ion-refresh" ng-click="resetPage()"></button>
+        </ion-nav-buttons>
         <div class="submit-recipe-container">
             <form>
                 <div class="list">
                     <label class="item item-input item-stacked-label">
                         <span class="input-label">{{'submitRecipe.recipe_name' | translate}}</span>
-                        <input type="text" autocomplete="off" placeholder="{{'submitRecipe.recipe_name_placeholder' | translate}}">
+                        <input ng-model="model.name" type="text" autocomplete="off" placeholder="{{'submitRecipe.recipe_name_placeholder' | translate}}">
                     </label>
                     <label class="item item-input item-stacked-label">
                         <span class="input-label">{{'submitRecipe.short_note' | translate}}</span>
-                        <input type="text" autocomplete="off" placeholder="{{'submitRecipe.short_note_placeholder' | translate}}" maxlength="250">
+                        <input ng-model="model.shortNote" type="text" autocomplete="off" placeholder="{{'submitRecipe.short_note_placeholder' | translate}}" maxlength="250">
                     </label>
                     <label class="item item-input item-stacked-label">
                         <span class="input-label">{{'submitRecipe.origin' | translate}}</span>
@@ -17,6 +20,7 @@
                                    max-selection="1"
                                    attr-name="origin"
                                    submit-data="submit"
+                                   pre-selected-data="model"
                                    modal-header="{{'submitRecipe.origin_modalheader' | translate}}"
                                    placeholder="{{'submitRecipe.origin_placeholder' | translate}}">
                         </selection>
@@ -27,6 +31,7 @@
                                    max-selection="1"
                                    attr-name="timing"
                                    submit-data="submit"
+                                   pre-selected-data="model"
                                    modal-header="{{'submitRecipe.timing_modalheader' | translate}}"
                                    placeholder="{{'submitRecipe.timing_placeholder' | translate}}">
                         </selection>
@@ -37,6 +42,7 @@
                                    max-selection="3"
                                    attr-name="category"
                                    submit-data="submit"
+                                   pre-selected-data="model"
                                    modal-header="{{'submitRecipe.tag_modalheader' | translate}}"
                                    placeholder="{{'submitRecipe.tag_placeholder' | translate}}">
                         </selection>
@@ -48,6 +54,7 @@
                                 max-addition="100"
                                 attr-name="ingredients"
                                 submit-data="submit"
+                                pre-selected-data="model"
                                 icon="ion-spoon"
                                 placeholder="{{'submitRecipe.ingredients_placeholder' | translate}}"></editor>
                     </label>
@@ -58,6 +65,7 @@
                                 max-addition="100"
                                 attr-name="fullDescription"
                                 submit-data="submit"
+                                pre-selected-data="model"
                                 icon="ion-pin"
                                 placeholder="{{'submitRecipe.steps_placeholder' | translate}}"></editor>
                     </label>
@@ -66,8 +74,10 @@
                         <input type="file">
                     </label>
                 </div>
-
-                <button type="submit" class="button button-block button-positive">{{'submitRecipe.submit' | translate}}</button>
+                <div class="button-container">
+                    <button ng-click="makeDraft()" class="button button-block button-positive">{{'submitRecipe.draft' | translate}}</button>
+                    <button ng-click="submitRecipe()" class="button button-block button-positive">{{'submitRecipe.submit' | translate}}</button>
+                </div>
             </form>
         </div>
     </ion-content>

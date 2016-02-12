@@ -56,7 +56,8 @@
         "ingredients_modal_header": "Add Ingredients",
         "steps_modal_header": "Add Preparation Steps",
         "max_char_limit": "Maximum character limit ",
-        "add": "Add"
+        "add": "Add",
+        "draft": "Draft"
     },
     "menu": {
         "NO_MENU": "Sorry offline",
