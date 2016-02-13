@@ -10,6 +10,9 @@
 
             <ion-infinite-scroll ng-if="!noMoreItemsAvailable" on-infinite="loadMoreRecipe()" distance="10%"></ion-infinite-scroll>
         </div>
-        <div ng-if="recipeList.length === 0" class="no-data-available">{{'recipe.no_recipe_available' | translate}}</div>
+        <div ng-if="recipeList.length === 0" class="no-connection">
+            <i class="icon ion-alert-circled"></i>
+            <div>{{'recipe.no_recipe_available' | translate}}</div>
+        </div>
     </ion-content>
 </ion-view>
