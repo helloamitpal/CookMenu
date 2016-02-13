@@ -1,7 +1,7 @@
 define(function () {
     'use strict';
 
-    function SubmitRecipeController($scope, CONFIG, appStore, $ionicPopup, $state, $rootScope) {
+    function SubmitRecipeController($scope, CONFIG, appStore, $ionicPopup, $state, $rootScope, $filter) {
         $scope.originUrl = CONFIG.SERVICE_URL.ALL_ORIGIN;
         $scope.categoryUrl = CONFIG.SERVICE_URL.ALL_CATEGORY;
         $scope.timingUrl = CONFIG.SERVICE_URL.ALL_TIMING;
@@ -16,8 +16,8 @@ define(function () {
 
         $scope.resetPage = function(locationObj) {
             var confirmPopup = $ionicPopup.confirm({
-                title: 'Reset',
-                template: 'Your draft work will be erased and no longer available for further editing. Do you want to proceed?'
+                title: $filter('translate')('submitRecipe.reset'),
+                template: $filter('translate')('submitRecipe.reset_description')
             });
 
             confirmPopup.then(function(res) {
@@ -62,7 +62,7 @@ define(function () {
         })
     }
 
-    SubmitRecipeController.$inject = ['$scope', 'CONFIG', 'appStore', '$ionicPopup', '$state', '$rootScope'];
+    SubmitRecipeController.$inject = ['$scope', 'CONFIG', 'appStore', '$ionicPopup', '$state', '$rootScope', '$filter'];
     return SubmitRecipeController;
 
 });

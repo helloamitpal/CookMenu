@@ -78,9 +78,11 @@
 }
 .action-sheet-title {
     font-size: 1.1em;
-    -webkit-box-shadow: -1px 7px 17px -6px rgba(0,0,0,1);
-    -moz-box-shadow: -1px 7px 17px -6px rgba(0,0,0,1);
-    box-shadow: -1px 7px 17px -6px rgba(0,0,0,1);
+    -webkit-box-shadow: -1px 5px 10px -6px rgba(0,0,0,0.5);
+    -moz-box-shadow: -1px 5px 10px -6px rgba(0,0,0,0.5);
+    box-shadow: -1px 5px 10px -6px rgba(0,0,0,0.5);
+    font-weight: bold;
+    color: #000;
 }
 .action-sheet-group[ng-if="destructiveText"] > button {
     background: #ef4e3a;

@@ -57,7 +57,9 @@
         "steps_modal_header": "In Vorbereitende Arbeiten",
         "max_char_limit": "Maximale Zeichenbegrenzung ",
         "add": "Hinzufügen",
-        "draft": "Entwurf"
+        "draft": "Entwurf",
+        "reset": "Reset",
+        "reset_description": "Ihr Entwurf des Arbeits werden gelöscht und nicht mehr verfügbar für die weitere Bearbeitung . Willst du fortfahren?"
     },
     "menu": {
         "NO_MENU": "Es tut uns leid offline",

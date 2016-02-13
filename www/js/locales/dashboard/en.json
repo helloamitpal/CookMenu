@@ -57,7 +57,9 @@
         "steps_modal_header": "Add Preparation Steps",
         "max_char_limit": "Maximum character limit ",
         "add": "Add",
-        "draft": "Draft"
+        "draft": "Draft",
+        "reset": "Reset",
+        "reset_description": "Your draft work will be erased and no longer available for further editing. Do you want to proceed?"
     },
     "menu": {
         "NO_MENU": "Sorry offline",

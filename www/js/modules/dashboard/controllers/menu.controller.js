@@ -25,8 +25,12 @@ define(function () {
 
         $scope.showSearch = function(evt) {
             evt.stopImmediatePropagation();
-            if($(evt.target).hasClass("title")) {
-                $rootScope.showSearch = true;
+
+            if($state.current.name.indexOf("dashboard") >= 0) {
+                var $target = $(evt.target);
+                if($target.hasClass("title") || $target.hasClass("search-recipe")) {
+                    $rootScope.showSearch = true;
+                }
             }
         };
 

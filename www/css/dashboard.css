@@ -255,6 +255,22 @@
     height: 100%;
     z-index: 999;
 }
+.search-recipe-section.ng-hide-add {
+    -webkit-animation:0.5s slide-up;
+    animation:0.5s slide-up;
+}
+.search-recipe-section.ng-hide-remove {
+    -webkit-animation:0.5s slide-down;
+    animation:0.5s slide-down;
+}
+.search-recipe-section.ng-show {
+    top: 0;
+    opacity: 1;
+}
+.search-recipe-section.ng-hide {
+    top: -25px;
+    opacity: 0;
+}
 .search-button-section {
     padding: 5px;
 }
