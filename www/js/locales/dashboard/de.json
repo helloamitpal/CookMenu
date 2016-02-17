@@ -28,7 +28,8 @@
         "remove": "Entfernen",
         "remove_confirm_title": "Von Favoriten entfernen?",
         "cancel": "Absagen",
-        "NO_FAVORITES": "Keine Rezepte gespeichert werden. Entdecken Rezepte und markieren Sie sie als Favoriten für die Offline-Nutzung."
+        "NO_FAVORITES": "Keine Rezepte gespeichert werden. Entdecken Rezepte und markieren Sie sie als Favoriten für die Offline-Nutzung.",
+        "remove_confirm_description": "Es wird nicht mehr für die Offline-Nutzung . Wollen Sie zu entfernen?"
     },
     "submitRecipe": {
         "title": "Senden Rezept",
@@ -74,5 +75,8 @@
         "FACEBOOK_LOGOUT": "Trennen",
         "GUEST": "Gast",
         "HOME": "Zuhause"
+    },
+    "toaster": {
+        "error_info": "Es gab ein Problem in Verbindung . Bitte versuchen Sie es später erneut."
     }
 }

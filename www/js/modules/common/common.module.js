@@ -11,7 +11,9 @@ define(function (require) {
     commonModule.service('appStore', require('modules/common/services/common.storage.service'));
     commonModule.filter('capitalize', require('modules/common/filters/common.filter'));
     commonModule.directive('fallbackImage', require('modules/common/directives/common.fallback.image.directive'));
-    
+    commonModule.directive('toasterMsg', require('modules/common/directives/common.toaster.directive'));
+    commonModule.factory('errorsInterceptor', require('modules/common/services/error.handler.service'));
+
     return commonModule;
 
 });

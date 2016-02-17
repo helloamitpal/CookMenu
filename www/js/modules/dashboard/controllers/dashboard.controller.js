@@ -1,7 +1,7 @@
 define(function () {
     'use strict';
 
-    function DashboardController($scope, CONFIG, homeService, $ionicSlideBoxDelegate, appStore, commonService) {
+    function DashboardController($timeout, $scope, CONFIG, homeService, $ionicSlideBoxDelegate, appStore, commonService) {
         $scope.tabList = CONFIG.DASHBOARD.TABS;
         $scope.imagePath = CONFIG.MEDIA_PATH;
         $scope.showDesc = false;
@@ -28,12 +28,11 @@ define(function () {
         // fetching special recipes list
         $scope.specialRecipeList = appStore.getFromAppStore('specialRecipeList');
         if(! $scope.specialRecipeList) {
-            homeService.getSpecialRecipeList().then(function(data) {
-                $scope.specialRecipeList = data;
-                appStore.setToAppStore('specialRecipeList', data);
-                $ionicSlideBoxDelegate.update();
-            });
+            __getAllSpecialRecipes();
         }
+
+        $scope.$on("loggedOut", __updateSpecialRecipe);
+        $scope.$on("loggedIn", __updateSpecialRecipe);
 
         // fetching all random categorized list
         $scope.getAllCategorizedList = function(isPulled) {
@@ -50,9 +49,30 @@ define(function () {
         };
 
         $scope.getAllCategorizedList();
+
+        function __updateSpecialRecipe(evt, data) {
+            if(data) {
+                appStore.removeFromLocal('specialRecipeList');
+                __getAllSpecialRecipes();
+            }
+        }
+
+        function __getAllSpecialRecipes() {
+            if($scope.specialRecipeList && $scope.specialRecipeList.length > 0) {
+                $timeout(function(){
+                    $scope.specialRecipeList.length = 0;
+                    $ionicSlideBoxDelegate.update();
+                });
+            }
+            homeService.getSpecialRecipeList().then(function(data) {
+                $scope.specialRecipeList = data;
+                appStore.setToAppStore('specialRecipeList', data);
+                $ionicSlideBoxDelegate.update();
+            });
+        }
     }
 
-    DashboardController.$inject = ['$scope', 'CONFIG', 'homeService', '$ionicSlideBoxDelegate', 'appStore', 'commonService'];
+    DashboardController.$inject = ['$timeout', '$scope', 'CONFIG', 'homeService', '$ionicSlideBoxDelegate', 'appStore', 'commonService'];
     return DashboardController;
     
 });

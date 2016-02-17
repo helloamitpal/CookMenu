@@ -1,14 +1,13 @@
 define(function () {
     'use strict';
 
-    function SavedRecipeController($timeout, $ionicLoading, $filter, $scope, CONFIG, appStore, recipeService, commonService, $ionicActionSheet) {
+    function SavedRecipeController($timeout, $ionicLoading, $filter, $scope, CONFIG, appStore, recipeService, commonService, $ionicPopup) {
 
-        var actionSheet;
         $scope.imagePath = CONFIG.MEDIA_PATH;
 
-        recipeService.getSavedRecipeList().then(function(list){
-            $scope.savedRecipeList = list;
-        });
+        $scope.$on("loggedOut", __updateSpecialRecipe);
+        $scope.$on("loggedIn", __updateSpecialRecipe);
+        __updateSpecialRecipe();
 
         $scope.navigateToFullRecipe = function(recipe) {
             appStore.setToAppStore(CONFIG.CURRENT_RECIPE_ATTR, recipe);
@@ -18,13 +17,15 @@ define(function () {
             evt.preventDefault();
             evt.stopImmediatePropagation();
 
-            actionSheet = $ionicActionSheet.show({
-                destructiveText: $filter('translate')('favorites.remove'),
-                titleText: $filter('translate')('favorites.remove_confirm_title'),
-                cancelText: $filter('translate')('favorites.cancel'),
-                destructiveButtonClicked: function() {
+            var confirmPopup = $ionicPopup.confirm({
+                title: $filter('translate')('favorites.remove_confirm_title'),
+                template: $filter('translate')('favorites.remove_confirm_description')
+            });
+
+            confirmPopup.then(function(res) {
+                if(res) {
                     $ionicLoading.show();
-                    commonService.addRemoveFavorite(evt, $scope.removedFromFavoriteCallback);
+                    commonService.addRemoveFavorite(evt, undefined, $scope.removedFromFavoriteCallback);
                 }
             });
         }
@@ -33,14 +34,19 @@ define(function () {
             $ionicLoading.hide();
             var $item = $(ele).parent(".item");
             $item.addClass("remove");
-            actionSheet();
             $timeout(function(){
                 $scope.savedRecipeList.splice($item.index(),1);
             });
         }
+
+        function __updateSpecialRecipe() {
+            recipeService.getSavedRecipeList().then(function(list){
+                $scope.savedRecipeList = list;
+            });
+        }
     }
 
-    SavedRecipeController.$inject = ['$timeout', '$ionicLoading', '$filter', '$scope', 'CONFIG', 'appStore', 'recipeService', 'commonService', '$ionicActionSheet'];
+    SavedRecipeController.$inject = ['$timeout', '$ionicLoading', '$filter', '$scope', 'CONFIG', 'appStore', 'recipeService', 'commonService', '$ionicPopup'];
     return SavedRecipeController;
 
 });

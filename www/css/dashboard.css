@@ -299,3 +299,19 @@
     font-size: 1.5em;
     font-weight: bold;
 }
+.toaster-msg {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    font-size: 0.9em;
+    text-align: center;
+    width: 100%;
+    background: url("../resources/darkback.png");
+    color: #fff;
+    padding: 10px;
+}
+.toaster-msg > .icon {
+    font-size: 1.4em;
+}

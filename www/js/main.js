@@ -9,13 +9,13 @@ requirejs.config({
         translateDynamic: '../lib/js/angular-translate-loader-partial.min',
         pdfMake:          '../lib/js/pdfmake.min',
         vfsFont:          '../lib/js/vfs_fonts',
-        ngFB:             '../lib/js/satellizer.min'
+        ngSocial:             '../lib/js/satellizer.min'
     },
     shim: {
         angular : {
             exports : 'angular'
         },
-        ngFB: {
+        ngSocial: {
             deps: ['angular']
         },
         pdfMake: {

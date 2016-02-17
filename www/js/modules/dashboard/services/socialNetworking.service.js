@@ -1,7 +1,7 @@
-define(['ngFB'], function () {
+define(['ngSocial'], function () {
     "use strict";
 
-    var factory = function ($auth, $filter, appStore, $http, CONFIG) {
+    var factory = function ($auth, $filter, appStore, $http, CONFIG, $rootScope) {
 
         function __loggedIn(resp, providerName) {
             var $social = $("#menuSection ."+providerName), $userInfo = $("#userInfo");
@@ -14,6 +14,7 @@ define(['ngFB'], function () {
             $("i.icon.ion-person", $userInfo).hide();
             $("img.icon", $userInfo).show();
 
+            $rootScope.$broadcast("loggedIn",true);
             appStore.setToAppStore('userPhoto', resp.picture);
         }
 
@@ -33,6 +34,8 @@ define(['ngFB'], function () {
                 $social.siblings().show();
 
                 appStore.removeFromLocal("userLoggedInStatus");
+                appStore.removeFromLocal("savedRecipes");
+                $rootScope.$broadcast("loggedOut",true);
             }).error(function() {
                 console.log("error in logging out "+provider+" user");
             });
@@ -69,6 +72,6 @@ define(['ngFB'], function () {
         };
     }
 
-    factory.$inject = ['$auth', '$filter', 'appStore', '$http', 'CONFIG'];
+    factory.$inject = ['$auth', '$filter', 'appStore', '$http', 'CONFIG', '$rootScope'];
     return factory;
 });

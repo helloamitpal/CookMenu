@@ -49,10 +49,11 @@ define(function () {
         }
 
         // this is navigational function
-        $scope.navigate = function(view) {
+        $scope.navigate = function(view, evt) {
             if(view != "googleLogin" && view != "facebookLogin") {
                 $state.go(view);
                 $ionicSideMenuDelegate.toggleLeft();
+                commonService.highlightSelectedMenu($(evt.currentTarget));
             }
             if(view === "facebookLogin"){
                 snService.makeLogin('facebook');

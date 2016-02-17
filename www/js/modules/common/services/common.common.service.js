@@ -14,7 +14,14 @@ define(function () {
             return def.promise;
         }
 
-        function addRemoveFavorite(evt, callback) {
+
+        function highlightSelectedMenu(ele) {
+            var $ele = $(ele);
+            $ele.siblings().removeClass("selected-menu");
+            $ele.addClass("selected-menu");
+        }
+
+        function addRemoveFavorite(evt, recipeObj, callback) {
             evt.preventDefault();
             evt.stopImmediatePropagation();
 
@@ -25,28 +32,49 @@ define(function () {
             if($ele.hasClass("favorite-item")) {
                 if(savedUser) {
                     __removeFromFavorites(recipeId, savedUser.userID).then(function(data) {
-                        $ele.removeClass("favorite-item");
-                        appStore.removeFromLocal("savedRecipes.savedItems_"+recipeId);
-                        callback($ele);
+                        if(data) {
+                            $ele.removeClass("favorite-item");
+                            appStore.removeFromLocal("savedRecipes.savedItems_"+recipeId);
+                            __updateCurrentList(recipeId);
+                            callback($ele);
+                        }
                     });
                 } else {
                     $ele.removeClass("favorite-item");
                     appStore.removeFromLocal("savedRecipes.savedItems_"+recipeId);
+                    __updateCurrentList(recipeId);
                     callback($ele);
                 }
             } else {
                 if(savedUser) {
                     __getFullRecipe(recipeId, savedUser.userID).then(function(data) {
-                        $ele.addClass("favorite-item");
-                        appStore.storeInLocal("savedRecipes.savedItems_"+recipeId, data);
-                        callback($ele);
+                        if(data) {
+                            $ele.addClass("favorite-item");
+                            appStore.storeInLocal("savedRecipes.savedItems_"+recipeId, data);
+                            __updateCurrentList(recipeId);
+                            callback($ele);
+                        }
                     });
                 } else {
-                    $ele.addClass("favorite-item");
-                    appStore.storeInLocal("savedRecipes.savedItems_"+recipeId, data);
-                    callback($ele);
+                    if(recipeObj) {
+                        $ele.addClass("favorite-item");
+                        appStore.storeInLocal("savedRecipes.savedItems_"+recipeId, recipeObj);
+                        __updateCurrentList(recipeId);
+                        callback($ele);
+                    }
                 }
             }
+        }
+
+        function __updateCurrentList(recipeId) {
+            var obj, arr = appStore.getFromAppStore('specialRecipeList');
+            for(var index=0, len=arr.length; index<len; index++) {
+                obj = arr[index];
+                if(obj._id == recipeId) {
+                    obj.isSaved = true;
+                }
+            }
+            appStore.setToAppStore('specialRecipeList', arr);
         }
 
         function __removeFromFavorites(recipeId, userID) {
@@ -59,7 +87,7 @@ define(function () {
             }).error(function() {
                 $ionicLoading.hide();
                 console.log("error in removing recipe from favorites");
-                def.reject([]);
+                def.resolve([]);
             });
 
             return def.promise;
@@ -75,7 +103,7 @@ define(function () {
             }).error(function() {
                 $ionicLoading.hide();
                 console.log("error in setting recipe as favorites");
-                def.reject([]);
+                def.resolve([]);
             });
 
             return def.promise;
@@ -83,7 +111,8 @@ define(function () {
         
         return {
             getMenu: getMenu,
-            addRemoveFavorite: addRemoveFavorite
+            addRemoveFavorite: addRemoveFavorite,
+            highlightSelectedMenu: highlightSelectedMenu
         };
 
     };

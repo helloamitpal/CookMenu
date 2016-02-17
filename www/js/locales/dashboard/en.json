@@ -28,7 +28,8 @@
         "remove": "Remove",
         "remove_confirm_title": "Remove from favorites?",
         "cancel": "Cancel",
-        "NO_FAVORITES": "No recipes are saved. Explore recipes and mark them as favorites for offline use."
+        "NO_FAVORITES": "No recipes are saved. Explore recipes and mark them as favorites for offline use.",
+        "remove_confirm_description": "It will no longer available for offline use. Do you want to remove?"
     },
     "submitRecipe": {
         "title": "Submit Your Recipe",
@@ -77,5 +78,8 @@
     },
     "about":{
         "title":"About us"
+    },
+    "toaster": {
+        "error_info": "There was a problem in connection. Please try again later."
     }
 }

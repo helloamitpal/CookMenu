@@ -1,11 +1,13 @@
 define(['app'], function (app) {
     'use strict';
     
-    app.config(['$stateProvider', '$urlRouterProvider', 'localeServiceProvider', '$authProvider', 'CONFIG',
-        function ($stateProvider, $urlRouterProvider, localeServiceProvider, $authProvider, CONFIG) {
+    app.config(['$stateProvider', '$urlRouterProvider', 'localeServiceProvider', '$authProvider', 'CONFIG', '$httpProvider',
+        function ($stateProvider, $urlRouterProvider, localeServiceProvider, $authProvider, CONFIG, $httpProvider) {
 
         /* initializing localization module */
         localeServiceProvider.configure();
+
+        $httpProvider.interceptors.push("errorsInterceptor");
 
         $authProvider.facebook({
             clientId: CONFIG.SOCIAL_ID.FACEBOOK,
@@ -116,6 +118,10 @@ define(['app'], function (app) {
            
         $urlRouterProvider.otherwise("/home/dashboard");
     }]);
+
+    app.constant('$ionicLoadingConfig', {
+        duration : 60000
+    });
     
     app.run(['localeService','$auth', function(localeService, $auth) {
         $auth.setStorageType('localStorage');

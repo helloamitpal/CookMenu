@@ -44,7 +44,7 @@ define(function () {
                 def.resolve(data);
             }).error(function(err) {
                 console.log("error in fetching saved recipes"+err);
-                def.reject([]);
+                def.resolve([]);
             });
 
             return def.promise;
