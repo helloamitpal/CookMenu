@@ -2,22 +2,22 @@
     .dynamic-category-recipe-section.full-category-container .card > .item {
         width: 20%;
     }
-    .saved-recipe-container {
-        display: flex;
-    }
-    .saved-recipe-container .item {
-        width: 50%;
-    }
 }
 @media (min-width : 768px) and (max-width : 1223px) {
     .dynamic-category-recipe-section.full-category-container .card > .item {
         width: 25%;
     }
+}
+@media (min-width : 768px) {
     .saved-recipe-container {
         display: flex;
     }
     .saved-recipe-container .item {
         width: 50%;
+    }
+    .nav-bar > .buttons.left-buttons,
+    .menu.menu-left .bar-header > button {
+        display: none;
     }
 }
 @media (min-width: 450px) and (max-width : 767px) {
