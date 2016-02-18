@@ -15,18 +15,7 @@ define(['app'], function (app) {
         });
 
         /* initializing router */
-        $stateProvider.state('login', {
-            url: "/login",
-            templateUrl: "templates/login/login.html",
-            controller: 'loginController',
-            resolve: {
-                loadLocales: function(localeService) {
-                    localeService.loadLocale('login');
-                    return true;
-                }
-            }
-        })
-        .state('home', {
+        $stateProvider.state('home', {
             url: '/home',
             abstract: true,
             templateUrl: "templates/dashboard/home.html",

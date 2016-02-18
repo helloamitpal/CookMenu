@@ -8,7 +8,6 @@ define(['angular',
         'pdfMake',
         'vfsFont',
         'modules/common/common.module',
-        'modules/login/login.module',
         'modules/dashboard/dashboard.module',
         'modules/recipe/recipe.module'
         ],
@@ -21,7 +20,6 @@ define(['angular',
             'app.common.module'
         ],
             moduleList = [            
-            'app.login.module',
             'app.dashboard.module',
             'app.recipe.module'
         ];
