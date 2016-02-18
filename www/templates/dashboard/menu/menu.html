@@ -9,11 +9,10 @@
         <div class="item item-icon-left" id="userInfo">
             <img fallback-image class="icon" ng-src="{{userImage}}" style="display: none;"/>
             <i class="icon ion-person"></i>
-            <div class="user-name ellipses-wrap" id="userName">Guest</div>
+            <div class="user-name ellipses-wrap" id="userName">{{'menu.GUEST' | translate}}</div>
             <div class="user-setting">
                 <select class="lang-selection" ng-change="changeLocale(selectedLocale)" ng-model="selectedLocale" ng-options="item.lang for item in localeList track by item.key"></select>
             </div>
-            <div class="user-city ellipses-wrap" id="userCity">City not mentioned</div>
         </div>
     </div>
     <!-- end menu header section -->
