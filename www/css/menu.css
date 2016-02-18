@@ -210,3 +210,10 @@
     vertical-align: middle;
     margin-right: 10px;
 }
+.loading-container .loading {
+    padding: 10%;
+    border-radius: 50%;
+    background: transparent;
+    color: #000;
+    font-size: 3em;
+}

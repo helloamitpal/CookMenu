@@ -1,7 +1,7 @@
 define(['ngSocial'], function () {
     "use strict";
 
-    var factory = function ($auth, $filter, appStore, $http, CONFIG, $rootScope) {
+    var factory = function ($auth, $filter, appStore, $http, CONFIG, $ionicLoading) {
 
         function __loggedIn(resp, providerName) {
             var $social = $("#menuSection ."+providerName), $userInfo = $("#userInfo");
@@ -14,7 +14,6 @@ define(['ngSocial'], function () {
             $("i.icon.ion-person", $userInfo).hide();
             $("img.icon", $userInfo).show();
 
-            $rootScope.$broadcast("loggedIn",true);
             appStore.setToAppStore('userPhoto', resp.picture);
         }
 
@@ -35,7 +34,6 @@ define(['ngSocial'], function () {
 
                 appStore.removeFromLocal("userLoggedInStatus");
                 appStore.removeFromLocal("savedRecipes");
-                $rootScope.$broadcast("loggedOut",true);
             }).error(function() {
                 console.log("error in logging out "+provider+" user");
             });
@@ -50,10 +48,16 @@ define(['ngSocial'], function () {
                     var savedRecipe = {}, userObj = response.data;
                     $.extend(true, savedRecipe, userObj.savedRecipes);
                     delete userObj.savedRecipes;
-                    appStore.storeInLocal("savedRecipes", savedRecipe);
+
+                    var prevSavedRecipes = appStore.getFromLocal("savedRecipes");
+                    if(prevSavedRecipes) {
+                        __storeMergedRecipes(prevSavedRecipes, savedRecipe, userObj.userID);
+                    } else {
+                        appStore.storeInLocal("savedRecipes", savedRecipe);
+                    }
                     appStore.storeInLocal("userLoggedInStatus", userObj);
                     __loggedIn(userObj, provider);
-                }).catch(function(response) {
+                }).catch(function() {
                     console.log("error in authenticating "+provider+" user");
                 });
             }
@@ -66,12 +70,33 @@ define(['ngSocial'], function () {
             }
         }
 
+        function __storeMergedRecipes(prevSavedRecipes, newSavedRecipes, userID) {
+            var newSavedRecipeIDArr = [];
+            for(var attr in prevSavedRecipes) {
+                if(!newSavedRecipes.hasOwnProperty(attr)) {
+                    newSavedRecipes[attr] = prevSavedRecipes[attr];
+                    newSavedRecipeIDArr.push(prevSavedRecipes[attr]._id);
+                }
+            }
+            appStore.storeInLocal("savedRecipes", newSavedRecipes);
+
+            if(newSavedRecipeIDArr.length > 0) {
+                $ionicLoading.show();
+                $http.post(CONFIG.SERVICE_URL.SET_FAVORITE_RECIPE_BULK+"/"+userID, newSavedRecipeIDArr).success(function(data){
+                    $ionicLoading.hide();
+                }).error(function() {
+                    $ionicLoading.hide();
+                    console.log("error in setting recipe as favorites");
+                });
+            }
+        }
+
         return {
             checkLoginStatus: checkLoginStatus,
             makeLogin: makeLogin
         };
-    }
+    };
 
-    factory.$inject = ['$auth', '$filter', 'appStore', '$http', 'CONFIG', '$rootScope'];
+    factory.$inject = ['$auth', '$filter', 'appStore', '$http', 'CONFIG', '$ionicLoading'];
     return factory;
 });

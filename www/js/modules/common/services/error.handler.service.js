@@ -9,7 +9,6 @@ define(function () {
 
         function responseError(response) {
             $rootScope.$broadcast("httpError", true);
-            //$q.reject(response);
             return response;
         }
 

@@ -2,8 +2,8 @@ define(function () {
     'use strict';
 
     return [
-        '$ionicModal', '$http', '$ionicGesture', '$ionicLoading', '$filter', 'appStore',
-        function ($ionicModal, $http, $ionicGesture, $ionicLoading, $filter, appStore) {
+        '$ionicModal', '$http', '$ionicGesture', '$ionicLoading', '$filter',
+        function ($ionicModal, $http, $ionicGesture, $ionicLoading, $filter) {
 
             var template =
                 ['<div class="selection-container">',

@@ -69,7 +69,7 @@ define(function () {
                                 $input.val("");
                             }
                         }
-                    }
+                    };
 
                     $scope.submit = function() {
                         $scope.modal.hide();

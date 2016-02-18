@@ -63,7 +63,12 @@ define(function () {
         //snService.checkLoginStatus();
         $timeout(function(){
             snService.checkLoginStatus();
+            commonService.highlightSelectedMenu($state.current.name);
         },100);
+
+        $rootScope.$on('$stateChangeStart', function(event, toState, toParams){
+            commonService.highlightSelectedMenu(toState.name);
+        });
     }
 
     MenuController.$inject = ['$rootScope', '$timeout','$scope', '$state', 'commonService', '$ionicSideMenuDelegate', 'localeService', 'appStore', 'snService'];

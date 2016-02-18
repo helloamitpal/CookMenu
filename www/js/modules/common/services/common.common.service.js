@@ -16,7 +16,7 @@ define(function () {
 
 
         function highlightSelectedMenu(ele) {
-            var $ele = $(ele);
+            var $ele = (typeof ele === "string") ? $("#menuSection ."+ele.split('.').join('-')) : $(ele);
             $ele.siblings().removeClass("selected-menu");
             $ele.addClass("selected-menu");
         }
@@ -35,14 +35,12 @@ define(function () {
                         if(data) {
                             $ele.removeClass("favorite-item");
                             appStore.removeFromLocal("savedRecipes.savedItems_"+recipeId);
-                            __updateCurrentList(recipeId);
                             callback($ele);
                         }
                     });
                 } else {
                     $ele.removeClass("favorite-item");
                     appStore.removeFromLocal("savedRecipes.savedItems_"+recipeId);
-                    __updateCurrentList(recipeId);
                     callback($ele);
                 }
             } else {
@@ -51,7 +49,6 @@ define(function () {
                         if(data) {
                             $ele.addClass("favorite-item");
                             appStore.storeInLocal("savedRecipes.savedItems_"+recipeId, data);
-                            __updateCurrentList(recipeId);
                             callback($ele);
                         }
                     });
@@ -59,22 +56,10 @@ define(function () {
                     if(recipeObj) {
                         $ele.addClass("favorite-item");
                         appStore.storeInLocal("savedRecipes.savedItems_"+recipeId, recipeObj);
-                        __updateCurrentList(recipeId);
                         callback($ele);
                     }
                 }
             }
-        }
-
-        function __updateCurrentList(recipeId) {
-            var obj, arr = appStore.getFromAppStore('specialRecipeList');
-            for(var index=0, len=arr.length; index<len; index++) {
-                obj = arr[index];
-                if(obj._id == recipeId) {
-                    obj.isSaved = true;
-                }
-            }
-            appStore.setToAppStore('specialRecipeList', arr);
         }
 
         function __removeFromFavorites(recipeId, userID) {

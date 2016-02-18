@@ -59,7 +59,7 @@ define(function () {
             } else {
                 return;
             }
-        })
+        });
     }
 
     SubmitRecipeController.$inject = ['$scope', 'CONFIG', 'appStore', '$ionicPopup', '$state', '$rootScope', '$filter'];

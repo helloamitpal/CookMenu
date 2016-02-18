@@ -120,7 +120,8 @@ define(['app'], function (app) {
     }]);
 
     app.constant('$ionicLoadingConfig', {
-        duration : 60000
+        duration : 60000,
+        template: "<i class='icon ion-loading-b'></i>"
     });
     
     app.run(['localeService','$auth', function(localeService, $auth) {

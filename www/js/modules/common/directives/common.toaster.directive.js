@@ -1,7 +1,7 @@
 define(function () {
     'use strict';
 
-    return ['CONFIG','$rootScope', function(CONFIG, $rootScope) {
+    return function() {
         return {
             restrict : "E",
             scope: false,
@@ -18,5 +18,5 @@ define(function () {
                }
             }
         };
-    }];
+    };
 });

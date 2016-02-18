@@ -28,9 +28,6 @@
                     <img fallback-image class="item-image-section" ng-src="{{imagePath+recipe.media}}" />
                     <div class="item-action-section">
                         <h2 class="item-title-section">{{recipe.title}}</h2>
-                        <span class="save-item {{(recipe.isSaved) ? 'favorite-item' : ''}}" ng-click="addToFavorite($event, recipe)">
-                            <i class="icon ion-ios-heart"></i>
-                        </span>
                         <span class="info-item" ng-click="openDescription($event)">
                             <i class="icon ion-ios-information-empty"></i>
                         </span>

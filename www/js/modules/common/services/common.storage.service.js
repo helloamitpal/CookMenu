@@ -6,8 +6,7 @@ define(function(require){
 
         function __getLocalObj() {
             var objStr = localStorage.getItem("cookMenuApp");
-            var obj = ((objStr) ? JSON.parse(objStr) : {});
-            return obj;
+            return ((objStr) ? JSON.parse(objStr) : {});
         }
 
         function storeInLocal(key, val) {
@@ -25,7 +24,7 @@ define(function(require){
         }
 
         function getFromLocal(key) {
-            var val, obj = __getLocalObj();
+            var obj = __getLocalObj();
             if(key.indexOf(".") > 0) {
                 var setOfKeys = key.split(".");
                 for(var index=0, len=setOfKeys.length; index<len; index++) {

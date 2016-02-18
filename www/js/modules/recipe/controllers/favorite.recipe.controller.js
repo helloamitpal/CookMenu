@@ -5,9 +5,9 @@ define(function () {
 
         $scope.imagePath = CONFIG.MEDIA_PATH;
 
-        $scope.$on("loggedOut", __updateSpecialRecipe);
-        $scope.$on("loggedIn", __updateSpecialRecipe);
-        __updateSpecialRecipe();
+        recipeService.getSavedRecipeList().then(function(list){
+            $scope.savedRecipeList = list;
+        });
 
         $scope.navigateToFullRecipe = function(recipe) {
             appStore.setToAppStore(CONFIG.CURRENT_RECIPE_ATTR, recipe);
@@ -28,7 +28,7 @@ define(function () {
                     commonService.addRemoveFavorite(evt, undefined, $scope.removedFromFavoriteCallback);
                 }
             });
-        }
+        };
 
         $scope.removedFromFavoriteCallback = function(ele) {
             $ionicLoading.hide();
@@ -37,13 +37,7 @@ define(function () {
             $timeout(function(){
                 $scope.savedRecipeList.splice($item.index(),1);
             });
-        }
-
-        function __updateSpecialRecipe() {
-            recipeService.getSavedRecipeList().then(function(list){
-                $scope.savedRecipeList = list;
-            });
-        }
+        };
     }
 
     SavedRecipeController.$inject = ['$timeout', '$ionicLoading', '$filter', '$scope', 'CONFIG', 'appStore', 'recipeService', 'commonService', '$ionicPopup'];

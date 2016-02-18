@@ -20,7 +20,7 @@
     
     <!-- menu section -->
     <div class="list menu-section" id="menuSection">
-        <div class="item item-icon-left {{((item.menu && item.menu.length > 0) ? 'sub-menu-header' : '')+' '+((item.class) ? item.class : '')}}" ng-repeat="item in menuList" ng-init="showSubmenu = false;" ng-click="showSubmenu = !showSubmenu; item.view && navigate(item.view, $event)">
+        <div class="item item-icon-left {{item.view.split('.').join('-')+' '+((item.menu && item.menu.length > 0) ? 'sub-menu-header' : '')+' '+((item.class) ? item.class : '')}}" ng-repeat="item in menuList" ng-init="showSubmenu = false;" ng-click="showSubmenu = !showSubmenu; item.view && navigate(item.view, $event)">
             <div class="highlight"></div>
             <i class="icon {{item.icon}}"></i>
             <span class="menu-text">{{'menu.'+item.menuDesc | translate}}</span>
