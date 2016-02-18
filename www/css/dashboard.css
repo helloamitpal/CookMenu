@@ -315,3 +315,33 @@
 .toaster-msg > .icon {
     font-size: 1.4em;
 }
+.toaster-msg.ng-enter-active {
+    opacity: 1;
+}
+.toaster-msg.ng-leave-active {
+    opacity: 0;
+}
+.toaster-msg.ng-enter {
+    -webkit-animation:0.5s show;
+    animation:0.5s show;
+}
+.toaster-msg.ng-leave {
+    -webkit-animation:0.5s hide;
+    animation:0.5s hide;
+}
+@-webkit-keyframes hide {
+    0%  {opacity: 1;}
+    100%   {opacity: 0;}
+}
+@keyframes hide {
+    0%  {opacity: 1;}
+    100%   {opacity: 0;}
+}
+@-webkit-keyframes show {
+    0%  {opacity: 0;}
+    100%   {opacity: 1;}
+}
+@keyframes show {
+    0%  {opacity: 0;}
+    100%   {opacity: 1;}
+}
