@@ -16,7 +16,16 @@ define(function () {
 
 
         function highlightSelectedMenu(ele) {
-            var $ele = (typeof ele === "string") ? $("#menuSection ."+ele.split('.').join('-')) : $(ele);
+            var $ele;
+            if(typeof ele === "string") {
+                var className = ele.split('.').join('-'), $menu = $("#menuSection");
+                $ele = $("."+className, $menu);
+                if($ele.length === 0 && $(".selected-menu", $menu).length === 0) {
+                    $ele = $(".home-dashboard", $menu);
+                }
+            } else {
+                $ele = $(ele);
+            }
             $ele.siblings().removeClass("selected-menu");
             $ele.addClass("selected-menu");
         }
