@@ -7,6 +7,8 @@
         "recipe-comment-submit": "Einreichen",
         "all-comment-title": "Bemerkungen",
         "no_recipe_available": "Kein Rezept erhältlich",
-        "author": "Autor"
+        "author": "Autor",
+        "recommend_confirm_title": "Empfehlen Rezept",
+        "recommend_confirm_description": "Haben Sie dieses Rezept ausprobiert und es hat euch gefallen ? Wollen Sie es für andere zu empfehlen?"
     }
 }

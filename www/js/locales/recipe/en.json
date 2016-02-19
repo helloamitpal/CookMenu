@@ -7,6 +7,8 @@
         "recipe-comment-submit": "Submit",
         "all-comment-title": "Comments",
         "no_recipe_available": "No recipe available",
-        "author": "Author"
+        "author": "Author",
+        "recommend_confirm_title": "Recommend Recipe",
+        "recommend_confirm_description": "Have you tried this recipe and you liked it? Do you want to recommend it for others?"
     }
 }

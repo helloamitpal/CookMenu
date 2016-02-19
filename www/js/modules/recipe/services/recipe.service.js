@@ -115,6 +115,19 @@ define(function () {
             return def.promise;
         }
 
+        function recommendRecipe(recipeId) {
+            var def = $q.defer();
+
+            $http.get(CONFIG.SERVICE_URL.RECOMMEND_RECIPE+"/"+recipeId).success(function(data){
+                def.resolve(true);
+            }).error(function(err){
+                def.resolve(false);
+                console.log("problem in recommending recipe");
+            });
+
+            return def.promise;
+        }
+
         function __getBase64FormatOfImg(url) {
             var img = new Image(), def = $q.defer();
             img.crossOrigin = 'Anonymous';
@@ -136,7 +149,8 @@ define(function () {
         return {
             getFullCategorizedRecipeList: getFullCategorizedRecipeList,
             getPDFDocDefinition: getPDFDocDefinition,
-            getSavedRecipeList: getSavedRecipeList
+            getSavedRecipeList: getSavedRecipeList,
+            recommendRecipe: recommendRecipe
         };
 
     };

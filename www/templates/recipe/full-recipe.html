@@ -42,15 +42,15 @@
                 </div>
                 <div class="action-container row">
                     <div class="col">
-                        <i class="icon ion-android-share-alt share-recipe"></i>
+                        <button class="button button-icon icon ion-android-share-alt share-recipe"></button>
                     </div>
                     <div class="col">
-                        <i class="icon ion-archive download-recipe" ng-click="downloadPdf()"></i>
+                        <button class="button button-icon icon ion-archive download-recipe" ng-click="downloadPdf()"></button>
                     </div>
                     <div class="col">
-                        <i class="icon ion-archive ion-thumbsup">
+                        <button class="button button-icon icon ion-archive ion-thumbsup" ng-click="recommendRecipe(recipe._id)">
                             <span class="like-count">{{recipe.recommended}}</span>
-                        </i>
+                        </button>
                     </div>
                 </div>
                 <div class="comment-section">
