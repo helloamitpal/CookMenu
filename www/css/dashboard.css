@@ -345,3 +345,23 @@
     0%  {opacity: 0;}
     100%   {opacity: 1;}
 }
+.bold {
+    font-weight: bold;
+}
+.aboutus-container {
+    font-size: 1.2em;
+}
+.tag-line > .icon {
+    font-size: 2em;
+}
+.margin-top-30 {
+    margin-top: 30px;
+}
+.tag-line > span {
+    display: inline-block;
+    vertical-align: top;
+    line-height: 2em;
+}
+.aboutus-container a {
+    word-break: break-all;
+}

@@ -1,5 +1,27 @@
 <ion-view title="{{'about.title' | translate}}">
     <ion-content class="aboutus-container">
-        This is all about us. Like us in social networking sites. Find recipes and give some excitement to your taste bud.
+        <p>
+            <span class="bold">{{'about.name' | translate}}:</span>
+            <span>{{''|appInfo:"name"}}</span>
+        </p>
+        <p>
+            <span class="bold">{{'about.version' | translate}}:</span>
+            <span>{{''|appInfo:"version"}}</span>
+        </p>
+        <p>
+            <span class="bold">{{'about.developer' | translate}}:</span>
+            <span>{{''|appInfo:"developer"}}</span>
+        </p>
+        <p>
+            <span class="bold">{{'about.contact' | translate}}:</span>
+            <a href="#">{{''|appInfo:"contact"}}</a>
+        </p>
+        <p class="margin-top-30">{{'about.about_us_note' | translate}}</p>
+        <p class="margin-top-30 tag-line">
+            <span>{{'about.about_us_tagline' | translate}}</span>
+            <i class="icon ion-fork"></i>
+            <i class="icon ion-android-happy"></i>
+            <i class="icon ion-spoon"></i>
+        </p>
     </ion-content>
 </ion-view>

@@ -6,8 +6,12 @@ define(['angular'], function (angular) {
 		.constant('CONFIG', (function() {        
 
             return {
-                APP_VERSION: "0.1",
-                APP_NAME: "CookMenu",
+                APP_INFO: {
+                    APP_VERSION: "0.1",
+                    APP_NAME: "CookMenu",
+                    APP_CONTACT: "cookMenu.support.me@gmail.com",
+                    APP_DEVELOPER: "Saha & Pal Team"
+                },
                 NO_IMAGE_PATH: "resources/no_image.jpg",
                 MEDIA_PATH: "http://localhost:3000/images/",
                 INIT_CATEGORY_COUNT: 5,

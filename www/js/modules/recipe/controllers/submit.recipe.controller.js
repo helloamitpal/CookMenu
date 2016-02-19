@@ -44,7 +44,7 @@ define(function () {
         $scope.$watchCollection(function(){
             return $scope.model;
         }, function(newVal, oldVal){
-            if(newVal && !$.isEmptyObject(newVal) && oldVal != newVal) {
+            if(newVal && oldVal && !$.isEmptyObject(newVal) && !$.isEmptyObject(oldVal) && oldVal != newVal) {
                 $scope.isModified = true;
             }
         });

@@ -105,7 +105,7 @@ define(function () {
                 obj.content = content;
                 obj.pageSize = 'A4';
                 obj.info = {
-                    title: (CONFIG.APP_NAME+recipe.title),
+                    title: (CONFIG.APP_INFO.APP_NAME+recipe.title),
                     author: recipe.cook.name,
                     keywords: recipe.category.join(" ")
                 };

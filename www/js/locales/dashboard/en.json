@@ -1,7 +1,4 @@
 {
-    "home": {
-        "MENU_HEADER": "CookMenu"
-    },
     "search": {
         "SEARCH_HEADER": "Filter By",
         "NAME_FILTER": "Name",
@@ -77,7 +74,13 @@
         "HOME": "Home"
     },
     "about":{
-        "title":"About us"
+        "title":"About us",
+        "name": "Name",
+        "version": "Version",
+        "developer": "Developer",
+        "contact": "Contact",
+        "about_us_tagline": "Eat tasty and share the taste.",
+        "about_us_note": "Like us in social networking sites, share recipes with friends and relatives. Give some excitement to your taste bud with our exclusive recipes. If you are a chef then please upload your special recipes and share with others."
     },
     "toaster": {
         "error_info": "There was a problem in connection. Please try again later."

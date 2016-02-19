@@ -1,7 +1,4 @@
 {
-    "home": {
-        "MENU_HEADER": "KochMenü"
-    },
     "search": {
         "SEARCH_HEADER": "Filtern nach",
         "NAME_FILTER": "Name",
@@ -75,6 +72,15 @@
         "FACEBOOK_LOGOUT": "Trennen",
         "GUEST": "Gast",
         "HOME": "Zuhause"
+    },
+    "about":{
+        "title":"Über uns",
+        "name": "Name",
+        "version": "Version",
+        "developer": "Entwickler",
+        "contact": "Kontakt",
+        "about_us_tagline": "Essen schmackhaft und den Geschmack teilen.",
+        "about_us_note": "Wie wir in Social Networking-Websites , zu teilen Rezepte mit Freunden und Verwandten. Geben Sie einige Aufregung um Ihre Geschmacksknospen mit unserer exklusiven Rezepten. Wenn Sie ein Koch sind dann bitte Ihre speziellen Rezepte hochladen und mit anderen teilen."
     },
     "toaster": {
         "error_info": "Es gab ein Problem in Verbindung . Bitte versuchen Sie es später erneut."

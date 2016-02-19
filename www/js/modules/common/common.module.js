@@ -9,7 +9,8 @@ define(function (require) {
     commonModule.factory('commonService', require('modules/common/services/common.common.service'));
     commonModule.provider('localeService', require('modules/common/services/common.locale.service'));
     commonModule.service('appStore', require('modules/common/services/common.storage.service'));
-    commonModule.filter('capitalize', require('modules/common/filters/common.filter'));
+    commonModule.filter('capitalize', require('modules/common/filters/common.capitalize.filter'));
+    commonModule.filter('appInfo', require('modules/common/filters/common.appInfo.filter'));
     commonModule.directive('fallbackImage', require('modules/common/directives/common.fallback.image.directive'));
     commonModule.directive('toasterMsg', require('modules/common/directives/common.toaster.directive'));
     commonModule.factory('errorsInterceptor', require('modules/common/services/error.handler.service'));

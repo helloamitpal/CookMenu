@@ -82,7 +82,9 @@ define(['ngSocial'], function () {
 
             if(newSavedRecipeIDArr.length > 0) {
                 $ionicLoading.show();
-                $http.post(CONFIG.SERVICE_URL.SET_FAVORITE_RECIPE_BULK+"/"+userID, newSavedRecipeIDArr).success(function(data){
+                $http.post(CONFIG.SERVICE_URL.SET_FAVORITE_RECIPE_BULK+"/"+userID, {
+                    data: newSavedRecipeIDArr
+                }).success(function(data){
                     $ionicLoading.hide();
                 }).error(function() {
                     $ionicLoading.hide();
