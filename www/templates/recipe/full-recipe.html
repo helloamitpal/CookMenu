@@ -10,7 +10,7 @@
             <div class="recipe-image">
                 <img class="item-image-section" fallback-image ng-src="{{imagePath+recipe.media}}" />
                 <div class="item-action-section">
-                    <span class="save-item {{(isSaved) ? 'favorite-item' : ''}}" ng-click="addToFavorite($event)">
+                    <span class="save-item {{(isSaved) ? 'favorite-item' : ''}}" ng-click="addToFavorite($event, recipe)">
                         <i class="icon ion-ios-heart"></i>
                     </span>
                 </div>

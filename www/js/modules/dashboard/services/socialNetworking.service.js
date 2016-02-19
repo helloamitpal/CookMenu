@@ -33,7 +33,6 @@ define(['ngSocial'], function () {
                 $social.siblings().show();
 
                 appStore.removeFromLocal("userLoggedInStatus");
-                appStore.removeFromLocal("savedRecipes");
             }).error(function() {
                 console.log("error in logging out "+provider+" user");
             });
