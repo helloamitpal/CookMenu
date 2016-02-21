@@ -9,6 +9,9 @@
         "no_recipe_available": "Kein Rezept erhältlich",
         "author": "Autor",
         "recommend_confirm_title": "Empfehlen Rezept",
+        "login_require_title": "Anmeldung erforderlich",
+        "comment_box_placeholder": "Maximale Zeichenbegrenzung: ",
+        "login_require_description": "Sie müssen sich einloggen um Ihren Kommentar zu schreiben. Bitte loggen Sie sich zuerst ein.",
         "recommend_confirm_description": "Haben Sie dieses Rezept ausprobiert und es hat euch gefallen ? Wollen Sie es für andere zu empfehlen?"
     }
 }

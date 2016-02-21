@@ -1,0 +1,11 @@
+<div class="all-comments" id="allCommentSection">
+    <div class="comment" ng-repeat="comment in comments">
+        <header>
+            <h3 class="comment-cook-name" id="{{comment.cook.id}}">{{comment.cook.name}}</h3>
+        </header>
+        <section class="comment-cook">
+            <i class="icon ion-chatbubble-working"></i>
+            {{comment.comment[0]}}
+        </section>
+    </div>
+</div>

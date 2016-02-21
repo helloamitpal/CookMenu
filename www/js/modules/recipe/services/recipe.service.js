@@ -1,7 +1,7 @@
 define(function () {
     "use strict";
 
-    var factory = function ($http, $q, CONFIG, $ionicLoading, $filter, appStore) {
+    var factory = function ($http, $q, CONFIG, $ionicLoading, $filter, appStore, $ionicPopup) {
 
         function getSavedRecipeList() {
             var list = [], def = $q.defer(), savedRecipes = appStore.getFromLocal("savedRecipes");
@@ -128,6 +128,44 @@ define(function () {
             return def.promise;
         }
 
+        function postComment(recipeId) {
+            var $text = $("#commentBox"), def = $q.defer(), content = $text.val();
+            if(content) {
+                var savedUser = appStore.getFromLocal("userLoggedInStatus");
+                if(!savedUser) {
+                    var alertPopup = $ionicPopup.alert({
+                        title: $filter('translate')('recipe.login_require_title'),
+                        template: $filter('translate')('recipe.login_require_description')
+                    });
+                    alertPopup.then(function(){
+                        def.reject(false);
+                    });
+                } else {
+                    $http.post(CONFIG.SERVICE_URL.SUBMIT_COMMENT, {
+                        userID: savedUser.userID,
+                        name: savedUser.name,
+                        recipeID: recipeId,
+                        comment: content
+                    }).success(function(flag) {
+                        if(flag) {
+                            $text.val("");
+                            def.resolve({
+                                "cook": {
+                                    "id": savedUser.userID,
+                                    "name": savedUser.name
+                                },
+                                "comment": [content]
+                            });
+                        }
+                    }).error(function(){
+                        console.log("problem in adding comment for recipe");
+                        def.reject(false);
+                    });
+                }
+            }
+            return def.promise;
+        }
+
         function __getBase64FormatOfImg(url) {
             var img = new Image(), def = $q.defer();
             img.crossOrigin = 'Anonymous';
@@ -150,11 +188,12 @@ define(function () {
             getFullCategorizedRecipeList: getFullCategorizedRecipeList,
             getPDFDocDefinition: getPDFDocDefinition,
             getSavedRecipeList: getSavedRecipeList,
-            recommendRecipe: recommendRecipe
+            recommendRecipe: recommendRecipe,
+            postComment: postComment
         };
 
     };
 
-    factory.$inject = ['$http', '$q', 'CONFIG', '$ionicLoading', '$filter', 'appStore'];
+    factory.$inject = ['$http', '$q', 'CONFIG', '$ionicLoading', '$filter', 'appStore', '$ionicPopup'];
     return factory;
 });

@@ -9,15 +9,10 @@ define(function () {
         $scope.recipe = appStore.getFromAppStore(CONFIG.CURRENT_RECIPE_ATTR);
         $scope.maxCommentCharLimit = CONFIG.COMMENT_MAX_CHAR_LIMIT;
         $scope.isSaved = (savedRecipes && savedRecipes.hasOwnProperty("savedItems_"+$scope.recipe._id));
+        $scope.comments = $scope.recipe.comments.slice().reverse();
 
         $scope.addToFavorite = commonService.addRemoveFavorite;
-        $scope.changeCharCount = function(evt) {
-            if(evt.keyCode === CONFIG.KEYCODE.DELETE || evt.keyCode === CONFIG.KEYCODE.BACKSPACE) {
-                $scope.maxCommentCharLimit = (CONFIG.COMMENT_MAX_CHAR_LIMIT - $(evt.currentTarget).val().length);
-            } else {
-                (($scope.maxCommentCharLimit > 0) ? $scope.maxCommentCharLimit-- : 0);
-            }
-        };
+
         $scope.downloadPdf = function() {
             recipeService.getPDFDocDefinition($scope.recipe).then(function(docDefinition){
                 pdfMake.createPdf(docDefinition).download($scope.recipe.title+'.js');
@@ -38,6 +33,12 @@ define(function () {
                         }
                     });
                 }
+            });
+        };
+
+        $scope.submitComment = function(recipeId){
+            recipeService.postComment(recipeId).then(function(textObj){
+                $scope.comments.unshift(textObj);
             });
         };
     }

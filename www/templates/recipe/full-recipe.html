@@ -55,24 +55,12 @@
                 </div>
                 <div class="comment-section">
                     <div class="comment-title">{{'recipe.comment-title' | translate}}</div>
-                    <div class="comment-box-header"><span class="character-left-count">{{maxCommentCharLimit}}</span> characters left</div>
-                    <textarea class="comment-box" maxlength="100" ng-keyup="changeCharCount($event)" rows="3" cols="8"></textarea>
+                    <textarea id="commentBox" class="comment-box" placeholder="{{('recipe.comment_box_placeholder' | translate) + maxCommentCharLimit}}" maxlength="{{maxCommentCharLimit}}" rows="3" cols="8"></textarea>
                     <div class="submit-comment-btn">
-                        <button class="button button-block button-positive">{{'recipe.recipe-comment-submit' | translate}}</button>
+                        <button ng-click="submitComment(recipe._id)" class="button button-block button-positive">{{'recipe.recipe-comment-submit' | translate}}</button>
                     </div>
                     <div class="comment-title">{{'recipe.all-comment-title' | translate}}</div>
-                    <div class="all-comments">
-                        <div class="comment" ng-repeat="comment in recipe.comments track by $index">
-                            <header>
-                                <h3 class="comment-cook-name" id="{{comment.cook.id}}">{{comment.cook.name}}</h3>
-                                <span class="comment-cook-city">{{comment.cook.city}}</span>
-                            </header>
-                            <section class="comment-cook" ng-repeat="comm in comment.comment track by $index">
-                                <i class="icon ion-chatbubble-working"></i>
-                                {{comm}}
-                            </section>
-                        </div>
-                    </div>
+                    <comment-box></comment-box>
                 </div>
             </div>
         </div>

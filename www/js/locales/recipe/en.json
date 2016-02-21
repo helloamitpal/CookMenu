@@ -9,6 +9,9 @@
         "no_recipe_available": "No recipe available",
         "author": "Author",
         "recommend_confirm_title": "Recommend Recipe",
+        "comment_box_placeholder": "Maximum character limit: ",
+        "login_require_title": "Login Required",
+        "login_require_description": "You have to login to post your comment. Please login first.",
         "recommend_confirm_description": "Have you tried this recipe and you liked it? Do you want to recommend it for others?"
     }
 }

@@ -13,6 +13,7 @@ define(function (require) {
     recipeModule.factory('recipeService', require('modules/recipe/services/recipe.service'));
     recipeModule.directive('selection', require('modules/recipe/directives/selection.directive'));
     recipeModule.directive('editor', require('modules/recipe/directives/editor.directive'));
+    recipeModule.directive('commentBox', require('modules/recipe/directives/commentbox.directive'));
 
     return recipeModule;
 

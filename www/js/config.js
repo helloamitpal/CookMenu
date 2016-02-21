@@ -51,7 +51,8 @@ define(['angular'], function (angular) {
                     ALL_TIMING: "http://localhost:3000/getAllTiming",
                     ALL_CATEGORY: "http://localhost:3000/getAllCategory",
                     SET_FAVORITE_RECIPE_BULK: "http://localhost:3000/setFavoriteRecipeInBulk",
-                    RECOMMEND_RECIPE: "http://localhost:3000/recommendRecipe"
+                    RECOMMEND_RECIPE: "http://localhost:3000/recommendRecipe",
+                    SUBMIT_COMMENT: "http://localhost:3000/submitComment"
                 },
                 LOCALE: {
                     AVAILABLE: [{
