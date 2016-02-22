@@ -113,6 +113,7 @@
 }
 .comment {
     margin-top: 15px;
+    position: relative;
 }
 .submit-comment-btn {
     margin-bottom: 20px;
@@ -148,6 +149,51 @@
 }
 .full-recipe-container .recipe-image .item-action-section {
     bottom: 5px;
+}
+.shadow-remove {
+    background: url("../resources/back.png");
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+.shadow-remove.ng-enter-active {
+    opacity: 1;
+}
+.shadow-remove.ng-leave-active {
+    opacity: 0;
+}
+.shadow-remove.ng-enter {
+    -webkit-animation:0.5s show;
+    animation:0.5s show;
+}
+.shadow-remove.ng-leave {
+    -webkit-animation:0.5s hide;
+    animation:0.5s hide;
+}
+.delete-comment {
+    position: absolute;
+    right: 0;
+    padding: 5px;
+    border: 1px solid #aaa;
+    font-size: 2.5em;
+    background: #fff;
+    height: 100%;
+}
+.delete-comment::before {
+    top: 50%;
+    transform: translate(0, -50%);
+    -webkit-transform: translate(0, -50%);
+    position: relative;
+}
+.no-comment {
+    padding: 10px 0;
+}
+.comment-date {
+    font-size: 0.6em;
+    float: right;
 }
 /*.item-input input[type="text"].cloned-text-input ,
 .item-input textarea.cloned-text-input{

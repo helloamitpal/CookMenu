@@ -1,7 +1,14 @@
 <div class="all-comments" id="allCommentSection">
-    <div class="comment" ng-repeat="comment in comments">
+    <div ng-if="comments.length === 0" class="no-comment">{{'recipe.no_comment' | translate}}</div>
+    <div class="comment" ng-repeat="comment in comments track by $index" ng-init="comment.showRemoveCommentSection = false" on-hold="comment.showRemoveCommentSection = true">
+        <div class="shadow-remove" ng-if="comment.cook.id === userId && comment.showRemoveCommentSection === true" ng-click="comment.showRemoveCommentSection = false">
+            <a href="javascript:;" ng-click="deleteComment($event, $index, comment.time)" class="icon ion-trash-b delete-comment assertive"></a>
+        </div>
         <header>
-            <h3 class="comment-cook-name" id="{{comment.cook.id}}">{{comment.cook.name}}</h3>
+            <h3 class="comment-cook-name" id="{{comment.cook.id}}">
+                {{comment.cook.name}}
+                <span class="comment-date">{{comment.time|date: 'mediumDate'}}</span>
+            </h3>
         </header>
         <section class="comment-cook">
             <i class="icon ion-chatbubble-working"></i>

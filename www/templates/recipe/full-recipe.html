@@ -1,8 +1,3 @@
-<!--<ion-nav-bar class="bar-assertive">
-    <ion-nav-back-button class="button-icon ion-arrow-left-c">
-    </ion-nav-back-button>
-</ion-nav-bar>-->
-
 <ion-view title="{{'recipe.header' | translate}}">
     <ion-content>
         <div class="full-recipe-container item-container" id="{{recipe._id}}">
@@ -60,7 +55,7 @@
                         <button ng-click="submitComment(recipe._id)" class="button button-block button-positive">{{'recipe.recipe-comment-submit' | translate}}</button>
                     </div>
                     <div class="comment-title">{{'recipe.all-comment-title' | translate}}</div>
-                    <comment-box></comment-box>
+                    <comment-box comments="comments" recipe-id="recipe._id"></comment-box>
                 </div>
             </div>
         </div>

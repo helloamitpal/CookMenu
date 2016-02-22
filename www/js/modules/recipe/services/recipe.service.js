@@ -166,6 +166,22 @@ define(function () {
             return def.promise;
         }
 
+        function deleteComment(recipeId, time) {
+            var def = $q.defer();
+
+            $http.post(CONFIG.SERVICE_URL.DELETE_COMMENT, {
+                recipeId: recipeId,
+                time: time
+            }).success(function(flag){
+                def.resolve(flag);
+            }).error(function(err) {
+                console.log("error in deleting comment");
+                def.reject(false);
+            });
+
+            return def.promise;
+        }
+
         function __getBase64FormatOfImg(url) {
             var img = new Image(), def = $q.defer();
             img.crossOrigin = 'Anonymous';
@@ -189,7 +205,8 @@ define(function () {
             getPDFDocDefinition: getPDFDocDefinition,
             getSavedRecipeList: getSavedRecipeList,
             recommendRecipe: recommendRecipe,
-            postComment: postComment
+            postComment: postComment,
+            deleteComment: deleteComment
         };
 
     };
