@@ -6,8 +6,6 @@ define(function () {
         $scope.categoryUrl = CONFIG.SERVICE_URL.ALL_CATEGORY;
         $scope.timingUrl = CONFIG.SERVICE_URL.ALL_TIMING;
         $scope.isDirty = false;
-        var modelObj = appStore.getFromLocal("draftRecipe");
-
         $scope.model = ((modelObj) ? modelObj : {
             name: "",
             shortNote: "",
@@ -18,6 +16,8 @@ define(function () {
             fullDescription: []
         });
         $scope.isModified = false;
+
+        var modelObj = appStore.getFromLocal("draftRecipe");
 
         $scope.submit = function(attr, data) {
             $scope.model[attr] = data;
@@ -32,8 +32,17 @@ define(function () {
             confirmPopup.then(function(res) {
                 if(res) {
                     appStore.removeFromLocal("draftRecipe");
-                    $scope.model = {};
+                    $scope.model = {
+                        name: "",
+                        shortNote: "",
+                        origin: [],
+                        timing: [],
+                        category: [],
+                        ingredients: [],
+                        fullDescription: []
+                    };
                     $scope.isModified = false;
+                    $scope.isDirty = false;
                     if(locationObj) {
                         $state.go(locationObj.stateName, locationObj.params);
                     }
@@ -50,7 +59,7 @@ define(function () {
             $scope.isModified = false;
             $scope.isDirty = recipeService.validateForm($scope.model);
             if(!$scope.isDirty) {
-                //recipeService.submitRecipe($scope.modal);
+                recipeService.submitRecipe($scope.modal);
             }
         };
 
