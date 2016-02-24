@@ -15,6 +15,9 @@
     .saved-recipe-container .item {
         width: 50%;
     }
+    .saved-recipe-container .item:only-child {
+        width: 100%;
+    }
     .nav-bar > .buttons.left-buttons,
     .menu.menu-left .bar-header > button {
         display: none;

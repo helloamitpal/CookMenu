@@ -4,6 +4,7 @@ define(function (require) {
 
     var angular = require('angular'),
         config = require('config'),
+        ngShare = require('ngShare'),
         recipeModule = angular.module('app.recipe.module', ['app.config']);
 
     recipeModule.controller('recipeController', require('modules/recipe/controllers/recipe.controller'));

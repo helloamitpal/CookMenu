@@ -12,6 +12,8 @@
         "comment_box_placeholder": "Maximum character limit: ",
         "login_require_title": "Login Required",
         "no_comment": "No comments as of now",
+        "action_sheet_title": "Share Recipe",
+        "action_sheet_cancel": "Cancel",
         "remove_comment_confirm_title": "Delete Comment",
         "remove_comment_confirm_description": "Do you want to delete your comment?",
         "login_require_description": "You have to login to post your comment. Please login first.",

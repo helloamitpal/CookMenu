@@ -13,6 +13,8 @@
         "login_require_title": "Anmeldung erforderlich",
         "comment_box_placeholder": "Maximale Zeichenbegrenzung: ",
         "remove_comment_confirm_title": "Kommentar löschen",
+        "action_sheet_title": "Teilen Rezept",
+        "action_sheet_cancel": "Stornieren",
         "remove_comment_confirm_description": "Wollen Sie Ihren Kommentar löschen ?",
         "login_require_description": "Sie müssen sich einloggen um Ihren Kommentar zu schreiben. Bitte loggen Sie sich zuerst ein.",
         "recommend_confirm_description": "Haben Sie dieses Rezept ausprobiert und es hat euch gefallen ? Wollen Sie es für andere zu empfehlen?"

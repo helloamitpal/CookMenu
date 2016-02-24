@@ -9,11 +9,15 @@ requirejs.config({
         translateDynamic: '../lib/js/angular-translate-loader-partial.min',
         pdfMake:          '../lib/js/pdfmake.min',
         vfsFont:          '../lib/js/vfs_fonts',
-        ngSocial:             '../lib/js/satellizer.min'
+        ngSocial:         '../lib/js/satellizer.min',
+        ngShare:          '../lib/js/SocialShare.min'
     },
     shim: {
         angular : {
             exports : 'angular'
+        },
+        ngShare: {
+            exports: 'ngShare'
         },
         ngSocial: {
             deps: ['angular']

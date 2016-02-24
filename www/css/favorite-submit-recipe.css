@@ -61,40 +61,6 @@
     0%  {opacity: 1;}
     100%   {opacity: 0;}
 }
-.action-sheet {
-    margin: 0;
-}
-.action-sheet-group {
-    margin: 0;
-    border-radius: 0;
-    float: left;
-    width: 50%;
-    padding: 10px;
-    padding-top: 0;
-}
-.action-sheet-group > button {
-    color: #fff !important;
-    font-size: 1.3em !important;
-}
-.action-sheet-title {
-    font-size: 1.1em;
-    -webkit-box-shadow: -1px 5px 10px -6px rgba(0,0,0,0.5);
-    -moz-box-shadow: -1px 5px 10px -6px rgba(0,0,0,0.5);
-    box-shadow: -1px 5px 10px -6px rgba(0,0,0,0.5);
-    font-weight: bold;
-    color: #000;
-}
-.action-sheet-group[ng-if="destructiveText"] > button {
-    background: #ef4e3a;
-}
-.action-sheet-group[ng-if="cancelText"] > button {
-    background: #4a87ee;
-}
-.action-sheet > .action-sheet-group:first-child {
-    width: 100%;
-    padding-left: 0;
-    padding-right: 0;
-}
 .submit-recipe-container {
     padding: 10px;
     padding-bottom: 0;

@@ -195,11 +195,16 @@
     font-size: 0.6em;
     float: right;
 }
-/*.item-input input[type="text"].cloned-text-input ,
-.item-input textarea.cloned-text-input{
-    display: none !important;
+.action-sheet-group .item {
+    padding: 0 !important;
+    margin: 0;
+    color: #fff;
+    width: 100%;
 }
-.comment-box.previous-input-focus {
-    position: relative !important;
-    top:-38px !important;
-}*/
+.action-sheet-group .button {
+    border: 0 none;
+}
+.action-sheet-title {
+    color: #000;
+    font-size: 1.2em;
+}

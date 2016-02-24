@@ -1,9 +1,10 @@
 define(function () {
     'use strict';
 
-    function RecipeController($scope, CONFIG, appStore, recipeService, commonService, $ionicPopup, $filter) {
+    function RecipeController($ionicActionSheet, $scope, CONFIG, appStore, recipeService, commonService, $ionicPopup, $filter) {
 
-        var savedRecipes = appStore.getFromLocal("savedRecipes");
+        var savedRecipes = appStore.getFromLocal("savedRecipes"),
+            socialShareButtons = recipeService.getSocialShareButtons();
 
         $scope.imagePath = CONFIG.MEDIA_PATH;
         $scope.recipe = appStore.getFromAppStore(CONFIG.CURRENT_RECIPE_ATTR);
@@ -41,9 +42,20 @@ define(function () {
                 $scope.comments.unshift(textObj);
             });
         };
+
+        $scope.openSocialShare = function() {
+            var actionSheet = $ionicActionSheet.show({
+                buttons: socialShareButtons,
+                titleText: $filter('translate')('recipe.action_sheet_title'),
+                cancelText: $filter('translate')('recipe.action_sheet_cancel'),
+                buttonClicked: function() {
+                    recipeService.socialShare(event, $scope.recipe);
+                }
+            });
+        };
     }
 
-    RecipeController.$inject = ['$scope', 'CONFIG', 'appStore', 'recipeService','commonService', '$ionicPopup', '$filter'];
+    RecipeController.$inject = ['$ionicActionSheet', '$scope', 'CONFIG', 'appStore', 'recipeService','commonService', '$ionicPopup', '$filter'];
     return RecipeController;
 
 });

@@ -53,7 +53,8 @@ define(['angular'], function (angular) {
                     SET_FAVORITE_RECIPE_BULK: "http://localhost:3000/setFavoriteRecipeInBulk",
                     RECOMMEND_RECIPE: "http://localhost:3000/recommendRecipe",
                     SUBMIT_COMMENT: "http://localhost:3000/submitComment",
-                    DELETE_COMMENT: "http://localhost:3000/deleteComment"
+                    DELETE_COMMENT: "http://localhost:3000/deleteComment",
+                    SHARE_RECIPE_IN_SOCIAL: "http://localhost:3000/shareRecipeInSocialMedia"
                 },
                 LOCALE: {
                     AVAILABLE: [{

@@ -182,6 +182,46 @@ define(function () {
             return def.promise;
         }
 
+        function getSocialShareButtons() {
+            var arr = [], socialMenuList = appStore.getFromAppStore('menuList')[1].menu;
+
+            for(var index= 0, item, len=socialMenuList.length; index<len; index++){
+                item = socialMenuList[index];
+                arr.push({text: '<div class="item ' + item.className + '">' +
+                                    '<i class="icon '+item.icon+'"></i>' +
+                                    '<span>'+$filter('capitalize')(item.className)+'</span>'+
+                                '</div>'
+                });
+            }
+            return arr;
+        }
+
+        function socialShare(event, recipeObj) {
+            var $ele = $(event.currentTarget).children();
+
+            if($ele.is(".facebook")) {
+                __shareInSocialMedia($ele.parent(), "facebook", recipeObj);
+            } else if($ele.is(".google")) {
+                __shareInSocialMedia($ele.parent(), "plus", recipeObj);
+            }
+            return true;
+        }
+
+        function __shareInSocialMedia($ele, socialMedia, recipeObj) {
+            if(!$ele.hasClass("share")) {
+                $ele.addClass("share s_"+socialMedia);
+                $ele.ShareLink({
+                    title: CONFIG.APP_INFO.APP_NAME+" "+recipeObj.title,
+                    url: CONFIG.SERVICE_URL.SHARE_RECIPE_IN_SOCIAL+"/"+recipeObj._id,
+                    image: CONFIG.MEDIA_PATH+recipeObj.media,
+                    text: CONFIG.APP_INFO.APP_NAME+" "+recipeObj.title,
+                    width: 320,
+                    height: 400
+                });
+                $ele.trigger("click");
+            }
+        }
+
         function __getBase64FormatOfImg(url) {
             var img = new Image(), def = $q.defer();
             img.crossOrigin = 'Anonymous';
@@ -206,7 +246,9 @@ define(function () {
             getSavedRecipeList: getSavedRecipeList,
             recommendRecipe: recommendRecipe,
             postComment: postComment,
-            deleteComment: deleteComment
+            deleteComment: deleteComment,
+            getSocialShareButtons: getSocialShareButtons,
+            socialShare: socialShare
         };
 
     };
