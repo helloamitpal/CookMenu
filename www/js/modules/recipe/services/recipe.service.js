@@ -1,7 +1,7 @@
 define(function () {
     "use strict";
 
-    var factory = function ($http, $q, CONFIG, $ionicLoading, $filter, appStore, $ionicPopup) {
+    var factory = function ($http, $q, CONFIG, $ionicLoading, $filter, appStore, $ionicPopup, $state) {
 
         function getSavedRecipeList() {
             var list = [], def = $q.defer(), savedRecipes = appStore.getFromLocal("savedRecipes");
@@ -240,6 +240,25 @@ define(function () {
             return ($(".form-error",$form).length > 0) ? false : true;
         }
 
+        function submitRecipe(model) {
+            $http.post(CONFIG.SERVICE_URL.SUBMIT_RECIPE, model).success(function(flag){
+                if(flag) {
+                    var alertPopup = $ionicPopup.alert({
+                        title: $filter('translate')('submitRecipe.submit_recipe_success_title'),
+                        template: $filter('translate')('submitRecipe.submit_recipe_success_description')
+                    });
+                    alertPopup.then(function(){
+                        $state.go("dashboard.myRecipe");
+                    });
+                } else {
+                    appStore.storeInLocal("draftRecipe", model);
+                }
+            }).error(function(err){
+                appStore.storeInLocal("draftRecipe", model);
+                console.log("error in submitting recipe");
+            });
+        }
+
         function __shareInSocialMedia($ele, socialMedia, recipeObj) {
             if(!$ele.hasClass("share")) {
                 $ele.addClass("share s_"+socialMedia);
@@ -282,11 +301,12 @@ define(function () {
             deleteComment: deleteComment,
             getSocialShareButtons: getSocialShareButtons,
             socialShare: socialShare,
-            validateForm: validateForm
+            validateForm: validateForm,
+            submitRecipe: submitRecipe
         };
 
     };
 
-    factory.$inject = ['$http', '$q', 'CONFIG', '$ionicLoading', '$filter', 'appStore', '$ionicPopup'];
+    factory.$inject = ['$http', '$q', 'CONFIG', '$ionicLoading', '$filter', 'appStore', '$ionicPopup', '$state'];
     return factory;
 });

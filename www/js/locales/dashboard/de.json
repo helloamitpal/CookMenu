@@ -31,6 +31,8 @@
     "submitRecipe": {
         "title": "Senden Rezept",
         "error_info": "** Bitte füllen Sie die erforderlichen Felder",
+        "submit_recipe_success_title": "Rezept Hochgeladen",
+        "submit_recipe_success_description": "Danke für das Teilen! Ihr Rezept ist erfolgreich hochgeladen . Sie können in 'Meine Rezepte' Abschnitt in Ihre Rezepte suchen.",
         "recipe_name": "Rezeptname",
         "recipe_name_placeholder": "Rezeptname sagen Pizza",
         "short_note": "Kurzinformation",

@@ -31,6 +31,8 @@
     "submitRecipe": {
         "title": "Submit Your Recipe",
         "error_info": "** Please fill the required fields",
+        "submit_recipe_success_title": "Recipe Uploaded",
+        "submit_recipe_success_description": "Thanks for sharing! Your recipe is uploaded successfully. You can look into your recipes in 'My Recipes' section.",
         "recipe_name": "Recipe name",
         "recipe_name_placeholder": "Recipe name say pizza",
         "short_note": "Short note",

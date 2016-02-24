@@ -54,7 +54,8 @@ define(['angular'], function (angular) {
                     RECOMMEND_RECIPE: rootPath+"/recommendRecipe",
                     SUBMIT_COMMENT: rootPath+"/submitComment",
                     DELETE_COMMENT: rootPath+"/deleteComment",
-                    SHARE_RECIPE_IN_SOCIAL: rootPath+"/shareRecipeInSocialMedia"
+                    SHARE_RECIPE_IN_SOCIAL: rootPath+"/shareRecipeInSocialMedia",
+                    SUBMIT_RECIPE: rootPath+"/submitRecipe"
                 },
                 LOCALE: {
                     AVAILABLE: [{

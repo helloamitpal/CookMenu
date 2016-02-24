@@ -56,9 +56,9 @@ define(function () {
         };
 
         $scope.submitRecipe = function() {
-            $scope.isModified = false;
             $scope.isDirty = recipeService.validateForm($scope.model);
             if(!$scope.isDirty) {
+                $scope.isModified = false;
                 recipeService.submitRecipe($scope.modal);
             }
         };
