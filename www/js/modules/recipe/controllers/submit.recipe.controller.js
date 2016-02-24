@@ -66,8 +66,10 @@ define(function () {
         $scope.$watchCollection(function(){
             return $scope.model;
         }, function(newVal, oldVal){
-            if(newVal && oldVal && !$.isEmptyObject(newVal) && !$.isEmptyObject(oldVal) && oldVal != newVal) {
+            if(newVal && oldVal && !$.isEmptyObject(newVal) && !$.isEmptyObject(oldVal) && JSON.stringify(oldVal) != JSON.stringify(newVal)) {
                 $scope.isModified = true;
+            } else {
+                $scope.isModified = false;
             }
         });
 
