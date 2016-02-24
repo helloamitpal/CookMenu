@@ -102,12 +102,14 @@
     display: flex;
     white-space: normal;
 }
-.selected-values ul > li > .icon {
+.selected-values ul > li > i.icon {
     font-size: 2em;
     display: inline-block;
     vertical-align: middle;
     transform: rotate(15deg);
     -webkit-transform: rotate(15deg);
+    position: relative;
+    left: -5px;
 }
 .selected-values ul > li > span {
     display: inline-block;
@@ -115,6 +117,7 @@
     margin-left: 10px;
     white-space: normal;
     line-height: 2em;
+    margin-right: 20px;
 }
 .selected-values ul > li:nth-child(odd) {
     background: #dfdfdf;
@@ -170,4 +173,27 @@ textarea {
 }
 .popup-title {
     font-weight: bold;
+}
+.form-error {
+    border-left: 8px solid red !important;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.dirty-form-message {
+    color: red;
+    font-size: 1em;
+    font-style: italic;
+    padding-left: 15px;
+}
+.editor-container input {
+    border: 1px solid #dfdfdf;
+    padding: 5px;
+}
+.selected-values ul > li > a.icon.delete-text {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 1.5em;
+    position: absolute;
+    line-height: 1.5em;
+    right: 17px;
 }

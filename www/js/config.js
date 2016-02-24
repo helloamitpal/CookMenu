@@ -4,7 +4,7 @@ define(['angular'], function (angular) {
     // this is app configaration constant
 	return angular.module('app.config', [])
 		.constant('CONFIG', (function() {        
-
+            var rootPath = "http://localhost:3000";
             return {
                 APP_INFO: {
                     APP_VERSION: "0.1",
@@ -13,7 +13,7 @@ define(['angular'], function (angular) {
                     APP_DEVELOPER: "Saha & Pal Team"
                 },
                 NO_IMAGE_PATH: "resources/no_image.jpg",
-                MEDIA_PATH: "http://localhost:3000/images/",
+                MEDIA_PATH: rootPath+"/images/",
                 INIT_CATEGORY_COUNT: 5,
                 INIT_DYNAMIC_RECIPE_COUNT: 3,
                 COMMENT_MAX_CHAR_LIMIT: 250,
@@ -36,25 +36,25 @@ define(['angular'], function (angular) {
                 CURRENT_RECIPE_CATEGORY_ATTR: "currentCategory",
                 SERVICE_URL: {
                     MENU:"resources/config/menu.json",
-                    FB_AUTH: "http://localhost:3000/auth/facebook",
-                    SPECIAL_RECIPE: "http://localhost:3000/getAllSpecialRecipe",
-                    ALL_CATEGORIZED_RECIPE: "http://localhost:3000/getAllRecipeBy/random",
-                    ALL_RECIPE_BY_CATEGORY: "http://localhost:3000/getAllRecipeBy/category",
-                    ALL_RECIPE_BY_TIMING: "http://localhost:3000/getAllRecipeBy/timing",
-                    ALL_RECIPE_BY_NAME: "http://localhost:3000/getAllRecipeBy/name",
-                    ALL_RECIPE_BY_ORIGIN: "http://localhost:3000/getAllRecipeBy/origin",
-                    SET_FAVORITE_RECIPE: "http://localhost:3000/setFavoriteRecipe",
-                    REMOVE_FAVORITE_RECIPE: "http://localhost:3000/removeFavoriteRecipe",
-                    LOGOUT_USER: "http://localhost:3000/logout",
-                    ALL_SAVED_RECIPES: "http://localhost:3000/getAllSavedRecipe",
-                    ALL_ORIGIN: "http://localhost:3000/getAllOrigin",
-                    ALL_TIMING: "http://localhost:3000/getAllTiming",
-                    ALL_CATEGORY: "http://localhost:3000/getAllCategory",
-                    SET_FAVORITE_RECIPE_BULK: "http://localhost:3000/setFavoriteRecipeInBulk",
-                    RECOMMEND_RECIPE: "http://localhost:3000/recommendRecipe",
-                    SUBMIT_COMMENT: "http://localhost:3000/submitComment",
-                    DELETE_COMMENT: "http://localhost:3000/deleteComment",
-                    SHARE_RECIPE_IN_SOCIAL: "http://localhost:3000/shareRecipeInSocialMedia"
+                    FB_AUTH: rootPath+"/auth/facebook",
+                    SPECIAL_RECIPE: rootPath+"/getAllSpecialRecipe",
+                    ALL_CATEGORIZED_RECIPE: rootPath+"/getAllRecipeBy/random",
+                    ALL_RECIPE_BY_CATEGORY: rootPath+"/getAllRecipeBy/category",
+                    ALL_RECIPE_BY_TIMING: rootPath+"/getAllRecipeBy/timing",
+                    ALL_RECIPE_BY_NAME: rootPath+"/getAllRecipeBy/name",
+                    ALL_RECIPE_BY_ORIGIN: rootPath+"/getAllRecipeBy/origin",
+                    SET_FAVORITE_RECIPE: rootPath+"/setFavoriteRecipe",
+                    REMOVE_FAVORITE_RECIPE: rootPath+"/removeFavoriteRecipe",
+                    LOGOUT_USER: rootPath+"/logout",
+                    ALL_SAVED_RECIPES: rootPath+"/getAllSavedRecipe",
+                    ALL_ORIGIN: rootPath+"/getAllOrigin",
+                    ALL_TIMING: rootPath+"/getAllTiming",
+                    ALL_CATEGORY: rootPath+"/getAllCategory",
+                    SET_FAVORITE_RECIPE_BULK: rootPath+"/setFavoriteRecipeInBulk",
+                    RECOMMEND_RECIPE: rootPath+"/recommendRecipe",
+                    SUBMIT_COMMENT: rootPath+"/submitComment",
+                    DELETE_COMMENT: rootPath+"/deleteComment",
+                    SHARE_RECIPE_IN_SOCIAL: rootPath+"/shareRecipeInSocialMedia"
                 },
                 LOCALE: {
                     AVAILABLE: [{

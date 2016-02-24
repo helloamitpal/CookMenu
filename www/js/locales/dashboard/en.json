@@ -30,6 +30,7 @@
     },
     "submitRecipe": {
         "title": "Submit Your Recipe",
+        "error_info": "** Please fill the required fields",
         "recipe_name": "Recipe name",
         "recipe_name_placeholder": "Recipe name say pizza",
         "short_note": "Short note",

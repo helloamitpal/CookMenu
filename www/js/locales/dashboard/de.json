@@ -30,6 +30,7 @@
     },
     "submitRecipe": {
         "title": "Senden Rezept",
+        "error_info": "** Bitte füllen Sie die erforderlichen Felder",
         "recipe_name": "Rezeptname",
         "recipe_name_placeholder": "Rezeptname sagen Pizza",
         "short_note": "Kurzinformation",

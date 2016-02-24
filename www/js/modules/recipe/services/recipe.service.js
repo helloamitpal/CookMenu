@@ -207,6 +207,39 @@ define(function () {
             return true;
         }
 
+        function validateForm(model) {
+            var flag = true, $form = $("#formList");
+            if(model.name === "") {
+                flag = flag && false;
+                $("label.item:eq(0)", $form).addClass("form-error");
+            }
+            if(model.shortNote === "") {
+                flag = flag && false;
+                $("label.item:eq(1)", $form).addClass("form-error");
+            }
+            if(model.origin.length === 0) {
+                flag = flag && false;
+                $("label.item:eq(2)", $form).addClass("form-error");
+            }
+            if(model.timing.length === 0) {
+                flag = flag && false;
+                $("label.item:eq(3)", $form).addClass("form-error");
+            }
+            if(model.category.length === 0) {
+                flag = flag && false;
+                $("label.item:eq(4)", $form).addClass("form-error");
+            }
+            if(model.ingredients.length === 0) {
+                flag = flag && false;
+                $("label.item:eq(5)", $form).addClass("form-error");
+            }
+            if(model.fullDescription.length === 0) {
+                flag = flag && false;
+                $("label.item:eq(6)", $form).addClass("form-error");
+            }
+            return ($(".form-error",$form).length > 0) ? false : true;
+        }
+
         function __shareInSocialMedia($ele, socialMedia, recipeObj) {
             if(!$ele.hasClass("share")) {
                 $ele.addClass("share s_"+socialMedia);
@@ -248,7 +281,8 @@ define(function () {
             postComment: postComment,
             deleteComment: deleteComment,
             getSocialShareButtons: getSocialShareButtons,
-            socialShare: socialShare
+            socialShare: socialShare,
+            validateForm: validateForm
         };
 
     };

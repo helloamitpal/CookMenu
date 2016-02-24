@@ -1,13 +1,22 @@
 define(function () {
     'use strict';
 
-    function SubmitRecipeController($scope, CONFIG, appStore, $ionicPopup, $state, $rootScope, $filter) {
+    function SubmitRecipeController($scope, CONFIG, appStore, $ionicPopup, $state, $rootScope, $filter, recipeService) {
         $scope.originUrl = CONFIG.SERVICE_URL.ALL_ORIGIN;
         $scope.categoryUrl = CONFIG.SERVICE_URL.ALL_CATEGORY;
         $scope.timingUrl = CONFIG.SERVICE_URL.ALL_TIMING;
+        $scope.isDirty = false;
         var modelObj = appStore.getFromLocal("draftRecipe");
 
-        $scope.model = ((modelObj) ? modelObj : {});
+        $scope.model = ((modelObj) ? modelObj : {
+            name: "",
+            shortNote: "",
+            origin: [],
+            timing: [],
+            category: [],
+            ingredients: [],
+            fullDescription: []
+        });
         $scope.isModified = false;
 
         $scope.submit = function(attr, data) {
@@ -39,6 +48,10 @@ define(function () {
 
         $scope.submitRecipe = function() {
             $scope.isModified = false;
+            $scope.isDirty = recipeService.validateForm($scope.model);
+            if(!$scope.isDirty) {
+                //recipeService.submitRecipe($scope.modal);
+            }
         };
 
         $scope.$watchCollection(function(){
@@ -60,9 +73,19 @@ define(function () {
                 return;
             }
         });
+
+        $scope.$watch(function(){
+            return $("#formList .form-error").length;
+        }, function(newVal, oldVal){
+            if(newVal && newVal > 0) {
+                $scope.isDirty = true;
+            } else {
+                $scope.isDirty = false;
+            }
+        });
     }
 
-    SubmitRecipeController.$inject = ['$scope', 'CONFIG', 'appStore', '$ionicPopup', '$state', '$rootScope', '$filter'];
+    SubmitRecipeController.$inject = ['$scope', 'CONFIG', 'appStore', '$ionicPopup', '$state', '$rootScope', '$filter', 'recipeService'];
     return SubmitRecipeController;
 
 });

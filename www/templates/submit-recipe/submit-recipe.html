@@ -5,16 +5,17 @@
         </ion-nav-buttons>
         <div class="submit-recipe-container">
             <form>
-                <div class="list">
-                    <label class="item item-input item-stacked-label">
+                <div ng-if="isDirty" class="dirty-form-message">{{'submitRecipe.error_info' | translate}}</div>
+                <div class="list" id="formList">
+                    <label ng-class="{'form-error': isDirty && model.name === ''}" class="item item-input item-stacked-label">
                         <span class="input-label">{{'submitRecipe.recipe_name' | translate}}</span>
                         <input ng-model="model.name" type="text" autocomplete="off" placeholder="{{'submitRecipe.recipe_name_placeholder' | translate}}">
                     </label>
-                    <label class="item item-input item-stacked-label">
+                    <label ng-class="{'form-error': isDirty && model.shortNote === ''}" class="item item-input item-stacked-label">
                         <span class="input-label">{{'submitRecipe.short_note' | translate}}</span>
                         <input ng-model="model.shortNote" type="text" autocomplete="off" placeholder="{{'submitRecipe.short_note_placeholder' | translate}}" maxlength="250">
                     </label>
-                    <label class="item item-input item-stacked-label">
+                    <label ng-class="{'form-error': isDirty && model.origin.length === 0}" class="item item-input item-stacked-label">
                         <span class="input-label">{{'submitRecipe.origin' | translate}}</span>
                         <selection url="originUrl"
                                    max-selection="1"
@@ -25,7 +26,7 @@
                                    placeholder="{{'submitRecipe.origin_placeholder' | translate}}">
                         </selection>
                     </label>
-                    <label class="item item-input item-stacked-label">
+                    <label ng-class="{'form-error': isDirty && model.timing.length === 0}" class="item item-input item-stacked-label">
                         <span class="input-label">{{'submitRecipe.timing' | translate}}</span>
                         <selection url="timingUrl"
                                    max-selection="1"
@@ -36,7 +37,7 @@
                                    placeholder="{{'submitRecipe.timing_placeholder' | translate}}">
                         </selection>
                     </label>
-                    <label class="item item-input item-stacked-label">
+                    <label ng-class="{'form-error': isDirty && model.category.length === 0}" class="item item-input item-stacked-label">
                         <span class="input-label">{{'submitRecipe.tag' | translate}}</span>
                         <selection url="categoryUrl"
                                    max-selection="3"
@@ -47,7 +48,7 @@
                                    placeholder="{{'submitRecipe.tag_placeholder' | translate}}">
                         </selection>
                     </label>
-                    <label class="item item-input item-stacked-label">
+                    <label ng-class="{'form-error': isDirty && model.ingredients.length === 0}" class="item item-input item-stacked-label">
                         <span class="input-label">{{'submitRecipe.ingredients' | translate}}</span>
                         <editor modal-header="{{'submitRecipe.ingredients_modal_header' | translate}}"
                                 maxlength="100"
@@ -58,7 +59,7 @@
                                 icon="ion-spoon"
                                 placeholder="{{'submitRecipe.ingredients_placeholder' | translate}}"></editor>
                     </label>
-                    <label class="item item-input item-stacked-label">
+                    <label ng-class="{'form-error': isDirty && model.fullDescription.length === 0}" class="item item-input item-stacked-label">
                         <span class="input-label">{{'submitRecipe.steps' | translate}}</span>
                         <editor modal-header="{{'submitRecipe.steps_modal_header' | translate}}"
                                 maxlength="250"
@@ -75,7 +76,7 @@
                 </div>
                 <div class="button-container">
                     <button ng-click="makeDraft()" class="button button-block button-positive">{{'submitRecipe.draft' | translate}}</button>
-                    <button ng-click="submitRecipe()" class="button button-block button-positive">{{'submitRecipe.submit' | translate}}</button>
+                    <button ng-click="submitRecipe()" ng-disabled="isDirty" class="button button-block button-positive">{{'submitRecipe.submit' | translate}}</button>
                 </div>
             </form>
         </div>

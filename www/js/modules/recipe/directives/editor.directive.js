@@ -42,6 +42,15 @@ define(function () {
                         $scope.modal = modal;
                     });
 
+                    $scope.deleteText = function(evt) {
+                        evt.preventDefault();
+                        evt.stopImmediatePropagation();
+
+                        var $ele = $(evt.currentTarget).parent(), eleIndex = $ele.index();
+                        $ele.remove();
+                        $scope.selected.splice(eleIndex, 1);
+                    }
+
                     var tapGesture = $ionicGesture.on('tap', __handleTap, element);
 
                     $scope.$on('$destroy', function () {
@@ -53,8 +62,7 @@ define(function () {
                     }, function(newVal, oldVal){
                         if(newVal && oldVal != newVal) {
                             $scope.selected = [];
-                            element.find(".selected-values").empty();
-                            element.find(".icon").removeClass("ion-edit").addClass("ion-plus-circled");
+                            __setEmptySelection();
                         }
                     });
 
@@ -75,9 +83,16 @@ define(function () {
                         $scope.modal.hide();
                         if($scope.selected.length > 0) {
                             __loadList();
+                        } else {
+                            __setEmptySelection();
                         }
                         $scope.submitData()($scope.attrName, $scope.selected);
                     };
+
+                    function __setEmptySelection() {
+                        element.find(".selected-values").empty();
+                        element.find(".icon").removeClass("ion-edit").addClass("ion-plus-circled");
+                    }
 
                     function __handleTap() {
                         $scope.modal.show();

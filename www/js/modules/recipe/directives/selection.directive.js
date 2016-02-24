@@ -44,8 +44,7 @@ define(function () {
                     }, function(newVal, oldVal){
                         if(newVal && oldVal != newVal) {
                             $scope.selected = [];
-                            element.find(".selected-values").empty();
-                            element.find(".icon").removeClass("ion-edit").addClass("ion-plus-circled");
+                            __setEmptySelection();
                         }
                     });
 
@@ -62,6 +61,8 @@ define(function () {
                         $scope.modal.hide();
                         if($scope.selected.length > 0) {
                             __setSelectedValues();
+                        } else {
+                            __setEmptySelection();
                         }
                         $scope.submitData()($scope.attrName, $scope.selected);
                     };
@@ -100,6 +101,11 @@ define(function () {
                                 }
                             });
                         }
+                    }
+
+                    function __setEmptySelection() {
+                        element.find(".selected-values").empty();
+                        element.find(".icon").removeClass("ion-edit").addClass("ion-plus-circled");
                     }
 
                     function __setSelectedValues() {

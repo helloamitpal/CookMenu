@@ -12,6 +12,7 @@
                     <li ng-repeat="item in selected">
                         <i ng-if="icon" class="icon {{icon}}"></i>
                         <span>{{item}}</span>
+                        <a href="javascript:;" class="icon ion-close delete-text assertive" ng-click="deleteText($event)"></a>
                     </li>
                 </ul>
             </div>
