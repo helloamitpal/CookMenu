@@ -56,10 +56,21 @@ define(function () {
         };
 
         $scope.submitRecipe = function() {
-            $scope.isDirty = recipeService.validateForm($scope.model);
-            if(!$scope.isDirty) {
-                $scope.isModified = false;
-                recipeService.submitRecipe($scope.modal);
+            var savedUser = appStore.getFromLocal("userLoggedInStatus");
+            if(savedUser) {
+                $scope.isDirty = recipeService.validateForm($scope.model);
+                if(!$scope.isDirty) {
+                    $scope.isModified = false;
+                    recipeService.submitRecipe($scope.modal, {
+                        name: savedUser.name,
+                        id: savedUser.userID
+                    });
+                }
+            } else {
+                $ionicPopup.alert({
+                    title: $filter('translate')('submitRecipe.login_required'),
+                    template: $filter('translate')('submitRecipe.login_required_description')
+                });
             }
         };
 

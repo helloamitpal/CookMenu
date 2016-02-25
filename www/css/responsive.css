@@ -9,13 +9,16 @@
     }
 }
 @media (min-width : 768px) {
-    .saved-recipe-container {
+    .saved-recipe-container,
+    .my-recipe-container {
         display: flex;
     }
-    .saved-recipe-container .item {
+    .saved-recipe-container .item,
+    .my-recipe-container .item{
         width: 50%;
     }
-    .saved-recipe-container .item:only-child {
+    .saved-recipe-container .item:only-child,
+    .my-recipe-container .item:only-child{
         width: 100%;
     }
     .nav-bar > .buttons.left-buttons,

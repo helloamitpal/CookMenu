@@ -240,15 +240,19 @@ define(function () {
             return ($(".form-error",$form).length > 0) ? false : true;
         }
 
-        function submitRecipe(model) {
-            $http.post(CONFIG.SERVICE_URL.SUBMIT_RECIPE, model).success(function(flag){
-                if(flag) {
+        function submitRecipe(model, cook) {
+            model.cook = {
+                id: cook.id,
+                name: cook.name
+            };
+            $http.post(CONFIG.SERVICE_URL.SUBMIT_RECIPE, model).success(function(result){
+                if(result._id) {
                     var alertPopup = $ionicPopup.alert({
                         title: $filter('translate')('submitRecipe.submit_recipe_success_title'),
                         template: $filter('translate')('submitRecipe.submit_recipe_success_description')
                     });
                     alertPopup.then(function(){
-                        $state.go("dashboard.myRecipe");
+                        $state.go("home.myRecipe");
                     });
                 } else {
                     appStore.storeInLocal("draftRecipe", model);
@@ -257,6 +261,19 @@ define(function () {
                 appStore.storeInLocal("draftRecipe", model);
                 console.log("error in submitting recipe");
             });
+        }
+
+        function getAllMyRecipes(userId) {
+            var def = $q.defer();
+
+            $http.get(CONFIG.SERVICE_URL.GET_ALL_MY_RECIPE+"/"+userId).success(function(result){
+                def.resolve(result || []);
+            }).error(function(){
+                console.log("error in fetching all my recipes");
+                def.resolve([]);
+            });
+
+            return def.promise;
         }
 
         function __shareInSocialMedia($ele, socialMedia, recipeObj) {
@@ -302,7 +319,8 @@ define(function () {
             getSocialShareButtons: getSocialShareButtons,
             socialShare: socialShare,
             validateForm: validateForm,
-            submitRecipe: submitRecipe
+            submitRecipe: submitRecipe,
+            getAllMyRecipes: getAllMyRecipes
         };
 
     };

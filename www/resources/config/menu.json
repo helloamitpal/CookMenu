@@ -28,7 +28,7 @@
 },{
 	"menuDesc": "MY_RECIPE",
     "icon": "ion-trophy",
-    "view": ""
+    "view": "home.myRecipe"
 },{
     "menuDesc": "ABOUT_US",
     "icon": "ion-quote",

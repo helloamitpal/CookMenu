@@ -1,7 +1,9 @@
 <ion-view title="{{'favorites.title' | translate}}">
     <ion-content>
         <div class="saved-recipe-container">
+
             <div class="no-saved-recipe" ng-if="savedRecipeList.length === 0">{{'favorites.NO_FAVORITES' | translate}}</div>
+
             <a ng-href="#/home/fullRecipe" ng-repeat="recipe in savedRecipeList track by $index" ng-click="navigateToFullRecipe(recipe)" class="item item-thumbnail-left item-container" id="{{recipe._id}}">
                 <img class="item-image-section" fallback-image ng-src="{{imagePath+recipe.media}}" />
                 <h2 class="item-title-section">{{recipe.title}}</h2>

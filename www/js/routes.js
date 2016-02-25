@@ -59,6 +59,15 @@ define(['app'], function (app) {
                 }
             }
         })
+        .state('home.myRecipe', {
+            url: "/myRecipe",
+            views: {
+                'appContent': {
+                    templateUrl: "templates/my-recipe/my-recipe.html",
+                    controller: 'myRecipeController'
+                }
+            }
+        })
         .state('home.submitRecipe', {
             url: "/submitRecipe",
             views: {

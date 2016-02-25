@@ -29,6 +29,8 @@
         "remove_confirm_description": "It will no longer available for offline use. Do you want to remove?"
     },
     "submitRecipe": {
+        "login_required": "Login Required",
+        "login_required_description": "Please login using social media before uploading your recipe.",
         "title": "Submit Your Recipe",
         "error_info": "** Please fill the required fields",
         "submit_recipe_success_title": "Recipe Uploaded",
@@ -87,5 +89,9 @@
     },
     "toaster": {
         "error_info": "There was a problem in connection. Please try again later."
+    },
+    "myRecipe": {
+        "title": "My Recipes",
+        "NO_RECIPE": "Either you are not logged in or you have not uploaded any recipe as of now. Please upload your best recipe and share with others."
     }
 }

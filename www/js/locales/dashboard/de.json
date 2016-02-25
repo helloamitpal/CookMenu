@@ -29,6 +29,8 @@
         "remove_confirm_description": "Es wird nicht mehr für die Offline-Nutzung . Wollen Sie zu entfernen?"
     },
     "submitRecipe": {
+        "login_required": "Anmeldung Erforderlich",
+        "login_required_description": "Bitte melden Sie Social Media , bevor Ihr Rezept hochladen.",
         "title": "Senden Rezept",
         "error_info": "** Bitte füllen Sie die erforderlichen Felder",
         "submit_recipe_success_title": "Rezept Hochgeladen",
@@ -87,5 +89,9 @@
     },
     "toaster": {
         "error_info": "Es gab ein Problem in Verbindung . Bitte versuchen Sie es später erneut."
+    },
+    "myRecipe": {
+        "title": "Meine Rezepte",
+        "NO_RECIPE": "Entweder Sie sind nicht angemeldet oder Sie haben keine Rezept ab sofort hochgeladen . Bitte laden Sie Ihre beste Rezept und mit anderen teilen."
     }
 }

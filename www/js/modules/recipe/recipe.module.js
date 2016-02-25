@@ -11,7 +11,10 @@ define(function (require) {
     recipeModule.controller('categoryController', require('modules/recipe/controllers/category.controller'));
     recipeModule.controller('savedRecipeController', require('modules/recipe/controllers/favorite.recipe.controller'));
     recipeModule.controller('submitRecipeController', require('modules/recipe/controllers/submit.recipe.controller'));
+    recipeModule.controller('myRecipeController', require('modules/recipe/controllers/my.recipe.controller'));
+
     recipeModule.factory('recipeService', require('modules/recipe/services/recipe.service'));
+
     recipeModule.directive('selection', require('modules/recipe/directives/selection.directive'));
     recipeModule.directive('editor', require('modules/recipe/directives/editor.directive'));
     recipeModule.directive('commentBox', require('modules/recipe/directives/commentbox.directive'));
