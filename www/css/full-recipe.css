@@ -98,6 +98,9 @@
     width: 50%;
     float: left;
 }
+.dynamic-category-recipe-section.full-category-container .card > .item:only-child {
+    width: 100% !important;
+}
 .comment .comment-cook-name {
     font-size: 1.4em;
     margin-bottom: 0;

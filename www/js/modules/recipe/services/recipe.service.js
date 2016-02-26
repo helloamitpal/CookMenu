@@ -237,10 +237,12 @@ define(function () {
                 flag = flag && false;
                 $("label.item:eq(6)", $form).addClass("form-error");
             }
-            return ($(".form-error",$form).length > 0) ? false : true;
+            return ($(".form-error",$form).length > 0) ? true : false;
         }
 
-        function submitRecipe(model, cook) {
+        function submitRecipe(modelObj, cook) {
+            var model = {};
+            $.extend(true, model, modelObj);
             model.cook = {
                 id: cook.id,
                 name: cook.name

@@ -114,7 +114,7 @@
     transform: rotate(15deg);
     -webkit-transform: rotate(15deg);
     position: relative;
-    left: -5px;
+    left: 0;
 }
 .selected-values ul > li > span {
     display: inline-block;

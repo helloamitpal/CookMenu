@@ -61,7 +61,7 @@ define(function () {
                 $scope.isDirty = recipeService.validateForm($scope.model);
                 if(!$scope.isDirty) {
                     $scope.isModified = false;
-                    recipeService.submitRecipe($scope.modal, {
+                    recipeService.submitRecipe($scope.model, {
                         name: savedUser.name,
                         id: savedUser.userID
                     });
