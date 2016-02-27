@@ -9,11 +9,11 @@
                 <div class="list" id="formList">
                     <label ng-class="{'form-error': isDirty && model.name === ''}" class="item item-input item-stacked-label">
                         <span class="input-label">{{'submitRecipe.recipe_name' | translate}}</span>
-                        <input ng-model="model.name" type="text" autocomplete="off" placeholder="{{'submitRecipe.recipe_name_placeholder' | translate}}">
+                        <input input-validator ng-model="model.name" type="text" autocomplete="off" placeholder="{{'submitRecipe.recipe_name_placeholder' | translate}}">
                     </label>
                     <label ng-class="{'form-error': isDirty && model.shortNote === ''}" class="item item-input item-stacked-label">
                         <span class="input-label">{{'submitRecipe.short_note' | translate}}</span>
-                        <input ng-model="model.shortNote" type="text" autocomplete="off" placeholder="{{'submitRecipe.short_note_placeholder' | translate}}" maxlength="250">
+                        <input input-validator ng-model="model.shortNote" type="text" autocomplete="off" placeholder="{{'submitRecipe.short_note_placeholder' | translate}}" maxlength="250">
                     </label>
                     <label ng-class="{'form-error': isDirty && model.origin.length === 0}" class="item item-input item-stacked-label">
                         <span class="input-label">{{'submitRecipe.origin' | translate}}</span>

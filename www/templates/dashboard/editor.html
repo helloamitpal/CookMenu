@@ -4,8 +4,8 @@
     </ion-header-bar>
     <ion-content>
         <div class="editor-container">
-            <input id="input" ng-keyup="addText($event)" type="text" ng-if="+maxlength <= 100" placeholder="{{('submitRecipe.max_char_limit' | translate) + maxlength}}" maxlength="{{maxlength}}">
-            <textarea id="multiLineInput" ng-if="+maxlength > 100" placeholder="{{('submitRecipe.max_char_limit' | translate) + maxlength}}" maxlength="{{maxlength}}"></textarea>
+            <input ng-model="editorInput" input-validator id="input" ng-keyup="addText($event)" type="text" ng-if="+maxlength <= 100" placeholder="{{('submitRecipe.max_char_limit' | translate) + maxlength}}" maxlength="{{maxlength}}">
+            <textarea ng-model="editorTextArea" input-validator id="multiLineInput" ng-if="+maxlength > 100" placeholder="{{('submitRecipe.max_char_limit' | translate) + maxlength}}" maxlength="{{maxlength}}"></textarea>
             <button class="button button-small button-positive add-button" ng-click="addText(); multiInput = null; singleInput = null;">{{'submitRecipe.add' | translate}}</button>
             <div class="selected-values">
                 <ul>
