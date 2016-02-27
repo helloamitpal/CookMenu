@@ -1,0 +1,100 @@
+{
+    "search": {
+        "SEARCH_HEADER": "Filtrer par",
+        "NAME_FILTER": "Prénom",
+        "TIMING_FILTER": "Timing",
+        "CATEGORY_FILTER": "Catégorie",
+        "ORIGIN_FILTER": "Origine",
+        "SEARCH_BTN": "Chercher"
+    },
+    "dashboard": {
+        "DASHBOARD_HEADER": "Essayez quelque chose de nouveau aujourd'hui",
+        "TITLE": "Le choix d'aujourd'hui",
+        "BREAKFAST": "Déjeuner",
+        "DINNER": "Dîner",
+        "LUNCH": "Le déjeuner",
+        "DIET": "Régime",
+        "MORE": "Plus",
+        "RECIPE": "recettes",
+        "PULL_TO_REFRESH": "Tirer pour rafraîchir",
+        "OFFLINE_MSG": "Tu es hors ligne. Vous voulez découvrir des recettes enregistrées ?",
+        "CLICK_TO_VISIT_FAVORITES": "Cliquez ici"
+    },
+    "favorites": {
+        "title": "Favoris",
+        "remove": "Retirer",
+        "remove_confirm_title": "Retirer des favoris?",
+        "cancel": "Annuler",
+        "NO_FAVORITES": "Aucune recette sont enregistrées . Explorez les recettes et les marquer comme favoris pour une utilisation hors ligne.",
+        "remove_confirm_description": "Il ne sera plus disponible pour une utilisation hors ligne. Voulez-vous retirer ?"
+    },
+    "submitRecipe": {
+        "login_required": "Pseudo requis",
+        "login_required_description": "S'il vous plaît vous connecter en utilisant les médias sociaux avant de télécharger votre recette .",
+        "title": "Soumettre Recette",
+        "edit_title": "Modifier la recette",
+        "error_info": "** S'il vous plaît remplir les champs obligatoires",
+        "submit_recipe_success_title": "Recette Téléchargé",
+        "submit_recipe_success_description": "Merci d'avoir partagé! Votre recette est téléchargé avec succès . Vous pouvez regarder dans vos recettes dans la section 'Mes recettes' .",
+        "recipe_name": "Nom de la recette",
+        "recipe_name_placeholder": "Nom de la recette dire la pizza",
+        "short_note": "Note courte",
+        "short_note_placeholder": "Courte note à propos de la recette",
+        "origin": "Origine",
+        "origin_placeholder": "Origine de la recette",
+        "timing": "Quand manger",
+        "timing_placeholder": "Par exemple. déjeuner article",
+        "tag": "Ajouter une étiquette #",
+        "tag_placeholder": "Ajouter au moins un tag",
+        "ingredients": "Ingrédients",
+        "ingredients_placeholder": "Ajouter tous les ingrédients",
+        "steps": "Comment préparer",
+        "steps_placeholder": "Ecrire étape par étape",
+        "upload_image": "Téléchargez l'image de recette",
+        "submit": "Soumettre",
+        "origin_modalheader": "Sélectionnez origine",
+        "max_selection": "Maximum",
+        "done":"Terminé",
+        "timing_modalheader": "Sélectionnez Timing",
+        "tag_modalheader": "Choisir une catégorie",
+        "ingredients_modal_header": "Ajouter les ingrédients",
+        "steps_modal_header": "Ajouter Étapes de préparation",
+        "max_char_limit": "limite de caractères maximum ",
+        "add": "Ajouter",
+        "draft": "Brouillon",
+        "reset": "Réinitialiser",
+        "draft_saved_title": "Projet Saved",
+        "draft_saved_description": "Votre travail en cours recette est enregistré en tant que projet avec succès . Vous pouvez compléter et télécharger plus tard.",
+        "reset_description": "Votre projet de travail sera effacé et plus disponible pour une édition ultérieure . Voulez-vous poursuivre?"
+    },
+    "menu": {
+        "NO_MENU": "Offline Désolé",
+        "CONNECT_ME": "Me connecter",
+        "FAVORITES": "Favoris",
+        "CUISINE": "Cuisine",
+        "MY_RECIPE": "CuiMy recipessine",
+        "ABOUT_US": "À propos de nous",
+        "SUBMIT_RECIPE": "Soumettre Recette",
+        "GOOGLE_LOGIN": "Google Connexion",
+        "FACEBOOK_LOGIN": "Facebook Connexion",
+        "FACEBOOK_LOGOUT": "Couper",
+        "GUEST": "Client",
+        "HOME": "Accueil"
+    },
+    "about":{
+        "title":"À propos de nous",
+        "name": "Prénom",
+        "version": "Version",
+        "developer": "Développeur",
+        "contact": "Contact",
+        "about_us_tagline": "Manger savoureux et partager le goût .",
+        "about_us_note": "nous comme dans les sites de réseautage social , partager des recettes avec des amis et des parents . Donnez une certaine excitation à vos papilles avec nos recettes exclusives . Si vous êtes un chef alors s'il vous plaît télécharger vos recettes spéciales et partager avec d'autres."
+    },
+    "toaster": {
+        "error_info": "Il y avait un problème dans le cadre . Veuillez réessayer plus tard."
+    },
+    "myRecipe": {
+        "title": "Mes Recettes",
+        "NO_RECIPE": "Soit vous n'êtes pas connecté ou vous avez pas téléchargé de recette à partir de maintenant . S'il vous plaît télécharger votre meilleure recette et partager avec d'autres."
+    }
+}

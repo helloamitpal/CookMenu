@@ -1,0 +1,22 @@
+{
+    "recipe": {
+        "header": "Recette complète",
+        "ingredient-title": "Ingrédients",
+        "ingredient-process": "Processus",
+        "comment-title": "Laisser un commentaire",
+        "recipe-comment-submit": "Soumettre",
+        "all-comment-title": "commentaires",
+        "no_recipe_available": "Aucune recette disponible",
+        "author": "Auteur",
+        "recommend_confirm_title": "Recommander Recette",
+        "comment_box_placeholder": "limite de caractères maximum: ",
+        "login_require_title": "Pseudo requis",
+        "no_comment": "Aucun commentaire n'a été que maintenant",
+        "action_sheet_title": "Partager la recette",
+        "action_sheet_cancel": "Annuler",
+        "remove_comment_confirm_title": "Supprimer le commentaire",
+        "remove_comment_confirm_description": "Voulez-vous supprimer votre commentaire ?",
+        "login_require_description": "Vous devez vous identifier pour poster un commentaire . S'il vous plait Connectez-vous d'abord.",
+        "recommend_confirm_description": "Avez-vous essayé cette recette et vous aimé ? Voulez-vous le recommander pour d'autres?"
+    }
+}

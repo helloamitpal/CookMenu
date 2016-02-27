@@ -1,0 +1,22 @@
+{
+    "recipe": {
+        "header": "Receta completa",
+        "ingredient-title": "Ingredientes",
+        "ingredient-process": "Proceso",
+        "comment-title": "Deje un comentario",
+        "recipe-comment-submit": "Enviar",
+        "all-comment-title": "Comentarios",
+        "no_recipe_available": "Sin receta disponibles",
+        "author": "Autor",
+        "recommend_confirm_title": "Recomendar Receta",
+        "comment_box_placeholder": "límite máximo de caracteres: ",
+        "login_require_title": "Necesario iniciar sesión",
+        "no_comment": "No hay comentarios a partir de ahora",
+        "action_sheet_title": "Compartir Receta",
+        "action_sheet_cancel": "Cancelar",
+        "remove_comment_confirm_title": "Eliminar comentario",
+        "remove_comment_confirm_description": "¿Quieres eliminar tu comentario ?",
+        "login_require_description": "Tienes que iniciar sesión para enviar su comentario . Por favor ingresa primero.",
+        "recommend_confirm_description": "¿Has probado esta receta y que te haya gustado ? ¿Quieres recomendaría a otros?"
+    }
+}

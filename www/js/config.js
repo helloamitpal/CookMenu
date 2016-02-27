@@ -65,6 +65,12 @@ define(['angular'], function (angular) {
                     },{
                         key: "de",
                         lang: "Deutsche"
+                    },{
+                        key: "fr",
+                        lang: "Français"
+                    },{
+                        key: "es",
+                        lang: "Español"
                     }],
                     SELECTED: {}
                 },

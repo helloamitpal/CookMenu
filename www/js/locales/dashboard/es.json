@@ -1,0 +1,100 @@
+{
+    "search": {
+        "SEARCH_HEADER": "Filtrado por",
+        "NAME_FILTER": "Nombre",
+        "TIMING_FILTER": "Sincronización",
+        "CATEGORY_FILTER": "Categoría",
+        "ORIGIN_FILTER": "Origen",
+        "SEARCH_BTN": "Buscar"
+    },
+    "dashboard": {
+        "DASHBOARD_HEADER": "Intente algo nuevo hoy",
+        "TITLE": "Selección de hoy",
+        "BREAKFAST": "Desayuno",
+        "DINNER": "Cena",
+        "LUNCH": "Almuerzo",
+        "DIET": "Dieta",
+        "MORE": "Más",
+        "RECIPE": "recetas",
+        "PULL_TO_REFRESH": "Tire para refrescar",
+        "OFFLINE_MSG": "Estas desconectado. ¿Quieres explorar recetas guardadas ?",
+        "CLICK_TO_VISIT_FAVORITES": "Haga clic aquí"
+    },
+    "favorites": {
+        "title": "Favoritos",
+        "remove": "Retirar",
+        "remove_confirm_title": "¿Remover de favoritos?",
+        "cancel": "Cancelar",
+        "NO_FAVORITES": "No hay recetas se guardan . Explora recetas y marcarlos como favoritos para su uso sin conexión .",
+        "remove_confirm_description": "Que ya no está disponible para su uso sin conexión . ¿Quieres eliminar ?"
+    },
+    "submitRecipe": {
+        "login_required": "Necesario iniciar sesión",
+        "login_required_description": "Entra en la cuenta utilizando los medios de comunicación social antes de subir su receta .",
+        "title": "Presentar Receta",
+        "edit_title": "Editar receta",
+        "error_info": "** Por favor, rellene los campos obligatorios",
+        "submit_recipe_success_title": "Receta Subida",
+        "submit_recipe_success_description": "¡Gracias por compartir! Su receta se ha cargado correctamente . Usted puede mirar en sus recetas en la sección Mis recetas .",
+        "recipe_name": "Nombre de la receta",
+        "recipe_name_placeholder": "Nombre de la receta de pizza dicen",
+        "short_note": "Nota corta",
+        "short_note_placeholder": "Breve nota sobre la receta",
+        "origin": "Origen",
+        "origin_placeholder": "Origen de la receta",
+        "timing": "Cuando comer",
+        "timing_placeholder": "Por ejemplo. elemento almuerzo",
+        "tag": "Añadir etiqueta #",
+        "tag_placeholder": "Añadir al menos una etiqueta",
+        "ingredients": "Ingredientes",
+        "ingredients_placeholder": "Añadir todos los ingredientes",
+        "steps": "¿Cómo se prepara",
+        "steps_placeholder": "Escribe paso a paso",
+        "upload_image": "Sube imagen Receta",
+        "submit": "Enviar",
+        "origin_modalheader": "Seleccionar origen",
+        "max_selection": "Máximo",
+        "done":"Hecho",
+        "timing_modalheader": "Seleccione Timing",
+        "tag_modalheader": "Selecciona una categoría",
+        "ingredients_modal_header": "Añadir los ingredientes",
+        "steps_modal_header": "Añadir Pasos de la preparación",
+        "max_char_limit": "límite máximo de caracteres ",
+        "add": "Añadir",
+        "draft": "Borrador",
+        "reset": "Reiniciar",
+        "draft_saved_title": "Proyecto de Guardado",
+        "draft_saved_description": "Su trabajo en la receta progreso se guarda como proyecto de éxito . Puede completar y cargar más tarde.",
+        "reset_description": "Su proyecto de trabajo se borrará y ya no está disponible para su posterior edición . Quieres proceder?"
+    },
+    "menu": {
+        "NO_MENU": "Lo sentimos desconectado",
+        "CONNECT_ME": "Conectame",
+        "FAVORITES": "Favoritos",
+        "CUISINE": "Cocina",
+        "MY_RECIPE": "Mis recetas",
+        "ABOUT_US": "Sobre nosotros",
+        "SUBMIT_RECIPE": "Presentar Receta",
+        "GOOGLE_LOGIN": "Google Login",
+        "FACEBOOK_LOGIN": "Facebook Login",
+        "FACEBOOK_LOGOUT": "Desconectar",
+        "GUEST": "Huésped",
+        "HOME": "Hogar"
+    },
+    "about":{
+        "title":"Sobre nosotros",
+        "name": "Nombre",
+        "version": "Versión",
+        "developer": "Desarrollador",
+        "contact": "Contacto",
+        "about_us_tagline": "Comer sabroso y compartir el sabor.",
+        "about_us_note": "Nos gustaría en sitios de redes sociales , compartir recetas con amigos y familiares . Dar un poco de emoción a su paladar con nuestras recetas exclusivas . Si usted es un chef y luego vuelve a subir tus recetas especiales y compartir con otros ."
+    },
+    "toaster": {
+        "error_info": "Hubo un problema en la conexión. Por favor, inténtelo de nuevo más tarde."
+    },
+    "myRecipe": {
+        "title": "Mis recetas",
+        "NO_RECIPE": "Puede que no esté conectado o no ha subido ninguna receta a partir de ahora . Por favor cargue su mejor receta y compartir con otros ."
+    }
+}
