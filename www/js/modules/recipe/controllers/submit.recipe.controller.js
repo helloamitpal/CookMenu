@@ -13,14 +13,22 @@ define(function () {
             timing: [],
             category: [],
             ingredients: [],
-            fullDescription: []
+            fullDescription: [],
+            selectedValues: {
+                origin: [],
+                timing: [],
+                category: []
+            }
         });
         $scope.isModified = false;
 
         var modelObj = appStore.getFromLocal("draftRecipe");
 
-        $scope.submit = function(attr, data) {
+        $scope.submit = function(attr, data, selectedValues) {
             $scope.model[attr] = data;
+            if($scope.model.selectedValues.hasOwnProperty(attr)) {
+                $scope.model.selectedValues[attr] = selectedValues;
+            }
         };
 
         $scope.resetPage = function(locationObj) {
@@ -39,7 +47,12 @@ define(function () {
                         timing: [],
                         category: [],
                         ingredients: [],
-                        fullDescription: []
+                        fullDescription: [],
+                        selectedValues: {
+                            origin: [],
+                            timing: [],
+                            category: []
+                        }
                     };
                     $scope.isModified = false;
                     $scope.isDirty = false;

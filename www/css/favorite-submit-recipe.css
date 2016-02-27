@@ -22,9 +22,11 @@
     max-width: 85px;
     max-height: 85px;
 }
-.my-recipe-container .item .full-desc,
 .saved-recipe-container .item .full-desc {
-    margin-top: 7px;
+    margin-top: 4px;
+}
+.my-recipe-container .item .full-desc {
+    margin-top: 0;
 }
 .multi-line-ellipsis {
     overflow: hidden;
@@ -42,7 +44,8 @@
     background: #fff;
     padding-left: 4px;
 }
-.item.activated .multi-line-ellipsis:before {
+.activated .multi-line-ellipsis:after,
+.activated .multi-line-ellipsis:before {
     background: #d9d9d9;
 }
 .multi-line-ellipsis:after {
@@ -201,4 +204,20 @@ textarea {
     position: absolute;
     line-height: 1.5em;
     right: 17px;
+}
+.my-recipe-container .button-section {
+    background: url("../resources/back.png");
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 70px;
+    z-index: 9;
+    text-align: center;
+}
+.my-recipe-container .button-section > .icon {
+    font-size: 2em;
+    color: #fff;
+    display: block;
+    margin: 11px auto;
 }

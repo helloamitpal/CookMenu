@@ -58,13 +58,15 @@ define(function () {
                     var tapGesture = $ionicGesture.on('tap', __handleTap, element);
 
                     $scope.submit = function() {
+                        var selectedValues = [];
+
                         $scope.modal.hide();
                         if($scope.selected.length > 0) {
-                            __setSelectedValues();
+                            selectedValues = __setSelectedValues();
                         } else {
                             __setEmptySelection();
                         }
-                        $scope.submitData()($scope.attrName, $scope.selected);
+                        $scope.submitData()($scope.attrName, $scope.selected, selectedValues);
                     };
 
                     $scope.selectItem = function(item) {
@@ -109,15 +111,19 @@ define(function () {
                     }
 
                     function __setSelectedValues() {
-                        var html = '<ul>';
+                        var arr = [], val = "", html = '<ul>';
                         angular.forEach($scope.list, function(obj){
                             if($scope.selected.indexOf(obj._id) >= 0) {
-                                html += '<li id="'+obj._id+'">'+$filter('capitalize')(obj.value, true)+'</li>';
+                                val = $filter('capitalize')(obj.value, true);
+                                html += '<li id="'+obj._id+'">'+val+'</li>';
+                                arr.push(val);
                             }
                         });
                         html += '</ul>';
                         element.find(".icon").removeClass("ion-plus-circled").addClass("ion-edit");
                         element.find(".selected-values").html(html);
+
+                        return arr;
                     }
 
                     function __loadList(isModalShow) {

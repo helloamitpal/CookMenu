@@ -9,7 +9,7 @@
             <button class="button button-small button-positive add-button" ng-click="addText(); multiInput = null; singleInput = null;">{{'submitRecipe.add' | translate}}</button>
             <div class="selected-values">
                 <ul>
-                    <li ng-repeat="item in selected">
+                    <li ng-repeat="item in selected track by $index">
                         <i ng-if="icon" class="icon {{icon}}"></i>
                         <span>{{item}}</span>
                         <a href="javascript:;" class="icon ion-close delete-text assertive" ng-click="deleteText($event)"></a>

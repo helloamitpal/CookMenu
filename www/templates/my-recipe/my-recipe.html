@@ -4,11 +4,15 @@
 
             <div class="no-my-recipe" ng-if="myRecipeList.length === 0">{{'myRecipe.NO_RECIPE' | translate}}</div>
 
-            <a ng-href="#/home/submitRecipe" ng-repeat="recipe in myRecipeList track by $index" ng-click="navigateToEditRecipe(recipe)" class="item item-thumbnail-left item-container" id="{{recipe._id}}">
+            <div ng-click="displayButtonSet($index)" ng-repeat="recipe in myRecipeList track by $index" class="item item-thumbnail-left item-container" id="{{recipe._id}}">
                 <img class="item-image-section" fallback-image ng-src="{{imagePath+recipe.media}}" />
                 <h2 class="item-title-section">{{recipe.title}}</h2>
                 <p class="full-desc multi-line-ellipsis">{{recipe.description}}</p>
-            </a>
+                <div ng-show="$index == showButtons" class="button-section">
+                    <a href="javascript:;" class="icon ion-ios-compose edit-recipe" ng-click="navigateToRecipe(recipe, 'edit')"></a>
+                    <a href="javascript:;" class="icon ion-ios-paper view-recipe" ng-click="navigateToRecipe(recipe, 'view')"></a>
+                </div>
+            </div>
         </div>
     </ion-content>
 </ion-view>

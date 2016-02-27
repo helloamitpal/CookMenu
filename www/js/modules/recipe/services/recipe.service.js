@@ -247,6 +247,11 @@ define(function () {
                 id: cook.id,
                 name: cook.name
             };
+            model.origin = modelObj.selectedValues.origin;
+            model.timing = modelObj.selectedValues.timing;
+            model.category = modelObj.selectedValues.category;
+            delete model.selectedValues;
+
             $http.post(CONFIG.SERVICE_URL.SUBMIT_RECIPE, model).success(function(result){
                 if(result._id) {
                     var alertPopup = $ionicPopup.alert({
