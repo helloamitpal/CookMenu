@@ -1,6 +1,7 @@
 define(function () {
     "use strict";
 
+    /* this is multi lingual locale support provider */
     return ['CONFIG', '$translateProvider', function providerFn(CONFIG, $translateProvider) {
         
         var provider = this, defaultLocale = CONFIG.LOCALE.AVAILABLE[0];

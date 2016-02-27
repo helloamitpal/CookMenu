@@ -1,6 +1,8 @@
 define(function () {
     'use strict';
 
+    MyRecipeController.$inject = ['$scope', 'CONFIG', 'appStore', 'recipeService', '$state'];
+
     function MyRecipeController($scope, CONFIG, appStore, recipeService, $state) {
 
         var savedUser = appStore.getFromLocal("userLoggedInStatus");
@@ -27,7 +29,6 @@ define(function () {
         };
     }
 
-    MyRecipeController.$inject = ['$scope', 'CONFIG', 'appStore', 'recipeService', '$state'];
     return MyRecipeController;
 
 });

@@ -1,6 +1,8 @@
 define(function () {
     'use strict';
 
+    /* this directive is providing recipe searching feature */
+
     return ['CONFIG','appStore','$state','$rootScope', function(CONFIG, appStore, $state, $rootScope) {
         return {
             restrict : "E",

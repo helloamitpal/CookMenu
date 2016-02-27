@@ -1,7 +1,40 @@
 define(['ngSocial'], function () {
     "use strict";
 
-    var factory = function ($auth, $filter, appStore, $http, CONFIG, $ionicLoading) {
+    factory.$inject = ['$auth', '$filter', 'appStore', '$http', 'CONFIG', '$ionicLoading'];
+
+    function factory($auth, $filter, appStore, $http, CONFIG, $ionicLoading) {
+
+        function makeLogin(provider) {
+            var savedUser = appStore.getFromLocal("userLoggedInStatus");
+            if(savedUser) {
+                __logOut(provider);
+            } else {
+                $auth.authenticate(provider).then(function(response){
+                    var savedRecipe = {}, userObj = response.data;
+                    $.extend(true, savedRecipe, userObj.savedRecipes);
+                    delete userObj.savedRecipes;
+
+                    var prevSavedRecipes = appStore.getFromLocal("savedRecipes");
+                    if(prevSavedRecipes) {
+                        __storeMergedRecipes(prevSavedRecipes, savedRecipe, userObj.userID);
+                    } else {
+                        appStore.storeInLocal("savedRecipes", savedRecipe);
+                    }
+                    appStore.storeInLocal("userLoggedInStatus", userObj);
+                    __loggedIn(userObj, provider);
+                }).catch(function() {
+                    console.log("error in authenticating "+provider+" user");
+                });
+            }
+        }
+
+        function checkLoginStatus() {
+            var savedUser = appStore.getFromLocal("userLoggedInStatus");
+            if(savedUser) {
+                __loggedIn(savedUser, savedUser.social);
+            }
+        }
 
         function __loggedIn(resp, providerName) {
             var $social = $("#menuSection ."+providerName), $userInfo = $("#userInfo");
@@ -38,37 +71,6 @@ define(['ngSocial'], function () {
             });
         }
 
-        function makeLogin(provider) {
-            var savedUser = appStore.getFromLocal("userLoggedInStatus");
-            if(savedUser) {
-                __logOut(provider);
-            } else {
-                $auth.authenticate(provider).then(function(response){
-                    var savedRecipe = {}, userObj = response.data;
-                    $.extend(true, savedRecipe, userObj.savedRecipes);
-                    delete userObj.savedRecipes;
-
-                    var prevSavedRecipes = appStore.getFromLocal("savedRecipes");
-                    if(prevSavedRecipes) {
-                        __storeMergedRecipes(prevSavedRecipes, savedRecipe, userObj.userID);
-                    } else {
-                        appStore.storeInLocal("savedRecipes", savedRecipe);
-                    }
-                    appStore.storeInLocal("userLoggedInStatus", userObj);
-                    __loggedIn(userObj, provider);
-                }).catch(function() {
-                    console.log("error in authenticating "+provider+" user");
-                });
-            }
-        }
-
-        function checkLoginStatus() {
-            var savedUser = appStore.getFromLocal("userLoggedInStatus");
-            if(savedUser) {
-                __loggedIn(savedUser, savedUser.social);
-            }
-        }
-
         function __storeMergedRecipes(prevSavedRecipes, newSavedRecipes, userID) {
             var newSavedRecipeIDArr = [];
             for(var attr in prevSavedRecipes) {
@@ -98,6 +100,5 @@ define(['ngSocial'], function () {
         };
     };
 
-    factory.$inject = ['$auth', '$filter', 'appStore', '$http', 'CONFIG', '$ionicLoading'];
     return factory;
 });

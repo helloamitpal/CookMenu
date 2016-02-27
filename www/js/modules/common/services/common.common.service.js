@@ -1,8 +1,11 @@
 define(function () {
     "use strict";
 
-    var factory = function ($http, $q, CONFIG, appStore, $ionicLoading) {
-        
+    factory.$inject = ['$http', '$q', 'CONFIG', 'appStore', '$ionicLoading'];
+
+    function factory($http, $q, CONFIG, appStore, $ionicLoading) {
+
+        // this function is fetching menu
         function getMenu() {
             var def = $q.defer();
             $http.get(CONFIG.SERVICE_URL.MENU).success(function(data) {
@@ -14,7 +17,7 @@ define(function () {
             return def.promise;
         }
 
-
+        // this function determining which menu needs to be highlighted
         function highlightSelectedMenu(ele) {
             var $ele;
             if(typeof ele === "string") {
@@ -30,6 +33,7 @@ define(function () {
             $ele.addClass("selected-menu");
         }
 
+        // this is a common function for adding or removing recipe as favorite
         function addRemoveFavorite(evt, recipeObj, callback) {
             evt.preventDefault();
             evt.stopImmediatePropagation();
@@ -71,6 +75,7 @@ define(function () {
             }
         }
 
+        // this is a private function for removing recipe from favorite list
         function __removeFromFavorites(recipeId, userID) {
             var def = $q.defer();
 
@@ -87,6 +92,7 @@ define(function () {
             return def.promise;
         }
 
+        // this is private function for fetching full recipe list
         function __getFullRecipe(recipeId, userID) {
             var def = $q.defer();
 
@@ -111,6 +117,5 @@ define(function () {
 
     };
 
-    factory.$inject = ['$http', '$q', 'CONFIG', 'appStore', '$ionicLoading'];
     return factory;
 });

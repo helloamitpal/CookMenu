@@ -1,6 +1,9 @@
 define(function () {
     'use strict';
 
+    /* This directive is created for selecting user selection for category, timing and
+     * origin selection of a recipe while submitting */
+
     return [
         '$ionicModal', '$http', '$ionicGesture', '$ionicLoading', '$filter',
         function ($ionicModal, $http, $ionicGesture, $ionicLoading, $filter) {

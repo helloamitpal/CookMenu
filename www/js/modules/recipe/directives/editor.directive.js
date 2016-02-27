@@ -1,6 +1,9 @@
 define(function () {
     'use strict';
 
+    /* This directive is created for getting the user input to create ingredient list and
+     * recipe full description */
+
     return [
         '$ionicModal', '$ionicGesture', 'CONFIG',
         function ($ionicModal, $ionicGesture, CONFIG) {

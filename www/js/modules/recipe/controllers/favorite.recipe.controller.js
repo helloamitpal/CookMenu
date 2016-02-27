@@ -1,6 +1,8 @@
 define(function () {
     'use strict';
 
+    SavedRecipeController.$inject = ['$timeout', '$ionicLoading', '$filter', '$scope', 'CONFIG', 'appStore', 'recipeService', 'commonService', '$ionicPopup'];
+
     function SavedRecipeController($timeout, $ionicLoading, $filter, $scope, CONFIG, appStore, recipeService, commonService, $ionicPopup) {
 
         $scope.imagePath = CONFIG.MEDIA_PATH;
@@ -40,7 +42,6 @@ define(function () {
         };
     }
 
-    SavedRecipeController.$inject = ['$timeout', '$ionicLoading', '$filter', '$scope', 'CONFIG', 'appStore', 'recipeService', 'commonService', '$ionicPopup'];
     return SavedRecipeController;
 
 });

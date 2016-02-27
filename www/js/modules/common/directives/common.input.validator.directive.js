@@ -1,6 +1,8 @@
 define(function () {
     'use strict';
 
+    /* this directive is for input validation for restricting
+    * user to input invalid or wrong input */
     return function() {
         return {
             restrict: 'A',

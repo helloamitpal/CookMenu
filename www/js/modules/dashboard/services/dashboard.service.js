@@ -1,7 +1,9 @@
 define(function () {
     "use strict";
 
-    var factory = function ($http, $q, CONFIG, $state, $ionicLoading) {
+    factory.$inject = ['$http', '$q', 'CONFIG','$state', '$ionicLoading'];
+
+    function factory($http, $q, CONFIG, $state, $ionicLoading) {
 
         function getSpecialRecipeList() {
             var def = $q.defer();
@@ -51,6 +53,5 @@ define(function () {
 
     };
 
-    factory.$inject = ['$http', '$q', 'CONFIG','$state', '$ionicLoading'];
     return factory;
 });

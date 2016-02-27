@@ -1,6 +1,8 @@
 define(function () {
     'use strict';
 
+    CategoryController.$inject = ['$scope', 'CONFIG', 'appStore', 'recipeService'];
+
     function CategoryController($scope, CONFIG, appStore, recipeService) {
         var filterObj = appStore.getFromAppStore(CONFIG.CURRENT_RECIPE_CATEGORY_ATTR);
         $scope.categoryName = filterObj.value;
@@ -40,7 +42,6 @@ define(function () {
         }
     }
 
-    CategoryController.$inject = ['$scope', 'CONFIG', 'appStore', 'recipeService'];
     return CategoryController;
 
 });

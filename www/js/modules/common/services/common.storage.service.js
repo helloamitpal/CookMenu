@@ -1,6 +1,9 @@
 define(function(require){
     'use strict';
 
+    /* this service is live across the application.
+    *  this is useful when some set of data is needs to be delegated from one controller to another
+    *  or any data needs to be stored in localStorage for future use */
     function AppStorage() {
         var __obj = {};
 

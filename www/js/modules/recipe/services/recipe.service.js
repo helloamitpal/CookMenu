@@ -1,7 +1,9 @@
 define(function () {
     "use strict";
 
-    var factory = function ($http, $q, CONFIG, $ionicLoading, $filter, appStore, $ionicPopup, $state) {
+    factory.$inject = ['$http', '$q', 'CONFIG', '$ionicLoading', '$filter', 'appStore', '$ionicPopup', '$state'];
+
+    function factory($http, $q, CONFIG, $ionicLoading, $filter, appStore, $ionicPopup, $state) {
 
         function getSavedRecipeList() {
             var list = [], def = $q.defer(), savedRecipes = appStore.getFromLocal("savedRecipes");
@@ -332,6 +334,5 @@ define(function () {
 
     };
 
-    factory.$inject = ['$http', '$q', 'CONFIG', '$ionicLoading', '$filter', 'appStore', '$ionicPopup', '$state'];
     return factory;
 });

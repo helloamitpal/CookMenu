@@ -1,6 +1,8 @@
 define(function () {
     'use strict';
 
+    MenuController.$inject = ['$rootScope', '$timeout','$scope', '$state', 'commonService', '$ionicSideMenuDelegate', 'localeService', 'appStore', 'snService'];
+
     function MenuController($rootScope, $timeout, $scope, $state, commonService, $ionicSideMenuDelegate, localeService, appStore, snService) {
 
         $scope.$watch(function() {
@@ -71,7 +73,6 @@ define(function () {
         });
     }
 
-    MenuController.$inject = ['$rootScope', '$timeout','$scope', '$state', 'commonService', '$ionicSideMenuDelegate', 'localeService', 'appStore', 'snService'];
     return MenuController;
     
 });

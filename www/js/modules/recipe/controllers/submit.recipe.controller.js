@@ -1,6 +1,8 @@
 define(function () {
     'use strict';
 
+    SubmitRecipeController.$inject = ['$scope', 'CONFIG', 'appStore', '$ionicPopup', '$state', '$rootScope', '$filter', 'recipeService'];
+
     function SubmitRecipeController($scope, CONFIG, appStore, $ionicPopup, $state, $rootScope, $filter, recipeService) {
 
         var modelObj = appStore.getFromLocal("draftRecipe"),
@@ -144,7 +146,6 @@ define(function () {
         });
     }
 
-    SubmitRecipeController.$inject = ['$scope', 'CONFIG', 'appStore', '$ionicPopup', '$state', '$rootScope', '$filter', 'recipeService'];
     return SubmitRecipeController;
 
 });

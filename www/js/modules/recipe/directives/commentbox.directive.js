@@ -1,6 +1,7 @@
 define(function () {
     'use strict';
 
+    /* this directive is created for getting the user comment for a recipe */
     return ['recipeService', '$filter', '$ionicPopup', 'appStore', function(recipeService, $filter, $ionicPopup, appStore) {
         return {
             restrict: 'E',

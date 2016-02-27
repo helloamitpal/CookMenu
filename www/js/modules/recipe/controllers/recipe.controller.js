@@ -1,6 +1,8 @@
 define(function () {
     'use strict';
 
+    RecipeController.$inject = ['$ionicActionSheet', '$scope', 'CONFIG', 'appStore', 'recipeService','commonService', '$ionicPopup', '$filter'];
+
     function RecipeController($ionicActionSheet, $scope, CONFIG, appStore, recipeService, commonService, $ionicPopup, $filter) {
 
         var savedRecipes = appStore.getFromLocal("savedRecipes"),
@@ -56,7 +58,6 @@ define(function () {
         };
     }
 
-    RecipeController.$inject = ['$ionicActionSheet', '$scope', 'CONFIG', 'appStore', 'recipeService','commonService', '$ionicPopup', '$filter'];
     return RecipeController;
 
 });

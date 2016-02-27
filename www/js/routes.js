@@ -7,8 +7,10 @@ define(['app'], function (app) {
         /* initializing localization module */
         localeServiceProvider.configure();
 
+        /* introducing http error handling generic interceptor across the application */
         $httpProvider.interceptors.push("errorsInterceptor");
 
+        /* introducing facebook authorization */
         $authProvider.facebook({
             clientId: CONFIG.SOCIAL_ID.FACEBOOK,
             url: CONFIG.SERVICE_URL.FB_AUTH
@@ -117,11 +119,13 @@ define(['app'], function (app) {
         $urlRouterProvider.otherwise("/home/dashboard");
     }]);
 
+    // modifying default ionic loader template across the application
     app.constant('$ionicLoadingConfig', {
         duration : 60000,
         template: "<i class='icon ion-loading-b'></i>"
     });
-    
+
+    // once application is up, this listener will be triggered
     app.run(['localeService','$auth', function(localeService, $auth) {
         $auth.setStorageType('localStorage');
         localeService.setDefault();

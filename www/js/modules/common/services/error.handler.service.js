@@ -1,7 +1,13 @@
 define(function () {
     "use strict";
 
-    var errorService = function ($q, $rootScope) {
+    /* this factory is created for handling all http responses.
+    * If any http request receive error in response or network connectivity is not there
+    * then it will display some toaster message to user */
+
+    errorService.$inject = ['$q', '$rootScope'];
+
+    function errorService($q, $rootScope) {
 
         function response(response) {
             return response || $q.when(response);
@@ -18,6 +24,5 @@ define(function () {
         };
     };
 
-    errorService.$inject = ['$q', '$rootScope'];
     return errorService;
 });

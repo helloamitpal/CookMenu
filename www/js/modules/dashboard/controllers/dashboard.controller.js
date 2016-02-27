@@ -1,7 +1,10 @@
 define(function () {
     'use strict';
 
+    DashboardController.$inject = ['$scope', 'CONFIG', 'homeService', '$ionicSlideBoxDelegate', 'appStore'];
+
     function DashboardController($scope, CONFIG, homeService, $ionicSlideBoxDelegate, appStore) {
+
         $scope.tabList = CONFIG.DASHBOARD.TABS;
         $scope.imagePath = CONFIG.MEDIA_PATH;
         $scope.showDesc = false;
@@ -51,7 +54,6 @@ define(function () {
         $scope.getAllCategorizedList();
     }
 
-    DashboardController.$inject = ['$scope', 'CONFIG', 'homeService', '$ionicSlideBoxDelegate', 'appStore'];
     return DashboardController;
     
 });
