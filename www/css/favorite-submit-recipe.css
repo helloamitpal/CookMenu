@@ -221,3 +221,33 @@ textarea {
     display: block;
     margin: 11px auto;
 }
+.my-recipe-container .button-section.ng-hide-add {
+    -webkit-animation:0.3s slide-close;
+    animation:0.3s slide-close;
+}
+.my-recipe-container .button-section.ng-hide-remove {
+    -webkit-animation:0.3s slide-open;
+    animation:0.3s slide-open;
+}
+.my-recipe-container .button-section.ng-show {
+    right: 0;
+}
+.my-recipe-container .button-section.ng-hide {
+    right: -70px;
+}
+@-webkit-keyframes slide-open {
+    0%  {right: -70px;}
+    100%   {right:0;}
+}
+@keyframes slide-open {
+    0%  {right: -70px;}
+    100%   {right:0;}
+}
+@-webkit-keyframes slide-close{
+    0%  {right: 0;}
+    100%   {right: -70px;}
+}
+@keyframes slide-close{
+    0%  {right: 0;}
+    100%   {right: -70px;}
+}
