@@ -58,6 +58,9 @@ define(function(require){
             setToAppStore: function(key, val) {
                 __obj[key] = val;
             },
+            removeFromAppStore: function(key) {
+                delete __obj[key];
+            },
             storeInLocal: storeInLocal,
             getFromLocal: getFromLocal,
             removeFromLocal: removeFromLocal

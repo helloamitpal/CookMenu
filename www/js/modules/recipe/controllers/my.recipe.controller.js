@@ -22,7 +22,7 @@ define(function () {
             if(command === 'view') {
                 $state.go("home.fullRecipe");
             } else if(command === 'edit') {
-
+                $state.go("home.submitRecipe");
             }
         };
     }

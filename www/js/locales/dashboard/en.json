@@ -62,6 +62,8 @@
         "add": "Add",
         "draft": "Draft",
         "reset": "Reset",
+        "draft_saved_title": "Draft Saved",
+        "draft_saved_description": "Your work in progress recipe is saved as draft successfully. You can complete and upload later.",
         "reset_description": "Your draft work will be erased and no longer available for further editing. Do you want to proceed?"
     },
     "menu": {

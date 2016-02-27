@@ -75,7 +75,7 @@
                     </label>
                 </div>
                 <div class="button-container">
-                    <button ng-click="makeDraft()" class="button button-block button-positive">{{'submitRecipe.draft' | translate}}</button>
+                    <button ng-click="makeDraft()" ng-disabled="!isModified" class="button button-block button-positive">{{'submitRecipe.draft' | translate}}</button>
                     <button ng-click="submitRecipe()" ng-disabled="isDirty" class="button button-block button-positive">{{'submitRecipe.submit' | translate}}</button>
                 </div>
             </form>

@@ -13,6 +13,7 @@ define(function () {
         $scope.comments = $scope.recipe.comments.slice().reverse();
 
         $scope.addToFavorite = commonService.addRemoveFavorite;
+        appStore.removeFromAppStore(CONFIG.CURRENT_RECIPE_ATTR);
 
         $scope.downloadPdf = function() {
             recipeService.getPDFDocDefinition($scope.recipe).then(function(docDefinition){

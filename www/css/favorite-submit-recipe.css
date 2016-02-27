@@ -33,7 +33,7 @@
     position: relative;
     line-height: 1.2em;
     max-height: 3.6em;
-    text-align: justify;
+    text-align: left;
     white-space: normal !important;
 }
 .multi-line-ellipsis:before {

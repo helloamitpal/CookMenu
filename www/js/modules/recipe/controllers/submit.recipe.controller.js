@@ -2,11 +2,12 @@ define(function () {
     'use strict';
 
     function SubmitRecipeController($scope, CONFIG, appStore, $ionicPopup, $state, $rootScope, $filter, recipeService) {
+
+        var modelObj = appStore.getFromLocal("draftRecipe"),
+            editable = appStore.getFromAppStore(CONFIG.CURRENT_RECIPE_ATTR);
+
         $scope.originUrl = CONFIG.SERVICE_URL.ALL_ORIGIN;
-        $scope.categoryUrl = CONFIG.SERVICE_URL.ALL_CATEGORY;
-        $scope.timingUrl = CONFIG.SERVICE_URL.ALL_TIMING;
-        $scope.isDirty = false;
-        $scope.model = ((modelObj) ? modelObj : {
+        $scope.model = {
             name: "",
             shortNote: "",
             origin: [],
@@ -19,10 +20,27 @@ define(function () {
                 timing: [],
                 category: []
             }
-        });
+        };
+        $scope.categoryUrl = CONFIG.SERVICE_URL.ALL_CATEGORY;
+        $scope.timingUrl = CONFIG.SERVICE_URL.ALL_TIMING;
+        $scope.isDirty = false;
+        if(editable) {
+            appStore.removeFromAppStore(CONFIG.CURRENT_RECIPE_ATTR);
+            $.extend($scope.model, {
+                name: editable.title,
+                shortNote: editable.description,
+                ingredients: editable.recipe.ingradient,
+                fullDescription: editable.recipe["full_description"].split("\n\n"),
+                selectedValues: {
+                    origin: [editable.origin],
+                    timing: [editable.time],
+                    category: editable.category
+                }
+            });
+        } else {
+            $.extend(true, $scope.model, modelObj);
+        }
         $scope.isModified = false;
-
-        var modelObj = appStore.getFromLocal("draftRecipe");
 
         $scope.submit = function(attr, data, selectedValues) {
             $scope.model[attr] = data;
@@ -66,6 +84,10 @@ define(function () {
         $scope.makeDraft = function() {
             $scope.isModified = false;
             appStore.storeInLocal("draftRecipe", $scope.model);
+            $ionicPopup.alert({
+                title: $filter('translate')('submitRecipe.draft_saved_title'),
+                template: $filter('translate')('submitRecipe.draft_saved_description')
+            });
         };
 
         $scope.submitRecipe = function() {

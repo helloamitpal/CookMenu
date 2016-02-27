@@ -61,7 +61,9 @@
         "max_char_limit": "Maximale Zeichenbegrenzung ",
         "add": "Hinzufügen",
         "draft": "Entwurf",
-        "reset": "Reset",
+        "reset": "Zurückstellen",
+        "draft_saved_title": "Entwurf gespeichert",
+        "draft_saved_description": "Ihre Arbeit in Fortschritt Rezept wird als Entwurf erfolgreich gespeichert . Sie können später vervollständigen und hochladen.",
         "reset_description": "Ihr Entwurf des Arbeits werden gelöscht und nicht mehr verfügbar für die weitere Bearbeitung . Willst du fortfahren?"
     },
     "menu": {
