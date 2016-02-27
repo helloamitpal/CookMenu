@@ -32,6 +32,7 @@
         "login_required": "Anmeldung Erforderlich",
         "login_required_description": "Bitte melden Sie Social Media , bevor Ihr Rezept hochladen.",
         "title": "Senden Rezept",
+        "edit_title": "Bearbeiten Rezept",
         "error_info": "** Bitte füllen Sie die erforderlichen Felder",
         "submit_recipe_success_title": "Rezept Hochgeladen",
         "submit_recipe_success_description": "Danke für das Teilen! Ihr Rezept ist erfolgreich hochgeladen . Sie können in 'Meine Rezepte' Abschnitt in Ihre Rezepte suchen.",

@@ -31,7 +31,8 @@
     "submitRecipe": {
         "login_required": "Login Required",
         "login_required_description": "Please login using social media before uploading your recipe.",
-        "title": "Submit Your Recipe",
+        "title": "Submit Recipe",
+        "edit_title": "Edit Recipe",
         "error_info": "** Please fill the required fields",
         "submit_recipe_success_title": "Recipe Uploaded",
         "submit_recipe_success_description": "Thanks for sharing! Your recipe is uploaded successfully. You can look into your recipes in 'My Recipes' section.",

@@ -25,6 +25,7 @@ define(function () {
         $scope.timingUrl = CONFIG.SERVICE_URL.ALL_TIMING;
         $scope.isDirty = false;
         if(editable) {
+            $scope.headerTitle = $filter('translate')('submitRecipe.edit_title');
             appStore.removeFromAppStore(CONFIG.CURRENT_RECIPE_ATTR);
             $.extend($scope.model, {
                 name: editable.title,
@@ -38,6 +39,7 @@ define(function () {
                 }
             });
         } else {
+            $scope.headerTitle = $filter('translate')('submitRecipe.title');
             $.extend(true, $scope.model, modelObj);
         }
         $scope.isModified = false;
