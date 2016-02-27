@@ -118,11 +118,11 @@ define(function () {
         function recommendRecipe(recipeId) {
             var def = $q.defer();
 
-            $http.get(CONFIG.SERVICE_URL.RECOMMEND_RECIPE+"/"+recipeId).success(function(data){
+            $http.get(CONFIG.SERVICE_URL.RECOMMEND_RECIPE+"/"+recipeId).success(function(){
                 def.resolve(true);
             }).error(function(err){
                 def.resolve(false);
-                console.log("problem in recommending recipe");
+                console.log("problem in recommending recipe"+err);
             });
 
             return def.promise;
@@ -175,7 +175,7 @@ define(function () {
             }).success(function(flag){
                 def.resolve(flag);
             }).error(function(err) {
-                console.log("error in deleting comment");
+                console.log("error in deleting comment"+err);
                 def.reject(false);
             });
 
@@ -237,7 +237,7 @@ define(function () {
                 flag = flag && false;
                 $("label.item:eq(6)", $form).addClass("form-error");
             }
-            return ($(".form-error",$form).length > 0) ? true : false;
+            return ($(".form-error",$form).length > 0);
         }
 
         function submitRecipe(modelObj, cook) {
@@ -266,7 +266,7 @@ define(function () {
                 }
             }).error(function(err){
                 appStore.storeInLocal("draftRecipe", model);
-                console.log("error in submitting recipe");
+                console.log("error in submitting recipe"+err);
             });
         }
 

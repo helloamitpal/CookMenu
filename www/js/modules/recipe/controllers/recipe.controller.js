@@ -45,7 +45,7 @@ define(function () {
         };
 
         $scope.openSocialShare = function() {
-            var actionSheet = $ionicActionSheet.show({
+            $ionicActionSheet.show({
                 buttons: socialShareButtons,
                 titleText: $filter('translate')('recipe.action_sheet_title'),
                 cancelText: $filter('translate')('recipe.action_sheet_cancel'),

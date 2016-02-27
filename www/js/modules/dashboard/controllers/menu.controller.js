@@ -66,7 +66,7 @@ define(function () {
             commonService.highlightSelectedMenu($state.current.name);
         },100);
 
-        $rootScope.$on('$stateChangeStart', function(event, toState, toParams){
+        $rootScope.$on('$stateChangeStart', function(event, toState){
             commonService.highlightSelectedMenu(toState.name);
         });
     }

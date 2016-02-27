@@ -133,7 +133,7 @@ define(function () {
 
         $scope.$watch(function(){
             return $("#formList .form-error").length;
-        }, function(newVal, oldVal){
+        }, function(newVal){
             if(newVal && newVal > 0) {
                 $scope.isDirty = true;
             } else {

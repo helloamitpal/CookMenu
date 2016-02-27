@@ -6,10 +6,10 @@ define(function () {
             restrict : "E",
             scope: false,
             templateUrl: "templates/dashboard/toaster.html",
-            link: function postLink($scope, element) {
+            link: function postLink($scope) {
                 $scope.isError = false;
 
-                $scope.$on("httpError", function(evt, arg){
+                $scope.$on("httpError", function(){
                     $scope.isError = true;
                 });
 

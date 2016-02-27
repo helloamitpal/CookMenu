@@ -11,7 +11,7 @@ define(function () {
                 comments: "=",
                 recipeId: "="
             },
-            link: function($scope, element) {
+            link: function($scope) {
 
                 var savedUser = appStore.getFromLocal("userLoggedInStatus");
                 $scope.userId = ((savedUser) ? savedUser.userID : "");

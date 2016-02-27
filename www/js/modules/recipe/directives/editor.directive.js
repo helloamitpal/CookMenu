@@ -49,7 +49,7 @@ define(function () {
                         var $ele = $(evt.currentTarget).parent(), eleIndex = $ele.index();
                         $ele.remove();
                         $scope.selected.splice(eleIndex, 1);
-                    }
+                    };
 
                     var tapGesture = $ionicGesture.on('tap', __handleTap, element);
 
