@@ -1,4 +1,4 @@
-define(['jquery', 'app', 'routes'], function ($, app) {
+define(['jquery', 'app', 'routes','appRun'], function ($, app) {
     'use strict';
 
     var $document = $(document),

@@ -125,10 +125,4 @@ define(['app'], function (app) {
         template: "<i class='icon ion-loading-b'></i>"
     });
 
-    // once application is up, this listener will be triggered
-    app.run(['localeService','$auth', function(localeService, $auth) {
-        $auth.setStorageType('localStorage');
-        localeService.setDefault();
-    }]);
-    
 });
