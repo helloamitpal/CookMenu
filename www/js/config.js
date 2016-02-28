@@ -4,7 +4,9 @@ define(['angular'], function (angular) {
     // this is app configaration constant
 	return angular.module('app.config', [])
 		.constant('CONFIG', (function() {        
-            var rootPath = "http://localhost:3000";
+
+            var serverRootPath = "http://localhost:3000";
+
             return {
                 APP_INFO: {
                     APP_VERSION: "0.1",
@@ -13,7 +15,7 @@ define(['angular'], function (angular) {
                     APP_DEVELOPER: "Saha & Pal Team"
                 },
                 NO_IMAGE_PATH: "resources/no_image.jpg",
-                MEDIA_PATH: rootPath+"/images/",
+                MEDIA_PATH: serverRootPath+"/images/",
                 INIT_CATEGORY_COUNT: 5,
                 INIT_DYNAMIC_RECIPE_COUNT: 3,
                 COMMENT_MAX_CHAR_LIMIT: 250,
@@ -36,27 +38,28 @@ define(['angular'], function (angular) {
                 CURRENT_RECIPE_CATEGORY_ATTR: "currentCategory",
                 SERVICE_URL: {
                     MENU:"resources/config/menu.json",
-                    FB_AUTH: rootPath+"/auth/facebook",
-                    SPECIAL_RECIPE: rootPath+"/getAllSpecialRecipe",
-                    ALL_CATEGORIZED_RECIPE: rootPath+"/getAllRecipeBy/random",
-                    ALL_RECIPE_BY_CATEGORY: rootPath+"/getAllRecipeBy/category",
-                    ALL_RECIPE_BY_TIMING: rootPath+"/getAllRecipeBy/timing",
-                    ALL_RECIPE_BY_NAME: rootPath+"/getAllRecipeBy/name",
-                    ALL_RECIPE_BY_ORIGIN: rootPath+"/getAllRecipeBy/origin",
-                    SET_FAVORITE_RECIPE: rootPath+"/setFavoriteRecipe",
-                    REMOVE_FAVORITE_RECIPE: rootPath+"/removeFavoriteRecipe",
-                    LOGOUT_USER: rootPath+"/logout",
-                    ALL_SAVED_RECIPES: rootPath+"/getAllSavedRecipe",
-                    ALL_ORIGIN: rootPath+"/getAllOrigin",
-                    ALL_TIMING: rootPath+"/getAllTiming",
-                    ALL_CATEGORY: rootPath+"/getAllCategory",
-                    SET_FAVORITE_RECIPE_BULK: rootPath+"/setFavoriteRecipeInBulk",
-                    RECOMMEND_RECIPE: rootPath+"/recommendRecipe",
-                    SUBMIT_COMMENT: rootPath+"/submitComment",
-                    DELETE_COMMENT: rootPath+"/deleteComment",
-                    SHARE_RECIPE_IN_SOCIAL: rootPath+"/shareRecipeInSocialMedia",
-                    SUBMIT_RECIPE: rootPath+"/submitRecipe",
-                    GET_ALL_MY_RECIPE: rootPath+"/getAllCreatedRecipeBy/cook"
+                    FB_AUTH: serverRootPath+"/auth/facebook",
+                    SPECIAL_RECIPE: serverRootPath+"/getAllSpecialRecipe",
+                    ALL_CATEGORIZED_RECIPE: serverRootPath+"/getAllRecipeBy/random",
+                    ALL_RECIPE_BY_CATEGORY: serverRootPath+"/getAllRecipeBy/category",
+                    ALL_RECIPE_BY_TIMING: serverRootPath+"/getAllRecipeBy/timing",
+                    ALL_RECIPE_BY_NAME: serverRootPath+"/getAllRecipeBy/name",
+                    ALL_RECIPE_BY_ORIGIN: serverRootPath+"/getAllRecipeBy/origin",
+                    SET_FAVORITE_RECIPE: serverRootPath+"/setFavoriteRecipe",
+                    REMOVE_FAVORITE_RECIPE: serverRootPath+"/removeFavoriteRecipe",
+                    LOGOUT_USER: serverRootPath+"/logout",
+                    ALL_SAVED_RECIPES: serverRootPath+"/getAllSavedRecipe",
+                    ALL_ORIGIN: serverRootPath+"/getAllOrigin",
+                    ALL_TIMING: serverRootPath+"/getAllTiming",
+                    ALL_CATEGORY: serverRootPath+"/getAllCategory",
+                    SET_FAVORITE_RECIPE_BULK: serverRootPath+"/setFavoriteRecipeInBulk",
+                    RECOMMEND_RECIPE: serverRootPath+"/recommendRecipe",
+                    SUBMIT_COMMENT: serverRootPath+"/submitComment",
+                    DELETE_COMMENT: serverRootPath+"/deleteComment",
+                    SHARE_RECIPE_IN_SOCIAL: serverRootPath+"/shareRecipeInSocialMedia",
+                    SUBMIT_RECIPE: serverRootPath+"/submitRecipe",
+                    GET_ALL_MY_RECIPE: serverRootPath+"/getAllCreatedRecipeBy/cook",
+                    DELETE_MY_RECIPE: serverRootPath+"/deleteMyRecipe"
                 },
                 LOCALE: {
                     AVAILABLE: [{

@@ -29,6 +29,12 @@
         "remove_confirm_description": "It will no longer available for offline use. Do you want to remove?"
     },
     "submitRecipe": {
+        "update": "Update",
+        "delete_recipe_msg": "If you don't want to keep it then please click here to delete this recipe.",
+        "delete_recipe": "Delete Recipe",
+        "delete_recipe_description": "Do you want to delete your recipe?",
+        "delete_recipe_done": "Recipe Deleted",
+        "delete_recipe_done_description": "Your recipe is deleted successfully",
         "login_required": "Login Required",
         "login_required_description": "Please login using social media before uploading your recipe.",
         "title": "Submit Recipe",
@@ -36,6 +42,8 @@
         "error_info": "** Please fill the required fields",
         "submit_recipe_success_title": "Recipe Uploaded",
         "submit_recipe_success_description": "Thanks for sharing! Your recipe is uploaded successfully. You can look into your recipes in 'My Recipes' section.",
+        "submit_recipe_success_title_edit": "Recipe Updated",
+        "submit_recipe_success_description_edit": "Your recipe is updated successfully. You can look into your recipes in 'My Recipes' section.",
         "recipe_name": "Recipe name",
         "recipe_name_placeholder": "Recipe name say pizza",
         "short_note": "Short note",

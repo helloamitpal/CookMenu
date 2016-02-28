@@ -242,7 +242,7 @@ define(function () {
             return ($(".form-error",$form).length > 0);
         }
 
-        function submitRecipe(modelObj, cook) {
+        function submitRecipe(modelObj, cook, recipeId) {
             var model = {};
             $.extend(true, model, modelObj);
             model.cook = {
@@ -254,11 +254,13 @@ define(function () {
             model.category = modelObj.selectedValues.category;
             delete model.selectedValues;
 
-            $http.post(CONFIG.SERVICE_URL.SUBMIT_RECIPE, model).success(function(result){
-                if(result._id) {
+            recipeId = (recipeId) ? recipeId : "";
+
+            $http.post(CONFIG.SERVICE_URL.SUBMIT_RECIPE+"/"+recipeId, model).success(function(result){
+                if(result) {
                     var alertPopup = $ionicPopup.alert({
-                        title: $filter('translate')('submitRecipe.submit_recipe_success_title'),
-                        template: $filter('translate')('submitRecipe.submit_recipe_success_description')
+                        title: $filter('translate')('submitRecipe.submit_recipe_success_title'+((recipeId)? '_edit': '')),
+                        template: $filter('translate')('submitRecipe.submit_recipe_success_description'+((recipeId)? '_edit': ''))
                     });
                     alertPopup.then(function(){
                         $state.go("home.myRecipe");
@@ -280,6 +282,19 @@ define(function () {
             }).error(function(){
                 console.log("error in fetching all my recipes");
                 def.resolve([]);
+            });
+
+            return def.promise;
+        }
+
+        function deleteRecipe(recipeId) {
+            var  def = $q.defer();
+
+            $http.post(CONFIG.SERVICE_URL.DELETE_MY_RECIPE,{ recipeId: recipeId }).success(function(flag){
+                def.resolve(flag);
+            }).error(function(err){
+                console.log("error in deleting recipe"+err);
+                def.resolve(false);
             });
 
             return def.promise;
@@ -329,7 +344,8 @@ define(function () {
             socialShare: socialShare,
             validateForm: validateForm,
             submitRecipe: submitRecipe,
-            getAllMyRecipes: getAllMyRecipes
+            getAllMyRecipes: getAllMyRecipes,
+            deleteRecipe: deleteRecipe
         };
 
     };

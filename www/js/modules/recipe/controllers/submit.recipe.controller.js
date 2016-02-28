@@ -5,29 +5,16 @@ define(function () {
 
     function SubmitRecipeController($scope, CONFIG, appStore, $ionicPopup, $state, $rootScope, $filter, recipeService) {
 
+        __resetPage();
+
         var modelObj = appStore.getFromLocal("draftRecipe"),
             editable = appStore.getFromAppStore(CONFIG.CURRENT_RECIPE_ATTR);
 
         $scope.originUrl = CONFIG.SERVICE_URL.ALL_ORIGIN;
-        $scope.model = {
-            name: "",
-            shortNote: "",
-            origin: [],
-            timing: [],
-            category: [],
-            ingredients: [],
-            fullDescription: [],
-            selectedValues: {
-                origin: [],
-                timing: [],
-                category: []
-            }
-        };
         $scope.categoryUrl = CONFIG.SERVICE_URL.ALL_CATEGORY;
         $scope.timingUrl = CONFIG.SERVICE_URL.ALL_TIMING;
-        $scope.isDirty = false;
         if(editable) {
-            $scope.headerTitle = $filter('translate')('submitRecipe.edit_title');
+            $scope.isEditable = true;
             appStore.removeFromAppStore(CONFIG.CURRENT_RECIPE_ATTR);
             $.extend($scope.model, {
                 name: editable.title,
@@ -41,16 +28,38 @@ define(function () {
                 }
             });
         } else {
-            $scope.headerTitle = $filter('translate')('submitRecipe.title');
             $.extend(true, $scope.model, modelObj);
         }
-        $scope.isModified = false;
 
         $scope.submit = function(attr, data, selectedValues) {
             $scope.model[attr] = data;
             if($scope.model.selectedValues.hasOwnProperty(attr)) {
                 $scope.model.selectedValues[attr] = selectedValues;
             }
+        };
+
+        $scope.deleteRecipe = function() {
+            var confirmPopup = $ionicPopup.confirm({
+                title: $filter('translate')('submitRecipe.delete_recipe'),
+                template: $filter('translate')('submitRecipe.delete_recipe_description')
+            });
+
+            confirmPopup.then(function(res) {
+                if(res) {
+                    recipeService.deleteRecipe(editable._id).then(function(flag){
+                        if(flag) {
+                            var alertPopup = $ionicPopup.alert({
+                                title: $filter('translate')('submitRecipe.delete_recipe_done'),
+                                template: $filter('translate')('submitRecipe.delete_recipe_done_description')
+                            });
+
+                            alertPopup.then(function() {
+                                $state.go("home.myRecipe");
+                            });
+                        }
+                    });
+                }
+            });
         };
 
         $scope.resetPage = function(locationObj) {
@@ -62,22 +71,7 @@ define(function () {
             confirmPopup.then(function(res) {
                 if(res) {
                     appStore.removeFromLocal("draftRecipe");
-                    $scope.model = {
-                        name: "",
-                        shortNote: "",
-                        origin: [],
-                        timing: [],
-                        category: [],
-                        ingredients: [],
-                        fullDescription: [],
-                        selectedValues: {
-                            origin: [],
-                            timing: [],
-                            category: []
-                        }
-                    };
-                    $scope.isModified = false;
-                    $scope.isDirty = false;
+                    __resetPage();
                     if(locationObj) {
                         $state.go(locationObj.stateName, locationObj.params);
                     }
@@ -103,7 +97,7 @@ define(function () {
                     recipeService.submitRecipe($scope.model, {
                         name: savedUser.name,
                         id: savedUser.userID
-                    });
+                    }, editable._id);
                 }
             } else {
                 $ionicPopup.alert({
@@ -144,6 +138,26 @@ define(function () {
                 $scope.isDirty = false;
             }
         });
+
+        // this private function is resetting the page
+        function __resetPage() {
+            $scope.model = {
+                name: "",
+                shortNote: "",
+                origin: [],
+                timing: [],
+                category: [],
+                ingredients: [],
+                fullDescription: [],
+                selectedValues: {
+                    origin: [],
+                    timing: [],
+                    category: []
+                }
+            };
+            $scope.isDirty = false;
+            $scope.isModified = false;
+        }
     }
 
     return SubmitRecipeController;

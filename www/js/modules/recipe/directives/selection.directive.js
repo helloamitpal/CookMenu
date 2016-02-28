@@ -133,17 +133,20 @@ define(function () {
                     function __loadList(isModalShow) {
                         $ionicLoading.show();
                         $http.get($scope.url).success(function(data){
+
+                            if(selectedValArr.length > 0 && $scope.selected.length === 0) {
+                                selectedValArr = selectedValArr.join("\n").toLowerCase().split("\n");
+                                angular.forEach(data, function(obj){
+                                    if(selectedValArr.indexOf(obj[$scope.attrName]) >= 0) {
+                                        $scope.selected.push(obj._id);
+                                    }
+                                });
+                            }
+
                             angular.forEach(data, function(obj){
 
                                 obj.isDisabled = false;
                                 obj.value = obj[$scope.attrName];
-
-                                if(selectedValArr.length > 0 && $scope.selected.length === 0) {
-                                    selectedValArr = selectedValArr.join("\n").toLowerCase().split("\n");
-                                    if(selectedValArr.indexOf(obj[$scope.attrName]) >= 0) {
-                                        $scope.selected.push(obj._id);
-                                    }
-                                }
 
                                 if($scope.selected && $scope.selected.length > 0 && $scope.selected.indexOf(obj._id) >= 0) {
                                     obj.checked = true;

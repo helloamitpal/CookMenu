@@ -29,6 +29,14 @@
         "remove_confirm_description": "Il ne sera plus disponible pour une utilisation hors ligne. Voulez-vous retirer ?"
     },
     "submitRecipe": {
+        "submit_recipe_success_title_edit": "Recette Mise à jour",
+        "submit_recipe_success_description_edit": "Votre recette est mis à jour avec succès . Vous pouvez regarder dans vos recettes dans la section Mes recettes .",
+        "update": "Mettre à jour",
+        "delete_recipe_msg": "Si vous ne voulez pas le garder alors s'il vous plaît cliquez ici pour supprimer cette recette.",
+        "delete_recipe": "Supprimer la recette",
+        "delete_recipe_description": "Voulez-vous supprimer votre recette?",
+        "delete_recipe_done": "Recette supprimé",
+        "delete_recipe_done_description": "Votre recette est supprimé avec succès",
         "login_required": "Pseudo requis",
         "login_required_description": "S'il vous plaît vous connecter en utilisant les médias sociaux avant de télécharger votre recette .",
         "title": "Soumettre Recette",

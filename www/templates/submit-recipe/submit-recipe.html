@@ -1,9 +1,13 @@
-<ion-view title="{{headerTitle}}">
+<ion-view title="{{((isEditable) ? 'submitRecipe.edit_title': 'submitRecipe.title') | translate}}">
     <ion-content>
-        <ion-nav-buttons side="right" ng-if="isModified">
+        <ion-nav-buttons side="right" ng-if="isModified && !isEditable">
             <button class="button button-icon ion-refresh" ng-click="resetPage()"></button>
         </ion-nav-buttons>
         <div class="submit-recipe-container">
+            <div class="delete-recipe-section" ng-if="isEditable">
+                <span>{{'submitRecipe.delete_recipe_msg' | translate}}</span>
+                <button class="button button-icon button-clear ion-trash-a delete-recipe" ng-if="isEditable" ng-click="deleteRecipe()"></button>
+            </div>
             <form>
                 <div ng-if="isDirty" class="dirty-form-message">{{'submitRecipe.error_info' | translate}}</div>
                 <div class="list" id="formList">
@@ -76,7 +80,7 @@
                 </div>
                 <div class="button-container">
                     <button ng-click="makeDraft()" ng-disabled="!isModified" class="button button-block button-positive">{{'submitRecipe.draft' | translate}}</button>
-                    <button ng-click="submitRecipe()" ng-disabled="isDirty" class="button button-block button-positive">{{'submitRecipe.submit' | translate}}</button>
+                    <button ng-click="submitRecipe()" ng-disabled="isDirty" class="button button-block button-positive">{{((isEditable) ? 'submitRecipe.update' : 'submitRecipe.submit') | translate}}</button>
                 </div>
             </form>
         </div>

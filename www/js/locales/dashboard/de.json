@@ -29,6 +29,14 @@
         "remove_confirm_description": "Es wird nicht mehr für die Offline-Nutzung . Wollen Sie zu entfernen?"
     },
     "submitRecipe": {
+        "submit_recipe_success_title_edit": "Rezept aktualisiert",
+        "submit_recipe_success_description_edit": "Ihr Rezept ist erfolgreich aktualisiert. Sie können in " Meine Rezepte " Abschnitt in Ihre Rezepte suchen.",
+        "update": "Aktualisieren",
+        "delete_recipe_msg": "Wenn Sie wollen, dass es nicht halten , dann klicken Sie bitte hier , dieses Rezept zu löschen.",
+        "delete_recipe": "löschen Rezept",
+        "delete_recipe_description": "Wollen Sie Ihr Rezept zu löschen?",
+        "delete_recipe_done": "Rezept Gelöschte",
+        "delete_recipe_done_description": "Ihr Rezept ist erfolgreich gelöscht",
         "login_required": "Anmeldung Erforderlich",
         "login_required_description": "Bitte melden Sie Social Media , bevor Ihr Rezept hochladen.",
         "title": "Senden Rezept",

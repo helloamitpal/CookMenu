@@ -29,6 +29,14 @@
         "remove_confirm_description": "Que ya no está disponible para su uso sin conexión . ¿Quieres eliminar ?"
     },
     "submitRecipe": {
+        "submit_recipe_success_title_edit": "Receta Actualizado",
+        "submit_recipe_success_description_edit": "Su receta se ha actualizado correctamente . Usted puede mirar en sus recetas en la sección Mis recetas .",
+        "update": "Actualizar",
+        "delete_recipe_msg": "Si no desea mantenerlo , por favor haga clic aquí para eliminar esta receta .",
+        "delete_recipe": "Eliminar Receta",
+        "delete_recipe_description": "¿Quieres eliminar su receta?",
+        "delete_recipe_done": "Receta Borrada",
+        "delete_recipe_done_description": "Su receta se ha eliminado correctamente",
         "login_required": "Necesario iniciar sesión",
         "login_required_description": "Entra en la cuenta utilizando los medios de comunicación social antes de subir su receta .",
         "title": "Presentar Receta",
