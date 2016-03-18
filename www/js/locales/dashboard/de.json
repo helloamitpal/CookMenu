@@ -30,7 +30,7 @@
     },
     "submitRecipe": {
         "submit_recipe_success_title_edit": "Rezept aktualisiert",
-        "submit_recipe_success_description_edit": "Ihr Rezept ist erfolgreich aktualisiert. Sie können in " Meine Rezepte " Abschnitt in Ihre Rezepte suchen.",
+        "submit_recipe_success_description_edit": "Ihr Rezept ist erfolgreich aktualisiert. Sie können in 'Meine Rezepte' Abschnitt in Ihre Rezepte suchen.",
         "update": "Aktualisieren",
         "delete_recipe_msg": "Wenn Sie wollen, dass es nicht halten , dann klicken Sie bitte hier , dieses Rezept zu löschen.",
         "delete_recipe": "löschen Rezept",

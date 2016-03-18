@@ -5,7 +5,7 @@ define(['angular'], function (angular) {
 	return angular.module('app.config', [])
 		.constant('CONFIG', (function() {        
 
-            var serverRootPath = "http://localhost:3000";
+            var serverRootPath = "http://localhost:5000";
 
             return {
                 APP_INFO: {
